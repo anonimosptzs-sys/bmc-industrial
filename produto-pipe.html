@@ -15,7 +15,7 @@
         body.dark-theme .navbar { background: rgba(18, 22, 35, 0.98); backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
         body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; }
         body.dark-theme .navbar .nav-link:hover, body.dark-theme .navbar .nav-link.active { color: #3399ff !important; background: rgba(51, 153, 255, 0.12); }
-        body.dark-theme .product-info, body.dark-theme .specs-card { background: #141824; border: 1px solid #252a3a; }
+        body.dark-theme .product-info, body.dark-theme .specs-card, body.dark-theme .features-card { background: #141824; border: 1px solid #252a3a; }
         :root { --primary: #0066cc; --primary-dark: #004c99; --gold: #ffaa33; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1e1f2c; border-radius: 10px; }
@@ -33,11 +33,15 @@
         .gallery-thumbs { flex: 1; display: flex; flex-wrap: wrap; gap: 15px; align-content: flex-start; }
         .gallery-thumbs img { width: calc(33% - 10px); border-radius: 16px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; background: #141824; padding: 5px; }
         .gallery-thumbs img:hover { border-color: var(--primary); transform: scale(1.05); }
-        .product-info, .specs-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
-        .product-info h3, .specs-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
-        .specs-list { list-style: none; padding-left: 0; }
-        .specs-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
-        .specs-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
+        .product-info, .specs-card, .features-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
+        .product-info h3, .specs-card h3, .features-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
+        .specs-table { width: 100%; border-collapse: collapse; }
+        .specs-table tr { border-bottom: 1px solid #252a3a; }
+        .specs-table td { padding: 12px 8px; vertical-align: top; }
+        .specs-table td:first-child { font-weight: 700; width: 35%; color: var(--primary); }
+        .features-list { list-style: none; padding-left: 0; }
+        .features-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+        .features-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
         .whatsapp-btn { background: #25d366; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; text-decoration: none; margin-top: 20px; }
         .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; color: white; }
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; margin-bottom: 20px; transition: all 0.2s; }
@@ -93,13 +97,18 @@
         </div>
         
         <div class="product-info">
-            <h3 id="aboutTitle"><i class="bi bi-info-circle"></i> Sobre o Produto</h3>
-            <p id="aboutText">Sistema completo para inspeção de tubulações e dutos. Com articulação joystick 360° e cabo de até 100 metros, permite inspeções detalhadas em sistemas de saneamento, esgotos, dutos industriais e tubulações residenciais. Tela colorida HD de 13" com controle por teclado para fácil operação.</p>
+            <h3><i class="bi bi-info-circle"></i> <span id="aboutTitle">Sobre o Produto</span></h3>
+            <p id="aboutText">Sistema completo para inspeção de tubulações e dutos. Com articulação joystick 360°, câmera de 960P 2 megapixels e cabo de até 100 metros, permite inspeções detalhadas em sistemas de saneamento, esgotos, dutos industriais e tubulações residenciais. Tela colorida HD de 13\" com controle por teclado e DVR integrado.</p>
         </div>
         
         <div class="specs-card">
-            <h3 id="specsTitle"><i class="bi bi-gear-wide-connected"></i> Especificações Técnicas</h3>
-            <ul class="specs-list" id="specsList"></ul>
+            <h3><i class="bi bi-gear-wide-connected"></i> <span id="specsTitle">Especificações Técnicas</span></h3>
+            <table class="specs-table" id="specsTable"></table>
+        </div>
+        
+        <div class="features-card">
+            <h3><i class="bi bi-star-fill"></i> <span id="featuresTitle">Características</span></h3>
+            <ul class="features-list" id="featuresList"></ul>
         </div>
         
         <div style="text-align: center;">
@@ -114,9 +123,16 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Produtos Premium</div><ul class="footer-links"><li>ET65 Series</li><li>ECT40 Series</li><li>ES60 Series</li><li>ECP101 Series</li><li>TPC80 Series</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Setores atendidos</div><ul class="footer-links"><li>Aeroespacial & Defesa</li><li>Energia e Petróleo</li><li>Automotivo & Transporte</li><li>Manutenção preditiva</li><li>Militar e Segurança</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Contato Comercial</div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerProdTitle">Produtos Premium</div>
+                    <ul class="footer-links" id="footerLinksList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerSectorsTitle">Setores atendidos</div>
+                    <ul class="footer-links" id="footerSectorsList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerContactTitle">Contato Comercial</div>
                     <div class="contact-info"><i class="bi bi-person-circle"></i> Bruno Yokomizo</div>
                     <div class="contact-info"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/5547988202757">+55 47 98820-2757</a></div>
                     <div class="contact-info"><i class="bi bi-envelope-fill"></i> <a href="mailto:yokomizobruno@gmail.com">yokomizobruno@gmail.com</a></div>
@@ -125,7 +141,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom"><div class="container">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
+    <div class="footer-bottom"><div class="container" id="copyright">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
 </footer>
 
 <script>
@@ -138,17 +154,51 @@
         en: ["https://i.postimg.cc/rszh7M76/3-1-pipe-inspection-camera-img01b.jpg"]
     };
     
+    const footerProducts = {
+        pt: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Endoscópio Veterinário"],
+        en: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Veterinary Endoscope"]
+    };
+    
+    const footerSectors = {
+        pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
+        en: ["Aerospace & Defense", "Energy & Oil", "Automotive & Transport", "General Manufacturing", "Predictive Maintenance", "Military & Security", "Veterinary", "Piping & Sanitation"]
+    };
+    
     const content = {
         pt: {
             backText: "Voltar para produtos",
             title: "Câmera para Inspeção de Tubulações",
-            about: "Sistema completo para inspeção de tubulações e dutos. Com articulação joystick 360° e cabo de até 100 metros, permite inspeções detalhadas em sistemas de saneamento, esgotos, dutos industriais e tubulações residenciais. Tela colorida HD de 13\" com controle por teclado para fácil operação.",
+            about: "Sistema completo para inspeção de tubulações e dutos. Com articulação joystick 360°, câmera de 960P 2 megapixels e cabo de até 100 metros, permite inspeções detalhadas em sistemas de saneamento, esgotos, dutos industriais e tubulações residenciais. Tela colorida HD de 13\" com controle por teclado e DVR integrado.",
+            aboutTitle: "Sobre o Produto",
+            specsTitle: "Especificações Técnicas",
+            featuresTitle: "Características",
+            footerProdTitle: "Produtos Premium",
+            footerSectorsTitle: "Setores atendidos",
+            footerContactTitle: "Contato Comercial",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolução:</strong> 960P 2 Megapixels',
-                '<i class="bi bi-arrow-repeat"></i> <strong>Articulação:</strong> Joystick 360°',
-                '<i class="bi bi-rulers"></i> <strong>Cabo:</strong> Até 100 metros',
-                '<i class="bi bi-display"></i> <strong>Tela:</strong> Colorida HD 13" com controle por teclado',
-                '<i class="bi bi-brightness-high"></i> <strong>Iluminação:</strong> LED ajustável'
+                { label: "Estrutura", value: "Câmera de inspeção com controle DVR" },
+                { label: "Câmera", value: "HD 2 megapixels" },
+                { label: "Tela", value: "13 polegadas LCD" },
+                { label: "Diâmetro do Cabo", value: "Ø7.0mm, comprimento padrão 50m (até 100m)" },
+                { label: "Articulação", value: "Elétrica 360°" },
+                { label: "Grau de Proteção", value: "IP68 10 bars" },
+                { label: "Iluminação", value: "6 LEDs de alta luminosidade (ajustável)" },
+                { label: "Armazenamento", value: "Disco rígido" },
+                { label: "Controle", value: "USB/bluetooth/teclado, suporte zoom 16x" },
+                { label: "Bateria", value: "8800mA pack de bateria de íon-lítio, 5h de trabalho" },
+                { label: "Dimensões da Câmera", value: "Ø50mm×153mm" },
+                { label: "Dimensões do Carretel", value: "510×250×640mm" },
+                { label: "Peso Total", value: "26kg" },
+                { label: "Temperatura", value: "-20℃ a 80℃" }
+            ],
+            features: [
+                "Resolução: 960P 2 megapixels",
+                "Articulação joystick 360° com design à prova d'água IP68",
+                "Até 100 metros com carretel de cabo",
+                "DVR com controle por teclado, capacidade de gravação vídeo/áudio/imagem",
+                "Suporte contador de metros, com roda guia para tubos",
+                "Suporte bateria de íon-lítio e adaptador de energia, 5 horas de duração"
             ],
             whatsappMsg: "Olá, gostaria de saber mais sobre a Câmera para Inspeção de Tubulações. Poderia me enviar mais informações e um orçamento?",
             whatsappBtn: "Solicitar Orçamento via WhatsApp",
@@ -157,13 +207,37 @@
         en: {
             backText: "Back to products",
             title: "Pipe Inspection Camera",
-            about: "Complete system for pipe and duct inspection. With 360° joystick articulation and up to 100 meters of cable, it allows detailed inspections in sanitation systems, sewers, industrial ducts, and residential pipes. 13\" HD color screen with keyboard control for easy operation.",
+            about: "Complete system for pipe and duct inspection. With 360° joystick articulation, 960P 2 megapixel camera and up to 100 meters of cable, it allows detailed inspections in sanitation systems, sewers, industrial ducts, and residential pipes. 13\" HD color screen with keyboard control and integrated DVR.",
+            aboutTitle: "About the Product",
+            specsTitle: "Technical Specifications",
+            featuresTitle: "Features",
+            footerProdTitle: "Premium Products",
+            footerSectorsTitle: "Industries Served",
+            footerContactTitle: "Commercial Contact",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolution:</strong> 960P 2 Megapixels',
-                '<i class="bi bi-arrow-repeat"></i> <strong>Articulation:</strong> 360° Joystick',
-                '<i class="bi bi-rulers"></i> <strong>Cable:</strong> Up to 100 meters',
-                '<i class="bi bi-display"></i> <strong>Display:</strong> 13" HD Color Screen with keyboard control',
-                '<i class="bi bi-brightness-high"></i> <strong>Lighting:</strong> Adjustable LED'
+                { label: "Structure", value: "Pipe inspection camera with DVR control" },
+                { label: "Camera Pixel", value: "HD 2 megapixel" },
+                { label: "Screen Size", value: "13 inch LCD screen" },
+                { label: "Cable Size", value: "Cable diameter Ø7.0mm, standard length 50m (up to 100m)" },
+                { label: "Articulation", value: "360° electrical articulation" },
+                { label: "Waterproof", value: "IP68 10bars" },
+                { label: "Light", value: "6pcs high-brightness LED (adjustable)" },
+                { label: "Storage", value: "Hard disk storage" },
+                { label: "Control", value: "USB/bluetooth/keyboard, support 16x zoom" },
+                { label: "Battery", value: "8800mA li-ion battery pack, 5 hours work time" },
+                { label: "Camera Size", value: "Ø50mm×153mm" },
+                { label: "Cable Reel Size", value: "510×250×640mm" },
+                { label: "Total Weight", value: "26kg" },
+                { label: "Working Temperature", value: "-20℃ to 80℃" }
+            ],
+            features: [
+                "Resolution: 960P 2 mega pixel",
+                "360° Joystick Articulation with IP68 waterproof design",
+                "Up to 100 meters with cable reel",
+                "DVR with keyboard control, video/audio/image recording capability",
+                "Supports meter counter, with pipe guide wheel",
+                "Supports Li-ion battery and power adapter, 5-hour battery life"
             ],
             whatsappMsg: "Hello, I would like to know more about the Pipe Inspection Camera. Could you send me more information and a quote?",
             whatsappBtn: "Request Quote via WhatsApp",
@@ -184,23 +258,49 @@
         });
     }
     
+    function buildSpecsTable(specs) {
+        const table = document.getElementById('specsTable');
+        table.innerHTML = '';
+        specs.forEach(spec => {
+            const row = table.insertRow();
+            row.insertCell(0).innerHTML = spec.label;
+            row.insertCell(1).innerHTML = spec.value;
+        });
+    }
+    
+    function buildFeaturesList(features) {
+        const list = document.getElementById('featuresList');
+        list.innerHTML = '';
+        features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${f}`;
+            list.appendChild(li);
+        });
+    }
+    
+    function updateFooter(lang) {
+        document.getElementById('footerLinksList').innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+        document.getElementById('footerSectorsList').innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+    }
+    
     function applyLanguage(lang) {
         const c = content[lang];
         document.getElementById('backText').innerText = c.backText;
         document.getElementById('productTitle').innerText = c.title;
         document.getElementById('aboutText').innerHTML = c.about;
+        document.getElementById('aboutTitle').innerText = c.aboutTitle;
+        document.getElementById('specsTitle').innerText = c.specsTitle;
+        document.getElementById('featuresTitle').innerText = c.featuresTitle;
+        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
+        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
+        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
+        document.getElementById('copyright').innerText = c.copyright;
         document.getElementById('whatsappText').innerText = c.whatsappBtn;
         document.getElementById('langText').innerText = c.langText;
         document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
-        
-        const specsList = document.getElementById('specsList');
-        specsList.innerHTML = '';
-        c.specs.forEach(spec => {
-            const li = document.createElement('li');
-            li.innerHTML = spec;
-            specsList.appendChild(li);
-        });
-        
+        buildSpecsTable(c.specs);
+        buildFeaturesList(c.features);
+        updateFooter(lang);
         loadGallery(galleryImages[lang]);
     }
     
