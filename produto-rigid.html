@@ -15,7 +15,7 @@
         body.dark-theme .navbar { background: rgba(18, 22, 35, 0.98); backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
         body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; }
         body.dark-theme .navbar .nav-link:hover, body.dark-theme .navbar .nav-link.active { color: #3399ff !important; background: rgba(51, 153, 255, 0.12); }
-        body.dark-theme .product-info, body.dark-theme .specs-card { background: #141824; border: 1px solid #252a3a; }
+        body.dark-theme .product-info, body.dark-theme .specs-card, body.dark-theme .features-card { background: #141824; border: 1px solid #252a3a; }
         :root { --primary: #0066cc; --primary-dark: #004c99; --gold: #ffaa33; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1e1f2c; border-radius: 10px; }
@@ -33,11 +33,15 @@
         .gallery-thumbs { flex: 1; display: flex; flex-wrap: wrap; gap: 15px; align-content: flex-start; }
         .gallery-thumbs img { width: calc(33% - 10px); border-radius: 16px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; background: #141824; padding: 5px; }
         .gallery-thumbs img:hover { border-color: var(--primary); transform: scale(1.05); }
-        .product-info, .specs-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
-        .product-info h3, .specs-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
-        .specs-list { list-style: none; padding-left: 0; }
-        .specs-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
-        .specs-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
+        .product-info, .specs-card, .features-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
+        .product-info h3, .specs-card h3, .features-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
+        .specs-table { width: 100%; border-collapse: collapse; }
+        .specs-table tr { border-bottom: 1px solid #252a3a; }
+        .specs-table td { padding: 12px 8px; vertical-align: top; }
+        .specs-table td:first-child { font-weight: 700; width: 35%; color: var(--primary); }
+        .features-list { list-style: none; padding-left: 0; }
+        .features-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+        .features-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
         .whatsapp-btn { background: #25d366; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; text-decoration: none; margin-top: 20px; }
         .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; color: white; }
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; margin-bottom: 20px; transition: all 0.2s; }
@@ -93,13 +97,18 @@
         </div>
         
         <div class="product-info">
-            <h3 id="aboutTitle"><i class="bi bi-info-circle"></i> Sobre o Produto</h3>
-            <p id="aboutText">Borescopes rígidos de alta qualidade, disponíveis em versões com lanterna portátil ou fonte de luz de mesa. Compatíveis com montagem óptica C-Mount e câmeras industriais HD de 2 megapixels. Ideais para inspeções em motores, turbinas, cilindros e cavidades internas onde é necessário acesso direto e estável.</p>
+            <h3><i class="bi bi-info-circle"></i> <span id="aboutTitle">Sobre o Produto</span></h3>
+            <p id="aboutText">Borescopes rígidos industriais de alta qualidade, disponíveis em uma ampla variedade de diâmetros, comprimentos de trabalho, direção de visão e campo de visão de aumento. O tubo de inserção em aço inoxidável 304 é utilizável em temperaturas entre -20℃ e 150℃. A gravação de vídeo está disponível conectando uma câmera CCD. Ideais para inspeções em motores, turbinas, cilindros e cavidades internas.</p>
         </div>
         
         <div class="specs-card">
-            <h3 id="specsTitle"><i class="bi bi-gear-wide-connected"></i> Especificações Técnicas</h3>
-            <ul class="specs-list" id="specsList"></ul>
+            <h3><i class="bi bi-gear-wide-connected"></i> <span id="specsTitle">Especificações Técnicas</span></h3>
+            <table class="specs-table" id="specsTable"></table>
+        </div>
+        
+        <div class="features-card">
+            <h3><i class="bi bi-star-fill"></i> <span id="featuresTitle">Características</span></h3>
+            <ul class="features-list" id="featuresList"></ul>
         </div>
         
         <div style="text-align: center;">
@@ -114,9 +123,16 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Produtos Premium</div><ul class="footer-links"><li>ET65 Series</li><li>ECT40 Series</li><li>ES60 Series</li><li>ECP101 Series</li><li>TPC80 Series</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Setores atendidos</div><ul class="footer-links"><li>Aeroespacial & Defesa</li><li>Energia e Petróleo</li><li>Automotivo & Transporte</li><li>Manutenção preditiva</li><li>Militar e Segurança</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Contato Comercial</div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerProdTitle">Produtos Premium</div>
+                    <ul class="footer-links" id="footerLinksList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerSectorsTitle">Setores atendidos</div>
+                    <ul class="footer-links" id="footerSectorsList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerContactTitle">Contato Comercial</div>
                     <div class="contact-info"><i class="bi bi-person-circle"></i> Bruno Yokomizo</div>
                     <div class="contact-info"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/5547988202757">+55 47 98820-2757</a></div>
                     <div class="contact-info"><i class="bi bi-envelope-fill"></i> <a href="mailto:yokomizobruno@gmail.com">yokomizobruno@gmail.com</a></div>
@@ -125,7 +141,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom"><div class="container">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
+    <div class="footer-bottom"><div class="container" id="copyright">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
 </footer>
 
 <script>
@@ -138,17 +154,44 @@
         en: ["https://i.postimg.cc/yxWf2st2/3-rigid-borescopes-img01b.jpg"]
     };
     
+    const footerProducts = {
+        pt: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Endoscópio Veterinário"],
+        en: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Veterinary Endoscope"]
+    };
+    
+    const footerSectors = {
+        pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
+        en: ["Aerospace & Defense", "Energy & Oil", "Automotive & Transport", "General Manufacturing", "Predictive Maintenance", "Military & Security", "Veterinary", "Piping & Sanitation"]
+    };
+    
     const content = {
         pt: {
             backText: "Voltar para produtos",
             title: "Borescopes Rígidos",
-            about: "Borescopes rígidos de alta qualidade, disponíveis em versões com lanterna portátil ou fonte de luz de mesa. Compatíveis com montagem óptica C-Mount e câmeras industriais HD de 2 megapixels. Ideais para inspeções em motores, turbinas, cilindros e cavidades internas onde é necessário acesso direto e estável.",
+            about: "Borescopes rígidos industriais de alta qualidade, disponíveis em uma ampla variedade de diâmetros, comprimentos de trabalho, direção de visão e campo de visão de aumento. O tubo de inserção em aço inoxidável 304 é utilizável em temperaturas entre -20℃ e 150℃. A gravação de vídeo está disponível conectando uma câmera CCD. Ideais para inspeções em motores, turbinas, cilindros e cavidades internas.",
+            aboutTitle: "Sobre o Produto",
+            specsTitle: "Especificações Técnicas",
+            featuresTitle: "Características",
+            footerProdTitle: "Produtos Premium",
+            footerSectorsTitle: "Setores atendidos",
+            footerContactTitle: "Contato Comercial",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão",
             specs: [
-                '<i class="bi bi-lightbulb"></i> <strong>Iluminação:</strong> Lanterna portátil / Fonte de luz de mesa',
-                '<i class="bi bi-camera"></i> <strong>Montagem:</strong> Óptica C-Mount',
-                '<i class="bi bi-camera-reels"></i> <strong>Câmera:</strong> Industrial HD 2 megapixels',
-                '<i class="bi bi-display"></i> <strong>Tela:</strong> Endoscópio HD 10.1"',
-                '<i class="bi bi-eye"></i> <strong>Ocular:</strong> Direta com ajuste de foco'
+                { label: "Diâmetro da Sonda", value: "6.0mm / 4.0mm / 3.0mm / 2.7mm / 1.8mm" },
+                { label: "Ângulo de Visão", value: "Frontal / Lateral com 90°/70°/30°/0°" },
+                { label: "Material", value: "Aço inoxidável 304, à prova d'água, resistente a óleo e desgaste" },
+                { label: "Resolução", value: "≥ 20.1lP/mm (distância objeto 4mm)" },
+                { label: "Campo de Visão", value: "≥ 90°" },
+                { label: "Profundidade de Campo", value: "3mm~200mm" },
+                { label: "Temperatura", value: "-20℃ a 150℃" }
+            ],
+            features: [
+                "Diâmetros disponíveis: 6.0mm, 4.0mm, 3.0mm, 2.7mm, 1.8mm",
+                "Ângulo de visão frontal/lateral com 90°/70°/30°/0°",
+                "Tubo de inserção em aço inoxidável 304",
+                "Resistente à água, óleo e desgaste",
+                "Compatível com câmera CCD para gravação de vídeo",
+                "Opcionais: Lanterna portátil, fonte de luz de mesa, montagem C-Mount, câmera HD 2MP, tela de endoscópio HD 10.1\""
             ],
             whatsappMsg: "Olá, gostaria de saber mais sobre os Borescopes Rígidos. Poderia me enviar mais informações e um orçamento?",
             whatsappBtn: "Solicitar Orçamento via WhatsApp",
@@ -157,13 +200,30 @@
         en: {
             backText: "Back to products",
             title: "Rigid Borescopes",
-            about: "High-quality rigid borescopes, available in versions with portable flashlight or desktop light source. Compatible with C-Mount optical mounting and 2-megapixel HD industrial cameras. Ideal for inspections in engines, turbines, cylinders, and internal cavities where direct and stable access is required.",
+            about: "High-quality industrial rigid borescopes, available in a wide array of diameters, working lengths, view direction, and magnification view field. The 304 stainless steel insertion tube is usable at temperatures between -20℃ and 150℃. Video recording is available by connecting a CCD camera. Ideal for inspections in engines, turbines, cylinders, and internal cavities.",
+            aboutTitle: "About the Product",
+            specsTitle: "Technical Specifications",
+            featuresTitle: "Features",
+            footerProdTitle: "Premium Products",
+            footerSectorsTitle: "Industries Served",
+            footerContactTitle: "Commercial Contact",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision",
             specs: [
-                '<i class="bi bi-lightbulb"></i> <strong>Lighting:</strong> Handheld flashlight / Desktop light source',
-                '<i class="bi bi-camera"></i> <strong>Mount:</strong> Optical C-Mount',
-                '<i class="bi bi-camera-reels"></i> <strong>Camera:</strong> 2MP HD Industrial',
-                '<i class="bi bi-display"></i> <strong>Display:</strong> 10.1" HD Endoscope Screen',
-                '<i class="bi bi-eye"></i> <strong>Eyepiece:</strong> Direct with focus adjustment'
+                { label: "Probe Diameter", value: "6.0mm/4.0mm/3.0mm/2.7mm/1.8mm" },
+                { label: "View Angle", value: "Forward/side with 90°/70°/30°/0°" },
+                { label: "Material", value: "304 stainless steel, waterproof, oil resistant, wear-resistant" },
+                { label: "Resolution", value: "≥ 20.1lP/mm (object distance 4mm)" },
+                { label: "Field of View", value: "≥ 90°" },
+                { label: "Depth of Field", value: "3mm~200mm" },
+                { label: "Temperature", value: "-20℃ to 150℃" }
+            ],
+            features: [
+                "Available diameters: 6.0mm, 4.0mm, 3.0mm, 2.7mm, 1.8mm",
+                "Forward/side view angle with 90°/70°/30°/0°",
+                "304 stainless steel insertion tube",
+                "Waterproof, oil resistant, wear-resistant",
+                "Compatible with CCD camera for video recording",
+                "Optional: Handheld flashlight, desktop light source, C-Mount, 2MP HD camera, 10.1\" HD endoscope screen"
             ],
             whatsappMsg: "Hello, I would like to know more about the Rigid Borescopes. Could you send me more information and a quote?",
             whatsappBtn: "Request Quote via WhatsApp",
@@ -184,23 +244,49 @@
         });
     }
     
+    function buildSpecsTable(specs) {
+        const table = document.getElementById('specsTable');
+        table.innerHTML = '';
+        specs.forEach(spec => {
+            const row = table.insertRow();
+            row.insertCell(0).innerHTML = spec.label;
+            row.insertCell(1).innerHTML = spec.value;
+        });
+    }
+    
+    function buildFeaturesList(features) {
+        const list = document.getElementById('featuresList');
+        list.innerHTML = '';
+        features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${f}`;
+            list.appendChild(li);
+        });
+    }
+    
+    function updateFooter(lang) {
+        document.getElementById('footerLinksList').innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+        document.getElementById('footerSectorsList').innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+    }
+    
     function applyLanguage(lang) {
         const c = content[lang];
         document.getElementById('backText').innerText = c.backText;
         document.getElementById('productTitle').innerText = c.title;
         document.getElementById('aboutText').innerHTML = c.about;
+        document.getElementById('aboutTitle').innerText = c.aboutTitle;
+        document.getElementById('specsTitle').innerText = c.specsTitle;
+        document.getElementById('featuresTitle').innerText = c.featuresTitle;
+        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
+        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
+        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
+        document.getElementById('copyright').innerText = c.copyright;
         document.getElementById('whatsappText').innerText = c.whatsappBtn;
         document.getElementById('langText').innerText = c.langText;
         document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
-        
-        const specsList = document.getElementById('specsList');
-        specsList.innerHTML = '';
-        c.specs.forEach(spec => {
-            const li = document.createElement('li');
-            li.innerHTML = spec;
-            specsList.appendChild(li);
-        });
-        
+        buildSpecsTable(c.specs);
+        buildFeaturesList(c.features);
+        updateFooter(lang);
         loadGallery(galleryImages[lang]);
     }
     
