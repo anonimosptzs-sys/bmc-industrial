@@ -15,7 +15,7 @@
         body.dark-theme .navbar { background: rgba(18, 22, 35, 0.98); backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
         body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; }
         body.dark-theme .navbar .nav-link:hover, body.dark-theme .navbar .nav-link.active { color: #3399ff !important; background: rgba(51, 153, 255, 0.12); }
-        body.dark-theme .product-info, body.dark-theme .specs-card { background: #141824; border: 1px solid #252a3a; }
+        body.dark-theme .product-info, body.dark-theme .specs-card, body.dark-theme .features-card, body.dark-theme .probe-table-container { background: #141824; border: 1px solid #252a3a; }
         :root { --primary: #0066cc; --primary-dark: #004c99; --gold: #ffaa33; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1e1f2c; border-radius: 10px; }
@@ -33,11 +33,18 @@
         .gallery-thumbs { flex: 1; display: flex; flex-wrap: wrap; gap: 15px; align-content: flex-start; }
         .gallery-thumbs img { width: calc(33% - 10px); border-radius: 16px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; background: #141824; padding: 5px; }
         .gallery-thumbs img:hover { border-color: var(--primary); transform: scale(1.05); }
-        .product-info, .specs-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
-        .product-info h3, .specs-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
-        .specs-list { list-style: none; padding-left: 0; }
-        .specs-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
-        .specs-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
+        .product-info, .specs-card, .features-card, .probe-table-container { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
+        .product-info h3, .specs-card h3, .features-card h3, .probe-table-container h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
+        .specs-table { width: 100%; border-collapse: collapse; }
+        .specs-table tr { border-bottom: 1px solid #252a3a; }
+        .specs-table td { padding: 12px 8px; vertical-align: top; }
+        .specs-table td:first-child { font-weight: 700; width: 35%; color: var(--primary); }
+        .probe-table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
+        .probe-table th, .probe-table td { border: 1px solid #252a3a; padding: 10px; text-align: left; font-size: 0.85rem; }
+        .probe-table th { background: #1a2340; color: var(--primary); font-weight: 700; }
+        .features-list { list-style: none; padding-left: 0; }
+        .features-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+        .features-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
         .whatsapp-btn { background: #25d366; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; text-decoration: none; margin-top: 20px; }
         .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; color: white; }
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; margin-bottom: 20px; transition: all 0.2s; }
@@ -51,7 +58,7 @@
         .contact-info a:hover { color: var(--primary); }
         .lang-toggle { background: rgba(0,102,204,0.15); border: 1px solid rgba(0,102,204,0.5); color: #e2e8f0; border-radius: 40px; padding: 6px 16px; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 1rem; transition: all 0.2s; }
         .lang-toggle:hover { background: var(--primary); border-color: var(--primary); color: white; }
-        @media (max-width: 768px) { .product-title { font-size: 1.8rem; } .gallery-thumbs img { width: calc(50% - 10px); } }
+        @media (max-width: 768px) { .product-title { font-size: 1.8rem; } .gallery-thumbs img { width: calc(50% - 10px); } .probe-table { font-size: 0.7rem; } }
     </style>
 </head>
 <body class="dark-theme">
@@ -93,13 +100,25 @@
         </div>
         
         <div class="product-info">
-            <h3 id="aboutTitle"><i class="bi bi-info-circle"></i> Sobre o Produto</h3>
-            <p id="aboutText">O ET65 Series é um videoscópio industrial de alta definição, projetado para inspeções visuais precisas em ambientes de difícil acesso. Com articulação eletrônica 360°, permite navegação completa em tubulações e cavidades internas. Ideal para indústrias automotiva, aeroespacial, petróleo e gás, e manutenção preditiva. Sua tela touchscreen HD de 5" oferece visualização nítida e controle intuitivo. A sonda intercambiável está disponível em diversos diâmetros (6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm), garantindo versatilidade para diferentes aplicações.</p>
+            <h3><i class="bi bi-info-circle"></i> <span id="aboutTitle">Sobre o Produto</span></h3>
+            <p id="aboutText">O ET65 Series é um videoscópio industrial portátil integrado com tela HD touchscreen de 5". Compatível com sondas de diâmetros 6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm e 1.0mm com resolução de imagem HD. Ideal para inspeções nas indústrias automotiva, aeroespacial, petróleo e gás, manutenção preditiva, militar e segurança.</p>
         </div>
         
         <div class="specs-card">
-            <h3 id="specsTitle"><i class="bi bi-gear-wide-connected"></i> Especificações Técnicas</h3>
-            <ul class="specs-list" id="specsList"></ul>
+            <h3><i class="bi bi-gear-wide-connected"></i> <span id="specsTitle">Especificações do Videoscópio</span></h3>
+            <table class="specs-table" id="specsTable"></table>
+        </div>
+        
+        <div class="features-card">
+            <h3><i class="bi bi-star-fill"></i> <span id="featuresTitle">Características</span></h3>
+            <ul class="features-list" id="featuresList"></ul>
+        </div>
+        
+        <div class="probe-table-container">
+            <h3><i class="bi bi-phone"></i> <span id="probeTitle">Especificações das Sondas</span></h3>
+            <div style="overflow-x: auto;">
+                <table class="probe-table" id="probeTable"><table>
+            </div>
         </div>
         
         <div style="text-align: center;">
@@ -114,9 +133,16 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Produtos Premium</div><ul class="footer-links"><li>ET65 Series</li><li>ECT40 Series</li><li>ES60 Series</li><li>ECP101 Series</li><li>TPC80 Series</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Setores atendidos</div><ul class="footer-links"><li>Aeroespacial & Defesa</li><li>Energia e Petróleo</li><li>Automotivo & Transporte</li><li>Manutenção preditiva</li><li>Militar e Segurança</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Contato Comercial</div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerProdTitle">Produtos Premium</div>
+                    <ul class="footer-links" id="footerLinksList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerSectorsTitle">Setores atendidos</div>
+                    <ul class="footer-links" id="footerSectorsList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerContactTitle">Contato Comercial</div>
                     <div class="contact-info"><i class="bi bi-person-circle"></i> Bruno Yokomizo</div>
                     <div class="contact-info"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/5547988202757">+55 47 98820-2757</a></div>
                     <div class="contact-info"><i class="bi bi-envelope-fill"></i> <a href="mailto:yokomizobruno@gmail.com">yokomizobruno@gmail.com</a></div>
@@ -125,7 +151,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom"><div class="container">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
+    <div class="footer-bottom"><div class="container" id="copyright">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
 </footer>
 
 <script>
@@ -138,19 +164,61 @@
         en: ["https://i.postimg.cc/262jHjdY/1-1-et65-series-industrial-videoscope-endoscope-01m.jpg", "https://i.postimg.cc/wv6TcRN7/1-1-et65-series-industrial-videoscope-endoscope-02m.jpg", "https://i.postimg.cc/KzZvr3Tj/1-1-et65-series-industrial-videoscope-endoscope-03m.jpg"]
     };
     
+    // Footer data
+    const footerProducts = {
+        pt: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Endoscópio Veterinário"],
+        en: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Veterinary Endoscope"]
+    };
+    
+    const footerSectors = {
+        pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
+        en: ["Aerospace & Defense", "Energy & Oil", "Automotive & Transport", "General Manufacturing", "Predictive Maintenance", "Military & Security", "Veterinary", "Piping & Sanitation"]
+    };
+    
     const content = {
         pt: {
             backText: "Voltar para produtos",
             title: "ET65 Series - Videoscópio Industrial HD",
-            about: "O ET65 Series é um videoscópio industrial de alta definição, projetado para inspeções visuais precisas em ambientes de difícil acesso. Com articulação eletrônica 360°, permite navegação completa em tubulações e cavidades internas. Ideal para indústrias automotiva, aeroespacial, petróleo e gás, e manutenção preditiva. Sua tela touchscreen HD de 5\" oferece visualização nítida e controle intuitivo. A sonda intercambiável está disponível em diversos diâmetros (6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm), garantindo versatilidade para diferentes aplicações.",
+            about: "O ET65 Series é um videoscópio industrial portátil integrado com tela HD touchscreen de 5\". Compatível com sondas de diâmetros 6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm e 1.0mm com resolução de imagem HD. Ideal para inspeções nas indústrias automotiva, aeroespacial, petróleo e gás, manutenção preditiva, militar e segurança.",
+            aboutTitle: "Sobre o Produto",
+            specsTitle: "Especificações do Videoscópio",
+            featuresTitle: "Características",
+            probeTitle: "Especificações das Sondas",
+            footerProdTitle: "Produtos Premium",
+            footerSectorsTitle: "Setores atendidos",
+            footerContactTitle: "Contato Comercial",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolução:</strong> 1MP / 2MP (megapixels)',
-                '<i class="bi bi-arrow-repeat"></i> <strong>Articulação:</strong> Eletrônica 360°',
-                '<i class="bi bi-display"></i> <strong>Tela:</strong> Touchscreen HD 5"',
-                '<i class="bi bi-phone"></i> <strong>Sondas:</strong> Intercambiáveis (6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm)',
-                '<i class="bi bi-brightness-high"></i> <strong>Iluminação:</strong> LED ajustável',
-                '<i class="bi bi-battery-full"></i> <strong>Bateria:</strong> Recarregável de longa duração',
-                '<i class="bi bi-usb"></i> <strong>Saídas:</strong> HDMI, USB, SD Card'
+                { label: "Estrutura", value: "Videoscópio portátil integrado" },
+                { label: "Tamanho da Tela", value: "5\" HD touch screen" },
+                { label: "Resolução da Tela", value: "1080P HD" },
+                { label: "Material da Sonda", value: "Malha trançada de tungstênio com revestimento impermeável" },
+                { label: "Saída de Vídeo", value: "HDMI / Wi-Fi / Bluetooth" },
+                { label: "Saída de Áudio", value: "Fone 3.5mm, gravação vídeo/áudio" },
+                { label: "Grau de Proteção", value: "IP67 à prova d'água" },
+                { label: "Articulação", value: "Articulação eletrônica 360° / mecânica (opcional)" },
+                { label: "Fonte de Luz", value: "Branca/IV/UV (opcional)" },
+                { label: "Bateria", value: "Duas baterias de íon-lítio 18650 recarregáveis, suporte AC" },
+                { label: "Armazenamento", value: "Cartão TF" },
+                { label: "Idiomas", value: "Suporte a 19 idiomas" },
+                { label: "Dimensões", value: "340×150×105 mm" },
+                { label: "Peso Total", value: "1.3kg (com bateria)" },
+                { label: "Interface", value: "USB2.0, TF card, HDMI, fone 3.5mm, Wi-Fi & Bluetooth" }
+            ],
+            features: [
+                "Compatível com diâmetros de sonda de 6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm com resolução de imagem HD",
+                "Articulação eletrônica 360° com modos rápido/lento/congelamento",
+                "Suporte a tela dividida esquerda/direita, processamento de imagem multimodo e entrada/edição por teclado touchscreen",
+                "Recursos de câmera frontal, lateral, dupla visão direta/lateral, além de luz branca, infravermelho, ultravioleta e fontes de luz dupla",
+                "Sistema operacional multitarefa em tempo real suportando: edição de imagem, ajuste de brilho, escala, zoom in/out, atualização remota de software"
+            ],
+            probeHeaders: ["Diâmetro", "Visão", "Pixel", "FOV", "DOF", "Comprimento", "Articulação", "Iluminação"],
+            probeData: [
+                ["1.2mm/1.5mm", "Frontal", "160.000 pixels", "120°", "5-100mm", "600mm-1m", "Não", "Fibra óptica"],
+                ["2.0mm/2.4mm", "Frontal", "160.000 / 1MP", "120°", "5-100mm", "1m", "180°", "Fibra óptica"],
+                ["2.8mm", "Frontal", "160.000 / 1MP", "120°", "5-100mm", "1-1.5m", "360°", "Fibra óptica"],
+                ["3.9mm", "Frontal/Lateral/Dupla", "2MP", "120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/fibra óptica"],
+                ["6.0mm", "Frontal/Lateral/Dupla", "2MP", "90°/120°", "7-50mm/10-100mm/20mm-∞", "1-10m", "360°", "LED/fibra óptica"]
             ],
             whatsappMsg: "Olá, gostaria de saber mais sobre o ET65 Series - Videoscópio Industrial HD. Poderia me enviar mais informações e um orçamento?",
             whatsappBtn: "Solicitar Orçamento via WhatsApp",
@@ -159,15 +227,46 @@
         en: {
             backText: "Back to products",
             title: "ET65 Series - HD Industrial Videoscope",
-            about: "The ET65 Series is a high-definition industrial videoscope designed for precise visual inspections in hard-to-reach environments. With 360° electronic articulation, it allows complete navigation through pipes and internal cavities. Ideal for automotive, aerospace, oil and gas industries, and predictive maintenance. Its 5\" HD touchscreen offers clear visualization and intuitive control. The interchangeable probe is available in various diameters (6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm), ensuring versatility for different applications.",
+            about: "The ET65 Series is an integrated handheld industrial videoscope with a 5\" HD touchscreen. Compatible with probe diameters 6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm and 1.0mm with HD image resolution. Ideal for inspections in automotive, aerospace, oil and gas, predictive maintenance, military and security industries.",
+            aboutTitle: "About the Product",
+            specsTitle: "Videoscope Specifications",
+            featuresTitle: "Features",
+            probeTitle: "Probe Specifications",
+            footerProdTitle: "Premium Products",
+            footerSectorsTitle: "Industries Served",
+            footerContactTitle: "Commercial Contact",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolution:</strong> 1MP / 2MP (megapixels)',
-                '<i class="bi bi-arrow-repeat"></i> <strong>Articulation:</strong> 360° Electronic',
-                '<i class="bi bi-display"></i> <strong>Display:</strong> 5" HD Touchscreen',
-                '<i class="bi bi-phone"></i> <strong>Probes:</strong> Interchangeable (6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm)',
-                '<i class="bi bi-brightness-high"></i> <strong>Lighting:</strong> Adjustable LED',
-                '<i class="bi bi-battery-full"></i> <strong>Battery:</strong> Long-lasting rechargeable',
-                '<i class="bi bi-usb"></i> <strong>Outputs:</strong> HDMI, USB, SD Card'
+                { label: "Structure", value: "Integrated handheld videoscope" },
+                { label: "Display Size", value: "5-inch HD touch screen" },
+                { label: "Screen Resolution", value: "1080P HD" },
+                { label: "Probe Material", value: "Tungsten braided probe with waterproof coating" },
+                { label: "Video Output", value: "HDMI / Wi-Fi / Bluetooth" },
+                { label: "Audio Output", value: "3.5mm headset, video & audio recording" },
+                { label: "IP Rating", value: "IP67 waterproof" },
+                { label: "Articulation", value: "360° electrical articulation / mechanical (optional)" },
+                { label: "Light Source", value: "White/IR/UV (optional)" },
+                { label: "Battery", value: "Two rechargeable 18650 lithium-ion batteries, support AC adapter" },
+                { label: "Storage", value: "TF card" },
+                { label: "Languages", value: "Supports 19 languages" },
+                { label: "Dimensions", value: "340×150×105 mm" },
+                { label: "Total Weight", value: "1.3kg (battery included)" },
+                { label: "Interface", value: "USB2.0, TF card, HDMI, 3.5mm headset, Wi-Fi & Bluetooth" }
+            ],
+            features: [
+                "Compatible with 6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm probe diameters with HD image resolution",
+                "360° Electronic Articulation with fast / slow / freezing mode",
+                "Supports Left / Right split screen, multi-mode image processing and touchscreen keyboard input and editing",
+                "Features forward-view, side-view, dual direct/side-view cameras, as well as white, infrared, ultraviolet, and dual light sources",
+                "Real-time multitasking operation system supporting: Image editing, Brightness adjustment, Scale, Zoom in & out, Remote software upgrade"
+            ],
+            probeHeaders: ["Diameter", "View", "Pixel", "FOV", "DOF", "Length", "Articulation", "Light"],
+            probeData: [
+                ["1.2mm/1.5mm", "Forward", "160,000 pixels", "120°", "5-100mm", "600mm-1m", "No", "Optical fiber"],
+                ["2.0mm/2.4mm", "Forward", "160,000 / 1MP", "120°", "5-100mm", "1m", "180°", "Optical fiber"],
+                ["2.8mm", "Forward", "160,000 / 1MP", "120°", "5-100mm", "1-1.5m", "360°", "Optical fiber"],
+                ["3.9mm", "Forward/Side/Dual", "2MP", "120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/optical fiber"],
+                ["6.0mm", "Forward/Side/Dual", "2MP", "90°/120°", "7-50mm/10-100mm/20mm-∞", "1-10m", "360°", "LED/optical fiber"]
             ],
             whatsappMsg: "Hello, I would like to know more about the ET65 Series - HD Industrial Videoscope. Could you send me more information and a quote?",
             whatsappBtn: "Request Quote via WhatsApp",
@@ -188,23 +287,70 @@
         });
     }
     
+    function buildSpecsTable(specs) {
+        const table = document.getElementById('specsTable');
+        table.innerHTML = '';
+        specs.forEach(spec => {
+            const row = table.insertRow();
+            row.insertCell(0).innerHTML = spec.label;
+            row.insertCell(1).innerHTML = spec.value;
+        });
+    }
+    
+    function buildFeaturesList(features) {
+        const list = document.getElementById('featuresList');
+        list.innerHTML = '';
+        features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${f}`;
+            list.appendChild(li);
+        });
+    }
+    
+    function buildProbeTable(headers, data) {
+        const table = document.getElementById('probeTable');
+        table.innerHTML = '';
+        const thead = table.createTHead();
+        const headerRow = thead.insertRow();
+        headers.forEach(h => { const th = document.createElement('th'); th.textContent = h; headerRow.appendChild(th); });
+        const tbody = table.createTBody();
+        data.forEach(row => {
+            const tr = tbody.insertRow();
+            row.forEach(cell => { const td = tr.insertCell(); td.textContent = cell; });
+        });
+    }
+    
+    function updateFooter(lang) {
+        const productsList = document.getElementById('footerLinksList');
+        const sectorsList = document.getElementById('footerSectorsList');
+        if (productsList) {
+            productsList.innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+        }
+        if (sectorsList) {
+            sectorsList.innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+        }
+    }
+    
     function applyLanguage(lang) {
         const c = content[lang];
         document.getElementById('backText').innerText = c.backText;
         document.getElementById('productTitle').innerText = c.title;
         document.getElementById('aboutText').innerHTML = c.about;
+        document.getElementById('aboutTitle').innerText = c.aboutTitle;
+        document.getElementById('specsTitle').innerText = c.specsTitle;
+        document.getElementById('featuresTitle').innerText = c.featuresTitle;
+        document.getElementById('probeTitle').innerText = c.probeTitle;
+        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
+        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
+        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
+        document.getElementById('copyright').innerText = c.copyright;
         document.getElementById('whatsappText').innerText = c.whatsappBtn;
         document.getElementById('langText').innerText = c.langText;
         document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
-        
-        const specsList = document.getElementById('specsList');
-        specsList.innerHTML = '';
-        c.specs.forEach(spec => {
-            const li = document.createElement('li');
-            li.innerHTML = spec;
-            specsList.appendChild(li);
-        });
-        
+        buildSpecsTable(c.specs);
+        buildFeaturesList(c.features);
+        buildProbeTable(c.probeHeaders, c.probeData);
+        updateFooter(lang);
         loadGallery(galleryImages[lang]);
     }
     
