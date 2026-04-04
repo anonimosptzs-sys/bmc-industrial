@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ES60-IR - Videoscópio Portátil com Visão Noturna | BMC INDUSTRIAL TECH</title>
+    <title>ES60-IR - Videoscópio Portátil Visão Noturna | BMC INDUSTRIAL TECH</title>
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 13c-2.33 0-4.31-1.46-5.11-3.5h10.22c-.8 2.04-2.78 3.5-5.11 3.5z'/%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -15,7 +15,7 @@
         body.dark-theme .navbar { background: rgba(18, 22, 35, 0.98); backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
         body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; }
         body.dark-theme .navbar .nav-link:hover, body.dark-theme .navbar .nav-link.active { color: #3399ff !important; background: rgba(51, 153, 255, 0.12); }
-        body.dark-theme .product-info, body.dark-theme .specs-card { background: #141824; border: 1px solid #252a3a; }
+        body.dark-theme .product-info, body.dark-theme .specs-card, body.dark-theme .features-card, body.dark-theme .probe-table-container { background: #141824; border: 1px solid #252a3a; }
         :root { --primary: #0066cc; --primary-dark: #004c99; --gold: #ffaa33; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1e1f2c; border-radius: 10px; }
@@ -33,11 +33,18 @@
         .gallery-thumbs { flex: 1; display: flex; flex-wrap: wrap; gap: 15px; align-content: flex-start; }
         .gallery-thumbs img { width: calc(33% - 10px); border-radius: 16px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; background: #141824; padding: 5px; }
         .gallery-thumbs img:hover { border-color: var(--primary); transform: scale(1.05); }
-        .product-info, .specs-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
-        .product-info h3, .specs-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
-        .specs-list { list-style: none; padding-left: 0; }
-        .specs-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
-        .specs-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
+        .product-info, .specs-card, .features-card, .probe-table-container { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
+        .product-info h3, .specs-card h3, .features-card h3, .probe-table-container h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
+        .specs-table { width: 100%; border-collapse: collapse; }
+        .specs-table tr { border-bottom: 1px solid #252a3a; }
+        .specs-table td { padding: 12px 8px; vertical-align: top; }
+        .specs-table td:first-child { font-weight: 700; width: 35%; color: var(--primary); }
+        .probe-table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
+        .probe-table th, .probe-table td { border: 1px solid #252a3a; padding: 10px; text-align: left; font-size: 0.85rem; }
+        .probe-table th { background: #1a2340; color: var(--primary); font-weight: 700; }
+        .features-list { list-style: none; padding-left: 0; }
+        .features-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+        .features-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
         .whatsapp-btn { background: #25d366; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; text-decoration: none; margin-top: 20px; }
         .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; color: white; }
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; margin-bottom: 20px; transition: all 0.2s; }
@@ -51,7 +58,7 @@
         .contact-info a:hover { color: var(--primary); }
         .lang-toggle { background: rgba(0,102,204,0.15); border: 1px solid rgba(0,102,204,0.5); color: #e2e8f0; border-radius: 40px; padding: 6px 16px; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 1rem; transition: all 0.2s; }
         .lang-toggle:hover { background: var(--primary); border-color: var(--primary); color: white; }
-        @media (max-width: 768px) { .product-title { font-size: 1.8rem; } .gallery-thumbs img { width: calc(50% - 10px); } }
+        @media (max-width: 768px) { .product-title { font-size: 1.8rem; } .gallery-thumbs img { width: calc(50% - 10px); } .probe-table { font-size: 0.7rem; } }
     </style>
 </head>
 <body class="dark-theme">
@@ -83,7 +90,7 @@
     <div class="container">
         <a href="index.html#products" class="back-btn" id="backBtn"><i class="bi bi-arrow-left"></i> <span id="backText">Voltar para produtos</span></a>
         
-        <h1 class="product-title" id="productTitle">ES60-IR - Videoscópio Portátil com Visão Noturna</h1>
+        <h1 class="product-title" id="productTitle">ES60-IR - Videoscópio Portátil Visão Noturna</h1>
         
         <div class="product-gallery">
             <div class="gallery-main">
@@ -93,13 +100,25 @@
         </div>
         
         <div class="product-info">
-            <h3 id="aboutTitle"><i class="bi bi-info-circle"></i> Sobre o Produto</h3>
-            <p id="aboutText">O ES60-IR é um videoscópio portátil com visão noturna infravermelho e articulação 360°. Compacto e versátil, ideal para inspeções noturnas em locais de difícil acesso. Perfeito para operações de resgate, inspeções militares, segurança patrimonial e manutenção industrial em ambientes escuros.</p>
+            <h3><i class="bi bi-info-circle"></i> <span id="aboutTitle">Sobre o Produto</span></h3>
+            <p id="aboutText">O ES60-IR é um videoscópio portátil com visão noturna infravermelho, tela de 3.5" e articulação joystick 360°. Possui sonda de 6.0mm com luz dupla 940nm IR e branca, e sonda de 3.9mm com visão noturna de até 10 metros. Bateria de 8 horas de duração. Ideal para aplicações policiais, militares e de segurança.</p>
         </div>
         
         <div class="specs-card">
-            <h3 id="specsTitle"><i class="bi bi-gear-wide-connected"></i> Especificações Técnicas</h3>
-            <ul class="specs-list" id="specsList"></ul>
+            <h3><i class="bi bi-gear-wide-connected"></i> <span id="specsTitle">Especificações do Videoscópio</span></h3>
+            <table class="specs-table" id="specsTable"><tr>
+        </div>
+        
+        <div class="features-card">
+            <h3><i class="bi bi-star-fill"></i> <span id="featuresTitle">Características</span></h3>
+            <ul class="features-list" id="featuresList"></ul>
+        </div>
+        
+        <div class="probe-table-container">
+            <h3><i class="bi bi-phone"></i> <span id="probeTitle">Especificações das Sondas</span></h3>
+            <div style="overflow-x: auto;">
+                <table class="probe-table" id="probeTable"></table>
+            </div>
         </div>
         
         <div style="text-align: center;">
@@ -114,9 +133,16 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Produtos Premium</div><ul class="footer-links"><li>ET65 Series</li><li>ECT40 Series</li><li>ES60 Series</li><li>ECP101 Series</li><li>TPC80 Series</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Setores atendidos</div><ul class="footer-links"><li>Aeroespacial & Defesa</li><li>Energia e Petróleo</li><li>Automotivo & Transporte</li><li>Manutenção preditiva</li><li>Militar e Segurança</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Contato Comercial</div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerProdTitle">Produtos Premium</div>
+                    <ul class="footer-links" id="footerLinksList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerSectorsTitle">Setores atendidos</div>
+                    <ul class="footer-links" id="footerSectorsList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerContactTitle">Contato Comercial</div>
                     <div class="contact-info"><i class="bi bi-person-circle"></i> Bruno Yokomizo</div>
                     <div class="contact-info"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/5547988202757">+55 47 98820-2757</a></div>
                     <div class="contact-info"><i class="bi bi-envelope-fill"></i> <a href="mailto:yokomizobruno@gmail.com">yokomizobruno@gmail.com</a></div>
@@ -125,7 +151,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom"><div class="container">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
+    <div class="footer-bottom"><div class="container" id="copyright">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
 </footer>
 
 <script>
@@ -138,32 +164,98 @@
         en: ["https://i.postimg.cc/QCV6vhvZ/2-3-es60-ir-infrared-night-vision-borescope-endoscope-img01b.jpg"]
     };
     
+    const footerProducts = {
+        pt: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Endoscópio Veterinário"],
+        en: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Veterinary Endoscope"]
+    };
+    
+    const footerSectors = {
+        pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
+        en: ["Aerospace & Defense", "Energy & Oil", "Automotive & Transport", "General Manufacturing", "Predictive Maintenance", "Military & Security", "Veterinary", "Piping & Sanitation"]
+    };
+    
     const content = {
         pt: {
             backText: "Voltar para produtos",
-            title: "ES60-IR - Videoscópio Portátil com Visão Noturna",
-            about: "O ES60-IR é um videoscópio portátil com visão noturna infravermelho e articulação 360°. Compacto e versátil, ideal para inspeções noturnas em locais de difícil acesso. Perfeito para operações de resgate, inspeções militares, segurança patrimonial e manutenção industrial em ambientes escuros.",
+            title: "ES60-IR - Videoscópio Portátil Visão Noturna",
+            about: "O ES60-IR é um videoscópio portátil com visão noturna infravermelho, tela de 3.5\" e articulação joystick 360°. Possui sonda de 6.0mm com luz dupla 940nm IR e branca, e sonda de 3.9mm com visão noturna de até 10 metros. Bateria de 8 horas de duração. Ideal para aplicações policiais, militares e de segurança.",
+            aboutTitle: "Sobre o Produto",
+            specsTitle: "Especificações do Videoscópio",
+            featuresTitle: "Características",
+            probeTitle: "Especificações das Sondas",
+            footerProdTitle: "Produtos Premium",
+            footerSectorsTitle: "Setores atendidos",
+            footerContactTitle: "Contato Comercial",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolução:</strong> Megapixel noturna',
-                '<i class="bi bi-arrow-repeat"></i> <strong>Articulação:</strong> Mecânica 360°',
-                '<i class="bi bi-brightness-high"></i> <strong>Fonte de luz:</strong> Dupla (Infravermelho + Luz Branca)',
-                '<i class="bi bi-display"></i> <strong>Tela:</strong> Touchscreen HD 3.5"',
-                '<i class="bi bi-battery-full"></i> <strong>Bateria:</strong> Recarregável de longa duração'
+                { label: "Design", value: "Portátil integrado" },
+                { label: "Tela", value: "3.5\" HD LCD touchscreen" },
+                { label: "Resolução", value: "Até HD 1 megapixel" },
+                { label: "Articulação", value: "Joystick 360°" },
+                { label: "Bateria", value: "8 horas de duração" },
+                { label: "Fonte de Luz", value: "Sonda 6.0mm: 940nm IR e luz branca dupla; Sonda 3.9mm: Visão noturna IR até 10m" },
+                { label: "Direção de Visão", value: "Frontal / Lateral / Múltiplas câmeras" },
+                { label: "Entrada Externa", value: "Suporte entrada USB para câmera externa" },
+                { label: "Aplicação", value: "Segurança pública, militar, polícia, bombeiros" }
             ],
-            whatsappMsg: "Olá, gostaria de saber mais sobre o ES60-IR - Videoscópio Portátil com Visão Noturna. Poderia me enviar mais informações e um orçamento?",
+            features: [
+                "Design portátil integrado com tela touchscreen HD de 3.5\"",
+                "Suporta sonda de 6.0mm com luz dupla 940nm IR e branca",
+                "Sonda de 3.9mm com visão noturna IR com alcance de até 10 metros",
+                "Articulação joystick 360° para controle preciso",
+                "8 horas de duração de bateria",
+                "Suporta entrada de câmera USB externa"
+            ],
+            probeHeaders: ["Diâmetro", "Visão", "Pixel", "FOV", "DOF", "Comprimento", "Articulação", "Iluminação"],
+            probeData: [
+                ["1.2mm/1.5mm", "Frontal", "160.000 pixels", "120°", "5-100mm", "600mm-1m", "Não", "Fibra óptica"],
+                ["2.0mm/2.4mm", "Frontal", "160.000 / 1MP", "120°", "5-100mm", "1m", "180°", "Fibra óptica"],
+                ["2.8mm", "Frontal", "160.000 / 1MP", "120°", "5-100mm", "1-1.5m", "360°", "Fibra óptica"],
+                ["3.9mm", "Frontal/Lateral/Dupla", "2MP", "120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/fibra óptica"],
+                ["6.0mm", "Frontal/Lateral/Dupla", "2MP", "90°/120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/fibra óptica"]
+            ],
+            whatsappMsg: "Olá, gostaria de saber mais sobre o ES60-IR - Videoscópio Portátil Visão Noturna. Poderia me enviar mais informações e um orçamento?",
             whatsappBtn: "Solicitar Orçamento via WhatsApp",
             langText: "PT-BR"
         },
         en: {
             backText: "Back to products",
             title: "ES60-IR - Portable IR Night Vision Videoscope",
-            about: "The ES60-IR is a portable infrared night vision videoscope with 360° articulation. Compact and versatile, ideal for nighttime inspections in hard-to-reach locations. Perfect for rescue operations, military inspections, security surveillance, and industrial maintenance in dark environments.",
+            about: "The ES60-IR is a portable infrared night vision videoscope with 3.5\" screen and 360° joystick articulation. Features 6.0mm probe with 940nm dual IR and white light, and 3.9mm probe with night vision up to 10 meters. 8-hour battery life. Ideal for police, military and security applications.",
+            aboutTitle: "About the Product",
+            specsTitle: "Videoscope Specifications",
+            featuresTitle: "Features",
+            probeTitle: "Probe Specifications",
+            footerProdTitle: "Premium Products",
+            footerSectorsTitle: "Industries Served",
+            footerContactTitle: "Commercial Contact",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolution:</strong> Night Vision Megapixel',
-                '<i class="bi bi-arrow-repeat"></i> <strong>Articulation:</strong> 360° Mechanical',
-                '<i class="bi bi-brightness-high"></i> <strong>Light Source:</strong> Dual (Infrared + White Light)',
-                '<i class="bi bi-display"></i> <strong>Display:</strong> 3.5" HD Touchscreen',
-                '<i class="bi bi-battery-full"></i> <strong>Battery:</strong> Long-lasting rechargeable'
+                { label: "Design", value: "Integrated handheld" },
+                { label: "Display", value: "3.5\" HD LCD touchscreen" },
+                { label: "Resolution", value: "Up to HD 1 megapixel" },
+                { label: "Articulation", value: "360° joystick" },
+                { label: "Battery Life", value: "8-hour" },
+                { label: "Light Source", value: "6.0mm probe: 940nm dual IR & white light; 3.9mm probe: IR night vision up to 10m" },
+                { label: "View Direction", value: "Forward / Side / Multi-view camera" },
+                { label: "External Input", value: "Supports external USB camera input" },
+                { label: "Application", value: "Public security, military, police, firefighting" }
+            ],
+            features: [
+                "Integrated handheld design with 3.5\" HD touchscreen",
+                "Supports 6.0mm probe with 940nm dual IR and white light",
+                "3.9mm probe with IR night vision range up to 10 meters",
+                "360° joystick articulation for precise control",
+                "8-hour long battery life",
+                "Supports external USB camera input"
+            ],
+            probeHeaders: ["Diameter", "View", "Pixel", "FOV", "DOF", "Length", "Articulation", "Light"],
+            probeData: [
+                ["1.2mm/1.5mm", "Forward", "160,000 pixels", "120°", "5-100mm", "600mm-1m", "No", "Optical fiber"],
+                ["2.0mm/2.4mm", "Forward", "160,000 / 1MP", "120°", "5-100mm", "1m", "180°", "Optical fiber"],
+                ["2.8mm", "Forward", "160,000 / 1MP", "120°", "5-100mm", "1-1.5m", "360°", "Optical fiber"],
+                ["3.9mm", "Forward/Side/Dual", "2MP", "120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/optical fiber"],
+                ["6.0mm", "Forward/Side/Dual", "2MP", "90°/120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/optical fiber"]
             ],
             whatsappMsg: "Hello, I would like to know more about the ES60-IR - Portable IR Night Vision Videoscope. Could you send me more information and a quote?",
             whatsappBtn: "Request Quote via WhatsApp",
@@ -184,23 +276,64 @@
         });
     }
     
+    function buildSpecsTable(specs) {
+        const table = document.getElementById('specsTable');
+        table.innerHTML = '';
+        specs.forEach(spec => {
+            const row = table.insertRow();
+            row.insertCell(0).innerHTML = spec.label;
+            row.insertCell(1).innerHTML = spec.value;
+        });
+    }
+    
+    function buildFeaturesList(features) {
+        const list = document.getElementById('featuresList');
+        list.innerHTML = '';
+        features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${f}`;
+            list.appendChild(li);
+        });
+    }
+    
+    function buildProbeTable(headers, data) {
+        const table = document.getElementById('probeTable');
+        table.innerHTML = '';
+        const thead = table.createTHead();
+        const headerRow = thead.insertRow();
+        headers.forEach(h => { const th = document.createElement('th'); th.textContent = h; headerRow.appendChild(th); });
+        const tbody = table.createTBody();
+        data.forEach(row => {
+            const tr = tbody.insertRow();
+            row.forEach(cell => { const td = tr.insertCell(); td.textContent = cell; });
+        });
+    }
+    
+    function updateFooter(lang) {
+        document.getElementById('footerLinksList').innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+        document.getElementById('footerSectorsList').innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+    }
+    
     function applyLanguage(lang) {
         const c = content[lang];
         document.getElementById('backText').innerText = c.backText;
         document.getElementById('productTitle').innerText = c.title;
         document.getElementById('aboutText').innerHTML = c.about;
+        document.getElementById('aboutTitle').innerText = c.aboutTitle;
+        document.getElementById('specsTitle').innerText = c.specsTitle;
+        document.getElementById('featuresTitle').innerText = c.featuresTitle;
+        document.getElementById('probeTitle').innerText = c.probeTitle;
+        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
+        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
+        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
+        document.getElementById('copyright').innerText = c.copyright;
         document.getElementById('whatsappText').innerText = c.whatsappBtn;
         document.getElementById('langText').innerText = c.langText;
         document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
-        
-        const specsList = document.getElementById('specsList');
-        specsList.innerHTML = '';
-        c.specs.forEach(spec => {
-            const li = document.createElement('li');
-            li.innerHTML = spec;
-            specsList.appendChild(li);
-        });
-        
+        buildSpecsTable(c.specs);
+        buildFeaturesList(c.features);
+        buildProbeTable(c.probeHeaders, c.probeData);
+        updateFooter(lang);
         loadGallery(galleryImages[lang]);
     }
     
