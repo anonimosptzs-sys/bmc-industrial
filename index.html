@@ -58,7 +58,6 @@
             padding-top: 80px;
             overflow: hidden;
         }
-        /* Logo de fundo na hero section - MAIS NÍTIDA E DESTACADA */
         .hero-bg-logo {
             position: absolute;
             top: 50%;
@@ -70,48 +69,13 @@
             z-index: 1;
             pointer-events: none;
             filter: drop-shadow(0 0 30px rgba(0,102,204,0.5)) brightness(1.2) contrast(1.15);
-            transition: all 0.3s ease;
         }
-        .hero-content {
-            position: relative;
-            z-index: 5;
-        }
-        .hero-title {
-            font-size: 3.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff, #aaccff, var(--gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        .hero-subtitle {
-            color: #b9c3d4;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.1s backwards;
-        }
-        .btn-primary-custom {
-            background: var(--primary);
-            border: none;
-            padding: 12px 32px;
-            border-radius: 40px;
-            font-weight: 700;
-            color: white;
-            box-shadow: 0 8px 18px rgba(0, 102, 204, 0.45);
-            transition: all 0.3s;
-            display: inline-block;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
+        .hero-content { position: relative; z-index: 5; }
+        .hero-title { font-size: 3.8rem; font-weight: 800; background: linear-gradient(135deg, #fff, #aaccff, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease-out; }
+        .hero-subtitle { color: #b9c3d4; font-size: 1.2rem; margin-bottom: 2rem; animation: fadeInUp 0.8s ease-out 0.1s backwards; }
+        .btn-primary-custom { background: var(--primary); border: none; padding: 12px 32px; border-radius: 40px; font-weight: 700; color: white; box-shadow: 0 8px 18px rgba(0, 102, 204, 0.45); transition: all 0.3s; display: inline-block; animation: fadeInUp 0.8s ease-out 0.2s backwards; }
         .btn-primary-custom:hover { background: var(--primary-dark); transform: translateY(-3px); color: white; }
-        .hero-stats {
-            margin-top: 3rem;
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.3s backwards;
-        }
+        .hero-stats { margin-top: 3rem; display: flex; gap: 2.5rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.3s backwards; }
         .stat-item h3 { color: var(--primary); font-size: 2rem; font-weight: 800; margin-bottom: 0; }
         .stat-item p { color: #94a3b8; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -128,19 +92,7 @@
         .product-title { font-size: 1.15rem; font-weight: 700; color: #f0f3fa; margin-bottom: 12px; line-height: 1.3; }
         .product-desc { font-size: 0.85rem; color: #a0aec0; margin-bottom: 8px; display: flex; align-items: baseline; gap: 6px; }
         .product-desc i { color: var(--primary); font-size: 0.7rem; min-width: 20px; }
-        .product-link { 
-            margin-top: 20px; 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 8px; 
-            font-weight: 700; 
-            color: #3399ff; 
-            border-bottom: 2px solid #1e3a5f; 
-            padding-bottom: 4px; 
-            transition: all 0.2s; 
-            text-decoration: none;
-            cursor: pointer;
-        }
+        .product-link { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: #3399ff; border-bottom: 2px solid #1e3a5f; padding-bottom: 4px; transition: all 0.2s; text-decoration: none; cursor: pointer; }
         .product-link:hover { gap: 12px; color: #66b5ff; }
         .about-section { display: flex; flex-wrap: wrap; background: linear-gradient(135deg, #002a5e 0%, #00122e 40%, #03050c 100%); color: #fff; position: relative; z-index: 2; opacity: 0; transform: translateX(-50px); transition: all 0.9s; }
         .about-section.animate-in { opacity: 1; transform: translateX(0); }
@@ -178,16 +130,8 @@
         .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: linear-gradient(90deg, var(--primary), #3399ff); z-index: 1001; transition: width 0.1s ease; }
         .lang-toggle { background: rgba(0,102,204,0.15); border: 1px solid rgba(0,102,204,0.5); color: #e2e8f0; border-radius: 40px; padding: 6px 16px; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 1rem; transition: all 0.2s; }
         .lang-toggle:hover { background: var(--primary); border-color: var(--primary); color: white; }
-        @media (max-width: 992px) { 
-            .hero-title { font-size: 2.5rem; } 
-            .about-left, .about-right { flex: auto; width: 100%; } 
-            .logo-text { font-size: 1.3rem; } 
-            .lang-toggle { margin: 10px 0 0 0; } 
-            .hero-bg-logo { width: 75%; opacity: 0.2; }
-        }
-        @media (min-width: 1400px) {
-            .hero-bg-logo { width: 45%; max-width: 550px; opacity: 0.32; }
-        }
+        @media (max-width: 992px) { .hero-title { font-size: 2.5rem; } .about-left, .about-right { flex: auto; width: 100%; } .logo-text { font-size: 1.3rem; } .lang-toggle { margin: 10px 0 0 0; } .hero-bg-logo { width: 75%; opacity: 0.2; } }
+        @media (min-width: 1400px) { .hero-bg-logo { width: 45%; max-width: 550px; opacity: 0.32; } }
     </style>
 </head>
 <body class="dark-theme">
@@ -220,7 +164,6 @@
 </nav>
 
 <section class="hero-section">
-    <!-- Logo da empresa como fundo da primeira seção - MAIS NÍTIDA -->
     <img src="https://i.postimg.cc/bNtqFwsK/BMC-Logo-1.png" alt="BMC Logo" class="hero-bg-logo">
     <div class="container hero-content">
         <div class="row">
@@ -268,8 +211,8 @@
             <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" data-key="faq1_q">Como escolher o videoscópio ideal?</button></h2><div id="faq1" class="accordion-collapse collapse show"><div class="accordion-body" data-key="faq1_a">A escolha depende do diâmetro da sonda, comprimento, resolução e tipo de articulação. Oferecemos opções desde 0.78mm até 6.5mm, com articulação mecânica ou motorizada 360°.</div></div></div>
             <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" data-key="faq2_q">Quais são as especificações técnicas da sonda?</button></h2><div id="faq2" class="accordion-collapse collapse"><div class="accordion-body" data-key="faq2_a">Diâmetros disponíveis: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolução: até 2MP (1600x1200).</div></div></div>
             <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" data-key="faq3_q">Vocês fazem personalização?</button></h2><div id="faq3" class="accordion-collapse collapse"><div class="accordion-body" data-key="faq3_a">Sim! Personalizamos tamanho de tela, tipo de articulação, módulos de transmissão sem fio e sondas intercambiáveis. Consulte nosso time comercial.</div></div></div>
-            <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Qual o prazo de entrega?</button></h2><div id="faq4" class="accordion-collapse collapse"><div class="accordion-body">O prazo para equipamentos padrão é de 15 a 30 dias úteis. Para equipamentos personalizados, o prazo pode variar de 30 a 60 dias úteis, dependendo da complexidade.</div></div></div>
-            <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">Os equipamentos possuem garantia?</button></h2><div id="faq5" class="accordion-collapse collapse"><div class="accordion-body">Sim, todos os nossos videoscópios possuem garantia de 12 meses contra defeitos de fabricação, com suporte técnico especializado em todo território nacional.</div></div></div>
+            <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" data-key="faq4_q">Qual o prazo de entrega?</button></h2><div id="faq4" class="accordion-collapse collapse"><div class="accordion-body" data-key="faq4_a">O prazo para equipamentos padrão é de 15 a 30 dias úteis. Para equipamentos personalizados, o prazo pode variar de 30 a 60 dias úteis, dependendo da complexidade.</div></div></div>
+            <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" data-key="faq5_q">Os equipamentos possuem garantia?</button></h2><div id="faq5" class="accordion-collapse collapse"><div class="accordion-body" data-key="faq5_a">Sim, todos os nossos videoscópios possuem garantia de 12 meses contra defeitos de fabricação, com suporte técnico especializado em todo território nacional.</div></div></div>
         </div></div></div>
     </div>
 </section>
@@ -351,7 +294,6 @@
         "ES078 Series - Endoscópio de Fibra Óptica": "produto-es078.html",
         "TPC80 Series - Câmera com Haste Telescópica 4K": "produto-tpc80.html",
         "Endoscópio Veterinário": "produto-vet.html",
-        // Versões em inglês
         "ET65 Series - HD Industrial Videoscope": "produto-et65.html",
         "ECT40 Series - HD Industrial Videoscope": "produto-ect40.html",
         "ES60 Series - HD Industrial Videoscope": "produto-es60.html",
@@ -367,8 +309,34 @@
     };
 
     const productsData = {
-        pt: [{ title:"ET65 Series - Videoscópio Industrial HD", img:"https://i.postimg.cc/rsbhk72H/1-1-et65-series-industrial-videoscope-endoscope-01m.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Articulação eletrônica 360°", desc3:"Tela touchscreen HD 5\"", desc4:"Sondas intercambiáveis" },{ title:"ECT40 Series - Videoscópio Industrial HD", img:"https://i.postimg.cc/3NWLzYzY/1-2-ect40-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Articulação mecânica 4 direções", desc3:"Sonda intercambiável", desc4:"Tela touchscreen HD 5\"" },{ title:"ES60 Series - Videoscópio Industrial HD", img:"https://i.postimg.cc/PJN60T0h/1-3-es60-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Articulação mecânica 360°", desc3:"Tela touchscreen HD compacta 3,5\"", desc4:"Design portátil" },{ title:"ECP101 Series - Videoscópio Desktop HD", img:"https://i.postimg.cc/rszh7M7k/1-4-ecp101-series-hd-desktop-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Processador dual-core 2.8GHz", desc3:"Compatível com sondas flexíveis e borescopes rígidos", desc4:"Unidade de controle 10.1\" HD touchscreen" },{ title:"ET39-IR - Borescópio Visão Noturna IR", img:"https://i.postimg.cc/RhqP242z/2-1-et39-ir-infrared-night-vision-borescope-img01b.jpg", desc1:"Resolução megapixel noturna", desc2:"Articulação mecânica 360°", desc3:"Fonte de luz dupla: Infravermelho + Luz Branca", desc4:"Tela touchscreen HD 5\"" },{ title:"EC60-IR - Videoscópio Visão Noturna IR", img:"https://i.postimg.cc/wM3WngZZ/4-1-ec60-ir-series-police-endoscope-01m.jpg", desc1:"Resolução megapixel noturna", desc2:"Articulação mecânica 4 direções", desc3:"Fonte de luz dupla: Infravermelho + Luz Branca", desc4:"Tela touchscreen HD 5\"" },{ title:"ES60-IR - Videoscópio Portátil Visão Noturna", img:"https://i.postimg.cc/QCV6vhvZ/2-3-es60-ir-infrared-night-vision-borescope-endoscope-img01b.jpg", desc1:"Resolução megapixel noturna", desc2:"Articulação mecânica 360°", desc3:"Fonte de luz dupla: Infravermelho + Luz Branca", desc4:"Tela touchscreen HD 3,5\"" },{ title:"Câmera para Inspeção de Tubulações", img:"https://i.postimg.cc/rszh7M76/3-1-pipe-inspection-camera-img01b.jpg", desc1:"960P 2 Megapixels", desc2:"Articulação com joystick 360°", desc3:"Cabo de até 100 metros", desc4:"Tela colorida HD de 13\" com controle por teclado" },{ title:"Borescopes Rígidos", img:"https://i.postimg.cc/yxWf2st2/3-rigid-borescopes-img01b.jpg", desc1:"Lanterna portátil / Fonte de luz de mesa", desc2:"Montagem óptica C-Mount", desc3:"Câmera industrial HD de 2 megapixels", desc4:"Tela de endoscópio HD de 10,1\"" },{ title:"ES078 Series - Endoscópio de Fibra Óptica", img:"https://i.postimg.cc/5yjPDbDd/2-small-diameter-fiberscopes-img01b.jpg", desc1:"Diâmetro ultrafino: 0,78mm", desc2:"Montagem óptica C-Mount", desc3:"Câmera industrial HD de 2 megapixels", desc4:"Tela HD de 3,5\" ou 10,1\" opcional" },{ title:"TPC80 Series - Câmera com Haste Telescópica 4K", img:"https://i.postimg.cc/brd64pWK/5-telescopic-pole-inspection-camera-img01b.jpg", desc1:"Resolução 4K Ultra HD", desc2:"Luz Dupla Branca/IR", desc3:"Articulação Eletrônica 360°", desc4:"Comprimentos: 3 / 5 / 7 / 12 metros" },{ title:"Endoscópio Veterinário", img:"https://i.postimg.cc/mkhdKBJv/7-veterinary-endoscope-img04b.jpg", desc1:"Resolução HD de 2 megapixels", desc2:"Sonda de 4 direções com 1,5 a 3 metros", desc3:"Tela de 10\" com estação integrada", desc4:"Ideal para equinos, felinos, caninos e aves" }],
-        en: [{ title:"ET65 Series - HD Industrial Videoscope", img:"https://i.postimg.cc/rsbhk72H/1-1-et65-series-industrial-videoscope-endoscope-01m.jpg", desc1:"1MP/2MP (megapixels)", desc2:"360° electronic articulation", desc3:"5\" HD touchscreen", desc4:"Interchangeable probes" },{ title:"ECT40 Series - HD Industrial Videoscope", img:"https://i.postimg.cc/3NWLzYzY/1-2-ect40-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Four-way mechanical articulation", desc3:"Interchangeable probe", desc4:"5\" HD touchscreen" },{ title:"ES60 Series - HD Industrial Videoscope", img:"https://i.postimg.cc/PJN60T0h/1-3-es60-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"360° mechanical articulation", desc3:"Compact 3.5\" HD touchscreen", desc4:"Portable design" },{ title:"ECP101 Series - HD Desktop Videoscope", img:"https://i.postimg.cc/rszh7M7k/1-4-ecp101-series-hd-desktop-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"2.8GHz dual-core processor", desc3:"Compatible with flexible probes & rigid borescopes", desc4:"10.1\" HD touchscreen control unit" },{ title:"ET39-IR - Infrared Night Vision Borescope", img:"https://i.postimg.cc/RhqP242z/2-1-et39-ir-infrared-night-vision-borescope-img01b.jpg", desc1:"Night Vision Megapixel Resolution", desc2:"360° Mechanical Articulation", desc3:"Dual Light Source: Infrared and White Light", desc4:"5-Inch HD Touchscreen" },{ title:"EC60-IR - Infrared Night Vision Videoscope", img:"https://i.postimg.cc/wM3WngZZ/4-1-ec60-ir-series-police-endoscope-01m.jpg", desc1:"Night Vision Megapixel Resolution", desc2:"Four-way Mechanical Articulation", desc3:"Dual Light Source: Infrared and White Light", desc4:"5-Inch HD Touchscreen" },{ title:"ES60-IR - Portable IR Night Vision Videoscope", img:"https://i.postimg.cc/QCV6vhvZ/2-3-es60-ir-infrared-night-vision-borescope-endoscope-img01b.jpg", desc1:"Night Vision Megapixel Resolution", desc2:"360° Mechanical Articulation", desc3:"Dual Light Source: Infrared and White Light", desc4:"3.5-Inch HD Touchscreen" },{ title:"Pipe Inspection Camera", img:"https://i.postimg.cc/rszh7M76/3-1-pipe-inspection-camera-img01b.jpg", desc1:"960P 2 Mega Pixel", desc2:"360° Joystick Articulation", desc3:"Up to 100 meters probe length", desc4:"13 Inch HD color screen" },{ title:"Rigid Borescopes", img:"https://i.postimg.cc/yxWf2st2/3-rigid-borescopes-img01b.jpg", desc1:"Handheld flashlight / Desktop light source", desc2:"Optical C-Mount", desc3:"2 megapixel HD industrial camera", desc4:"10.1 inch HD endoscope screen" },{ title:"ES078 Series - Fiber Endoscope", img:"https://i.postimg.cc/5yjPDbDd/2-small-diameter-fiberscopes-img01b.jpg", desc1:"Ultra-thin diameter: 0.78mm", desc2:"Optical C-Mount", desc3:"2-megapixel HD industrial camera", desc4:"3.5/10.1-inch HD screen optional" },{ title:"TPC80 Series - 4K Telescopic Pole Camera", img:"https://i.postimg.cc/brd64pWK/5-telescopic-pole-inspection-camera-img01b.jpg", desc1:"4K Ultra HD Resolution", desc2:"White/IR Dual Light Source", desc3:"360° Electronic Articulation", desc4:"Lengths: 3/5/7/12 meters" },{ title:"Veterinary Endoscope", img:"https://i.postimg.cc/mkhdKBJv/7-veterinary-endoscope-img04b.jpg", desc1:"2 MP HD Resolution", desc2:"1.5~3 Meters Long 4-Way Probe", desc3:"10-Inch Screen with Integrated Station", desc4:"Ideal for equine, feline, canine and birds" }]
+        pt: [
+            { title:"ET65 Series - Videoscópio Industrial HD", img:"https://i.postimg.cc/rsbhk72H/1-1-et65-series-industrial-videoscope-endoscope-01m.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Articulação eletrônica 360°", desc3:"Tela touchscreen HD 5\"", desc4:"Sondas intercambiáveis" },
+            { title:"ECT40 Series - Videoscópio Industrial HD", img:"https://i.postimg.cc/3NWLzYzY/1-2-ect40-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Articulação mecânica 4 direções", desc3:"Sonda intercambiável", desc4:"Tela touchscreen HD 5\"" },
+            { title:"ES60 Series - Videoscópio Industrial HD", img:"https://i.postimg.cc/PJN60T0h/1-3-es60-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Articulação mecânica 360°", desc3:"Tela touchscreen HD compacta 3,5\"", desc4:"Design portátil" },
+            { title:"ECP101 Series - Videoscópio Desktop HD", img:"https://i.postimg.cc/rszh7M7k/1-4-ecp101-series-hd-desktop-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Processador dual-core 2.8GHz", desc3:"Compatível com sondas flexíveis e borescopes rígidos", desc4:"Unidade de controle 10.1\" HD touchscreen" },
+            { title:"ET39-IR - Borescópio Visão Noturna IR", img:"https://i.postimg.cc/RhqP242z/2-1-et39-ir-infrared-night-vision-borescope-img01b.jpg", desc1:"Resolução megapixel noturna", desc2:"Articulação mecânica 360°", desc3:"Fonte de luz dupla: Infravermelho + Luz Branca", desc4:"Tela touchscreen HD 5\"" },
+            { title:"EC60-IR - Videoscópio Visão Noturna IR", img:"https://i.postimg.cc/wM3WngZZ/4-1-ec60-ir-series-police-endoscope-01m.jpg", desc1:"Resolução megapixel noturna", desc2:"Articulação mecânica 4 direções", desc3:"Fonte de luz dupla: Infravermelho + Luz Branca", desc4:"Tela touchscreen HD 5\"" },
+            { title:"ES60-IR - Videoscópio Portátil Visão Noturna", img:"https://i.postimg.cc/QCV6vhvZ/2-3-es60-ir-infrared-night-vision-borescope-endoscope-img01b.jpg", desc1:"Resolução megapixel noturna", desc2:"Articulação mecânica 360°", desc3:"Fonte de luz dupla: Infravermelho + Luz Branca", desc4:"Tela touchscreen HD 3,5\"" },
+            { title:"Câmera para Inspeção de Tubulações", img:"https://i.postimg.cc/rszh7M76/3-1-pipe-inspection-camera-img01b.jpg", desc1:"960P 2 Megapixels", desc2:"Articulação com joystick 360°", desc3:"Cabo de até 100 metros", desc4:"Tela colorida HD de 13\" com controle por teclado" },
+            { title:"Borescopes Rígidos", img:"https://i.postimg.cc/yxWf2st2/3-rigid-borescopes-img01b.jpg", desc1:"Lanterna portátil / Fonte de luz de mesa", desc2:"Montagem óptica C-Mount", desc3:"Câmera industrial HD de 2 megapixels", desc4:"Tela de endoscópio HD de 10,1\"" },
+            { title:"ES078 Series - Endoscópio de Fibra Óptica", img:"https://i.postimg.cc/5yjPDbDd/2-small-diameter-fiberscopes-img01b.jpg", desc1:"Diâmetro ultrafino: 0,78mm", desc2:"Montagem óptica C-Mount", desc3:"Câmera industrial HD de 2 megapixels", desc4:"Tela HD de 3,5\" ou 10,1\" opcional" },
+            { title:"TPC80 Series - Câmera com Haste Telescópica 4K", img:"https://i.postimg.cc/brd64pWK/5-telescopic-pole-inspection-camera-img01b.jpg", desc1:"Resolução 4K Ultra HD", desc2:"Luz Dupla Branca/IR", desc3:"Articulação Eletrônica 360°", desc4:"Comprimentos: 3 / 5 / 7 / 12 metros" },
+            { title:"Endoscópio Veterinário", img:"https://i.postimg.cc/mkhdKBJv/7-veterinary-endoscope-img04b.jpg", desc1:"Resolução HD de 2 megapixels", desc2:"Sonda de 4 direções com 1,5 a 3 metros", desc3:"Tela de 10\" com estação integrada", desc4:"Ideal para equinos, felinos, caninos e aves" }
+        ],
+        en: [
+            { title:"ET65 Series - HD Industrial Videoscope", img:"https://i.postimg.cc/rsbhk72H/1-1-et65-series-industrial-videoscope-endoscope-01m.jpg", desc1:"1MP/2MP (megapixels)", desc2:"360° electronic articulation", desc3:"5\" HD touchscreen", desc4:"Interchangeable probes" },
+            { title:"ECT40 Series - HD Industrial Videoscope", img:"https://i.postimg.cc/3NWLzYzY/1-2-ect40-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Four-way mechanical articulation", desc3:"Interchangeable probe", desc4:"5\" HD touchscreen" },
+            { title:"ES60 Series - HD Industrial Videoscope", img:"https://i.postimg.cc/PJN60T0h/1-3-es60-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"360° mechanical articulation", desc3:"Compact 3.5\" HD touchscreen", desc4:"Portable design" },
+            { title:"ECP101 Series - HD Desktop Videoscope", img:"https://i.postimg.cc/rszh7M7k/1-4-ecp101-series-hd-desktop-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP (megapixels)", desc2:"2.8GHz dual-core processor", desc3:"Compatible with flexible probes & rigid borescopes", desc4:"10.1\" HD touchscreen control unit" },
+            { title:"ET39-IR - Infrared Night Vision Borescope", img:"https://i.postimg.cc/RhqP242z/2-1-et39-ir-infrared-night-vision-borescope-img01b.jpg", desc1:"Night Vision Megapixel Resolution", desc2:"360° Mechanical Articulation", desc3:"Dual Light Source: Infrared and White Light", desc4:"5-Inch HD Touchscreen" },
+            { title:"EC60-IR - Infrared Night Vision Videoscope", img:"https://i.postimg.cc/wM3WngZZ/4-1-ec60-ir-series-police-endoscope-01m.jpg", desc1:"Night Vision Megapixel Resolution", desc2:"Four-way Mechanical Articulation", desc3:"Dual Light Source: Infrared and White Light", desc4:"5-Inch HD Touchscreen" },
+            { title:"ES60-IR - Portable IR Night Vision Videoscope", img:"https://i.postimg.cc/QCV6vhvZ/2-3-es60-ir-infrared-night-vision-borescope-endoscope-img01b.jpg", desc1:"Night Vision Megapixel Resolution", desc2:"360° Mechanical Articulation", desc3:"Dual Light Source: Infrared and White Light", desc4:"3.5-Inch HD Touchscreen" },
+            { title:"Pipe Inspection Camera", img:"https://i.postimg.cc/rszh7M76/3-1-pipe-inspection-camera-img01b.jpg", desc1:"960P 2 Mega Pixel", desc2:"360° Joystick Articulation", desc3:"Up to 100 meters probe length", desc4:"13 Inch HD color screen" },
+            { title:"Rigid Borescopes", img:"https://i.postimg.cc/yxWf2st2/3-rigid-borescopes-img01b.jpg", desc1:"Handheld flashlight / Desktop light source", desc2:"Optical C-Mount", desc3:"2 megapixel HD industrial camera", desc4:"10.1 inch HD endoscope screen" },
+            { title:"ES078 Series - Fiber Endoscope", img:"https://i.postimg.cc/5yjPDbDd/2-small-diameter-fiberscopes-img01b.jpg", desc1:"Ultra-thin diameter: 0.78mm", desc2:"Optical C-Mount", desc3:"2-megapixel HD industrial camera", desc4:"3.5/10.1-inch HD screen optional" },
+            { title:"TPC80 Series - 4K Telescopic Pole Camera", img:"https://i.postimg.cc/brd64pWK/5-telescopic-pole-inspection-camera-img01b.jpg", desc1:"4K Ultra HD Resolution", desc2:"White/IR Dual Light Source", desc3:"360° Electronic Articulation", desc4:"Lengths: 3/5/7/12 meters" },
+            { title:"Veterinary Endoscope", img:"https://i.postimg.cc/mkhdKBJv/7-veterinary-endoscope-img04b.jpg", desc1:"2 MP HD Resolution", desc2:"1.5~3 Meters Long 4-Way Probe", desc3:"10-Inch Screen with Integrated Station", desc4:"Ideal for equine, feline, canine and birds" }
+        ]
     };
     
     let currentLang = 'pt';
@@ -400,8 +368,36 @@
     }
     
     const translations = { 
-        pt: { nav_home:"Início", nav_products:"Produtos", nav_about:"Sobre", nav_faq:"FAQ", nav_contact:"Contato", hero_title:"Videoscópios Industriais<br>Alta Definição e Precisão 4K", hero_sub:"Soluções em inspeção visual com tecnologia 3D, articulação 360° e inteligência integrada.", hero_btn:"Explorar produtos →", stat1_val:"+12", stat1_txt:"Anos de experiência", stat2_val:"+50", stat2_txt:"Países atendidos", stat3_val:"+1000", stat3_txt:"Clientes satisfeitos", products_title:"Videoscópios e Endoscópios Industriais", products_sub:"Ferramentas essenciais para Ensaios Não Destrutivos (END) - Alta resolução 1080P, sondas desde 0.78mm até 6.5mm", about_left_title:"Fabricante global com mais de 12 anos de expertise", about_text:"A BMC INDUSTRIAL TECH combina P&D avançado, mais de 40 patentes e soluções completas em END. Nossos videoscópios são referência em precisão e durabilidade para as indústrias mais exigentes do mundo.", about_item1:"Sensor de imagem proprietário com cores fiéis e baixa latência", about_item2:"Articulação eletrônica com controle joystick de alta precisão", about_item3:"Sondas intercambiáveis desde 0.78mm até 6.5mm", about_item4:"Garantia estendida e suporte técnico local especializado", faq_title:"Perguntas Frequentes", faq1_q:"Como escolher o videoscópio ideal?", faq1_a:"A escolha depende do diâmetro da sonda, comprimento, resolução e tipo de articulação. Oferecemos opções desde 0.78mm até 6.5mm, com articulação mecânica ou motorizada 360°.", faq2_q:"Quais são as especificações técnicas da sonda?", faq2_a:"Diâmetros disponíveis: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolução: até 2MP (1600x1200).", faq3_q:"Vocês fazem personalização?", faq3_a:"Sim! Personalizamos tamanho de tela, tipo de articulação, módulos de transmissão sem fio e sondas intercambiáveis.", footer_prod_title:"Produtos Premium", footer_sectors:"Setores atendidos", footer_contact_title:"Contato Comercial", copyright:"© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão" }, 
-        en: { nav_home:"Home", nav_products:"Products", nav_about:"About", nav_faq:"FAQ", nav_contact:"Contact", hero_title:"Industrial Videoscopes<br>High Definition & 4K Precision", hero_sub:"Visual inspection solutions with 3D technology, 360° articulation and integrated intelligence.", hero_btn:"Explore products →", stat1_val:"+12", stat1_txt:"Years of experience", stat2_val:"+50", stat2_txt:"Countries served", stat3_val:"+1000", stat3_txt:"Satisfied clients", products_title:"Industrial Videoscopes & Endoscopes", products_sub:"Essential tools for Non-Destructive Testing (NDT) - High resolution 1080P, probes from 0.78mm to 6.5mm", about_left_title:"Global manufacturer with over 12 years of expertise", about_text:"BMC INDUSTRIAL TECH combines advanced R&D, over 40 patents and complete NDT solutions. Our videoscopes are a benchmark in precision and durability for the most demanding industries worldwide.", about_item1:"Proprietary image sensor with true colors and low latency", about_item2:"Electronic articulation with high-precision joystick control", about_item3:"Interchangeable probes from 0.78mm to 6.5mm", about_item4:"Extended warranty and specialized local technical support", faq_title:"Frequently Asked Questions", faq1_q:"How to choose the ideal videoscope?", faq1_a:"The choice depends on probe diameter, length, resolution and articulation type. We offer options from 0.78mm to 6.5mm, with mechanical or motorized 360° articulation.", faq2_q:"What are the technical specifications of the probe?", faq2_a:"Available diameters: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolution: up to 2MP (1600x1200).", faq3_q:"Do you offer customization?", faq3_a:"Yes! We customize screen size, articulation type, wireless transmission modules and interchangeable probes.", footer_prod_title:"Premium Products", footer_sectors:"Industries served", footer_contact_title:"Commercial Contact", copyright:"© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision" } 
+        pt: { 
+            nav_home:"Início", nav_products:"Produtos", nav_about:"Sobre", nav_faq:"FAQ", nav_contact:"Contato", 
+            hero_title:"Videoscópios Industriais<br>Alta Definição e Precisão 4K", hero_sub:"Soluções em inspeção visual com tecnologia 3D, articulação 360° e inteligência integrada.", hero_btn:"Explorar produtos →", 
+            stat1_val:"+12", stat1_txt:"Anos de experiência", stat2_val:"+50", stat2_txt:"Países atendidos", stat3_val:"+1000", stat3_txt:"Clientes satisfeitos", 
+            products_title:"Videoscópios e Endoscópios Industriais", products_sub:"Ferramentas essenciais para Ensaios Não Destrutivos (END) - Alta resolução 1080P, sondas desde 0.78mm até 6.5mm", 
+            about_left_title:"Fabricante global com mais de 12 anos de expertise", about_text:"A BMC INDUSTRIAL TECH combina P&D avançado, mais de 40 patentes e soluções completas em END. Nossos videoscópios são referência em precisão e durabilidade para as indústrias mais exigentes do mundo.", 
+            about_item1:"Sensor de imagem proprietário com cores fiéis e baixa latência", about_item2:"Articulação eletrônica com controle joystick de alta precisão", about_item3:"Sondas intercambiáveis desde 0.78mm até 6.5mm", about_item4:"Garantia estendida e suporte técnico local especializado", 
+            faq_title:"Perguntas Frequentes", 
+            faq1_q:"Como escolher o videoscópio ideal?", faq1_a:"A escolha depende do diâmetro da sonda, comprimento, resolução e tipo de articulação. Oferecemos opções desde 0.78mm até 6.5mm, com articulação mecânica ou motorizada 360°.",
+            faq2_q:"Quais são as especificações técnicas da sonda?", faq2_a:"Diâmetros disponíveis: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolução: até 2MP (1600x1200).",
+            faq3_q:"Vocês fazem personalização?", faq3_a:"Sim! Personalizamos tamanho de tela, tipo de articulação, módulos de transmissão sem fio e sondas intercambiáveis.",
+            faq4_q:"Qual o prazo de entrega?", faq4_a:"O prazo para equipamentos padrão é de 15 a 30 dias úteis. Para equipamentos personalizados, o prazo pode variar de 30 a 60 dias úteis.",
+            faq5_q:"Os equipamentos possuem garantia?", faq5_a:"Sim, todos os nossos videoscópios possuem garantia de 12 meses contra defeitos de fabricação.",
+            footer_prod_title:"Produtos Premium", footer_sectors:"Setores atendidos", footer_contact_title:"Contato Comercial", copyright:"© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão" 
+        }, 
+        en: { 
+            nav_home:"Home", nav_products:"Products", nav_about:"About", nav_faq:"FAQ", nav_contact:"Contact", 
+            hero_title:"Industrial Videoscopes<br>High Definition & 4K Precision", hero_sub:"Visual inspection solutions with 3D technology, 360° articulation and integrated intelligence.", hero_btn:"Explore products →", 
+            stat1_val:"+12", stat1_txt:"Years of experience", stat2_val:"+50", stat2_txt:"Countries served", stat3_val:"+1000", stat3_txt:"Satisfied clients", 
+            products_title:"Industrial Videoscopes & Endoscopes", products_sub:"Essential tools for Non-Destructive Testing (NDT) - High resolution 1080P, probes from 0.78mm to 6.5mm", 
+            about_left_title:"Global manufacturer with over 12 years of expertise", about_text:"BMC INDUSTRIAL TECH combines advanced R&D, over 40 patents and complete NDT solutions. Our videoscopes are a benchmark in precision and durability for the most demanding industries worldwide.", 
+            about_item1:"Proprietary image sensor with true colors and low latency", about_item2:"Electronic articulation with high-precision joystick control", about_item3:"Interchangeable probes from 0.78mm to 6.5mm", about_item4:"Extended warranty and specialized local technical support", 
+            faq_title:"Frequently Asked Questions", 
+            faq1_q:"How to choose the ideal videoscope?", faq1_a:"The choice depends on probe diameter, length, resolution and articulation type. We offer options from 0.78mm to 6.5mm, with mechanical or motorized 360° articulation.",
+            faq2_q:"What are the technical specifications of the probe?", faq2_a:"Available diameters: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolution: up to 2MP (1600x1200).",
+            faq3_q:"Do you offer customization?", faq3_a:"Yes! We customize screen size, articulation type, wireless transmission modules and interchangeable probes.",
+            faq4_q:"What is the delivery time?", faq4_a:"Standard equipment delivery is 15 to 30 business days. Customized equipment may take 30 to 60 business days.",
+            faq5_q:"Do the equipment have warranty?", faq5_a:"Yes, all our videoscopes have a 12-month warranty against manufacturing defects.",
+            footer_prod_title:"Premium Products", footer_sectors:"Industries served", footer_contact_title:"Commercial Contact", copyright:"© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision" 
+        } 
     };
     
     function applyLanguage(lang) { 
@@ -420,7 +416,6 @@
     document.querySelectorAll('.product-card, .about-section, .accordion-item, .footer').forEach(el => observer.observe(el));
     document.getElementById('langToggleBtn').addEventListener('click', () => { const newLang = currentLang === 'pt' ? 'en' : 'pt'; applyLanguage(newLang); });
     
-    // Carregar idioma salvo
     const savedLang = localStorage.getItem('bmc_lang') || 'pt';
     applyLanguage(savedLang);
     
@@ -432,7 +427,7 @@
     const sectors = { pt: ["Aeroespacial & Defesa","Energia e Petróleo","Automotivo & Transporte","Fabricação geral","Manutenção preditiva","Militar e Segurança","Veterinário","Saneamento e Tubulações"], en: ["Aerospace & Defense","Energy & Oil","Automotive & Transport","General Manufacturing","Predictive Maintenance","Military & Security","Veterinary","Piping & Sanitation"] };
     const premiumProds = { pt: ["ET65 Series","ECT40 Series","ES60 Series","ECP101 Series","ET39-IR","EC60-IR","ES60-IR","TPC80 Series"], en: ["ET65 Series","ECT40 Series","ES60 Series","ECP101 Series","ET39-IR","EC60-IR","ES60-IR","TPC80 Series"] };
     function updateFooterLang(lang) { document.getElementById('footerSectorsList').innerHTML = sectors[lang].map(s => `<li><span>${s}</span></li>`).join(''); document.getElementById('footerLinksList').innerHTML = premiumProds[lang].map(p => `<li><span>${p}</span></li>`).join(''); }
-    updateFooterLang(currentLang);
+    updateFooterLang(savedLang);
 </script>
 </body>
 </html>
