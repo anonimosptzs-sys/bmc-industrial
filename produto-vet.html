@@ -15,7 +15,7 @@
         body.dark-theme .navbar { background: rgba(18, 22, 35, 0.98); backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
         body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; }
         body.dark-theme .navbar .nav-link:hover, body.dark-theme .navbar .nav-link.active { color: #3399ff !important; background: rgba(51, 153, 255, 0.12); }
-        body.dark-theme .product-info, body.dark-theme .specs-card { background: #141824; border: 1px solid #252a3a; }
+        body.dark-theme .product-info, body.dark-theme .specs-card, body.dark-theme .features-card { background: #141824; border: 1px solid #252a3a; }
         :root { --primary: #0066cc; --primary-dark: #004c99; --gold: #ffaa33; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1e1f2c; border-radius: 10px; }
@@ -33,11 +33,15 @@
         .gallery-thumbs { flex: 1; display: flex; flex-wrap: wrap; gap: 15px; align-content: flex-start; }
         .gallery-thumbs img { width: calc(33% - 10px); border-radius: 16px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; background: #141824; padding: 5px; }
         .gallery-thumbs img:hover { border-color: var(--primary); transform: scale(1.05); }
-        .product-info, .specs-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
-        .product-info h3, .specs-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
-        .specs-list { list-style: none; padding-left: 0; }
-        .specs-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
-        .specs-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
+        .product-info, .specs-card, .features-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
+        .product-info h3, .specs-card h3, .features-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
+        .specs-table { width: 100%; border-collapse: collapse; }
+        .specs-table tr { border-bottom: 1px solid #252a3a; }
+        .specs-table td { padding: 12px 8px; vertical-align: top; }
+        .specs-table td:first-child { font-weight: 700; width: 35%; color: var(--primary); }
+        .features-list { list-style: none; padding-left: 0; }
+        .features-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+        .features-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
         .whatsapp-btn { background: #25d366; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; text-decoration: none; margin-top: 20px; }
         .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; color: white; }
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; margin-bottom: 20px; transition: all 0.2s; }
@@ -93,13 +97,18 @@
         </div>
         
         <div class="product-info">
-            <h3 id="aboutTitle"><i class="bi bi-info-circle"></i> Sobre o Produto</h3>
-            <p id="aboutText">Endoscópio veterinário especialmente desenvolvido para diagnóstico em animais de grande, médio e pequeno porte. Com resolução HD de 2 megapixels e sonda flexível de 4 direções com comprimento de 1,5 a 3 metros, permite exames detalhados em equinos, felinos, caninos e aves. Tela de 10" com estação integrada e bomba de ar/água para limpeza durante o exame.</p>
+            <h3><i class="bi bi-info-circle"></i> <span id="aboutTitle">Sobre o Produto</span></h3>
+            <p id="aboutText">Endoscópio veterinário especialmente desenvolvido para diagnóstico em animais de grande, médio e pequeno porte. Com resolução HD de 2 megapixels e sonda flexível de 4 direções com comprimento de 1,5 a 3 metros, permite exames detalhados em equinos, felinos, caninos e aves. Tela de 10\" com estação integrada e bomba de ar/água para limpeza durante o exame.</p>
         </div>
         
         <div class="specs-card">
-            <h3 id="specsTitle"><i class="bi bi-gear-wide-connected"></i> Especificações Técnicas</h3>
-            <ul class="specs-list" id="specsList"></ul>
+            <h3><i class="bi bi-gear-wide-connected"></i> <span id="specsTitle">Especificações Técnicas</span></h3>
+            <table class="specs-table" id="specsTable"><tr>
+        </div>
+        
+        <div class="features-card">
+            <h3><i class="bi bi-star-fill"></i> <span id="featuresTitle">Características</span></h3>
+            <ul class="features-list" id="featuresList"></ul>
         </div>
         
         <div style="text-align: center;">
@@ -114,9 +123,16 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Produtos Premium</div><ul class="footer-links"><li>ET65 Series</li><li>ECT40 Series</li><li>ES60 Series</li><li>ECP101 Series</li><li>TPC80 Series</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Setores atendidos</div><ul class="footer-links"><li>Aeroespacial & Defesa</li><li>Energia e Petróleo</li><li>Automotivo & Transporte</li><li>Manutenção preditiva</li><li>Militar e Segurança</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Contato Comercial</div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerProdTitle">Produtos Premium</div>
+                    <ul class="footer-links" id="footerLinksList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerSectorsTitle">Setores atendidos</div>
+                    <ul class="footer-links" id="footerSectorsList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerContactTitle">Contato Comercial</div>
                     <div class="contact-info"><i class="bi bi-person-circle"></i> Bruno Yokomizo</div>
                     <div class="contact-info"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/5547988202757">+55 47 98820-2757</a></div>
                     <div class="contact-info"><i class="bi bi-envelope-fill"></i> <a href="mailto:yokomizobruno@gmail.com">yokomizobruno@gmail.com</a></div>
@@ -125,7 +141,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom"><div class="container">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
+    <div class="footer-bottom"><div class="container" id="copyright">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
 </footer>
 
 <script>
@@ -138,17 +154,46 @@
         en: ["https://i.postimg.cc/mkhdKBJv/7-veterinary-endoscope-img04b.jpg"]
     };
     
+    const footerProducts = {
+        pt: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Endoscópio Veterinário"],
+        en: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Veterinary Endoscope"]
+    };
+    
+    const footerSectors = {
+        pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
+        en: ["Aerospace & Defense", "Energy & Oil", "Automotive & Transport", "General Manufacturing", "Predictive Maintenance", "Military & Security", "Veterinary", "Piping & Sanitation"]
+    };
+    
     const content = {
         pt: {
             backText: "Voltar para produtos",
             title: "Endoscópio Veterinário",
             about: "Endoscópio veterinário especialmente desenvolvido para diagnóstico em animais de grande, médio e pequeno porte. Com resolução HD de 2 megapixels e sonda flexível de 4 direções com comprimento de 1,5 a 3 metros, permite exames detalhados em equinos, felinos, caninos e aves. Tela de 10\" com estação integrada e bomba de ar/água para limpeza durante o exame.",
+            aboutTitle: "Sobre o Produto",
+            specsTitle: "Especificações Técnicas",
+            featuresTitle: "Características",
+            footerProdTitle: "Produtos Premium",
+            footerSectorsTitle: "Setores atendidos",
+            footerContactTitle: "Contato Comercial",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolução:</strong> 2 MP HD',
-                '<i class="bi bi-arrow-repeat"></i> <strong>Sonda:</strong> 4 direções, 1,5 a 3 metros',
-                '<i class="bi bi-display"></i> <strong>Tela:</strong> 10" com estação integrada',
-                '<i class="bi bi-water"></i> <strong>Bomba:</strong> Ar/Água para limpeza',
-                '<i class="bi bi-brightness-high"></i> <strong>Iluminação:</strong> LED de alta intensidade'
+                { label: "Resolução", value: "2 MP HD" },
+                { label: "Sonda", value: "4 direções, 1,5 a 3 metros" },
+                { label: "Tela", value: "10\" com estação integrada" },
+                { label: "Bomba", value: "Ar/Água para limpeza" },
+                { label: "Iluminação", value: "LED de alta intensidade" },
+                { label: "Armazenamento", value: "Cartão SD, memória interna" },
+                { label: "Saída de Vídeo", value: "HDMI / USB" }
+            ],
+            features: [
+                "Resolução HD de 2 megapixels para imagens nítidas",
+                "Sonda flexível de 4 direções com comprimento de 1,5 a 3 metros",
+                "Tela de 10\" com estação integrada",
+                "Bomba de ar/água para limpeza durante o exame",
+                "Ideal para equinos, felinos, caninos e aves",
+                "Iluminação LED de alta intensidade",
+                "Gravação de vídeo e captura de imagens",
+                "Fácil operação e transporte"
             ],
             whatsappMsg: "Olá, gostaria de saber mais sobre o Endoscópio Veterinário. Poderia me enviar mais informações e um orçamento?",
             whatsappBtn: "Solicitar Orçamento via WhatsApp",
@@ -158,12 +203,31 @@
             backText: "Back to products",
             title: "Veterinary Endoscope",
             about: "Veterinary endoscope specially developed for diagnosis in large, medium and small animals. With 2 MP HD resolution and a 4-way flexible probe with a length of 1.5 to 3 meters, it allows detailed examinations in horses, felines, canines and birds. 10\" screen with integrated station and air/water pump for cleaning during the examination.",
+            aboutTitle: "About the Product",
+            specsTitle: "Technical Specifications",
+            featuresTitle: "Features",
+            footerProdTitle: "Premium Products",
+            footerSectorsTitle: "Industries Served",
+            footerContactTitle: "Commercial Contact",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolution:</strong> 2 MP HD',
-                '<i class="bi bi-arrow-repeat"></i> <strong>Probe:</strong> 4-way, 1.5 to 3 meters',
-                '<i class="bi bi-display"></i> <strong>Display:</strong> 10" with integrated station',
-                '<i class="bi bi-water"></i> <strong>Pump:</strong> Air/Water for cleaning',
-                '<i class="bi bi-brightness-high"></i> <strong>Lighting:</strong> High intensity LED'
+                { label: "Resolution", value: "2 MP HD" },
+                { label: "Probe", value: "4-way, 1.5 to 3 meters" },
+                { label: "Display", value: "10\" with integrated station" },
+                { label: "Pump", value: "Air/Water for cleaning" },
+                { label: "Lighting", value: "High intensity LED" },
+                { label: "Storage", value: "SD Card, internal memory" },
+                { label: "Video Output", value: "HDMI / USB" }
+            ],
+            features: [
+                "2 MP HD resolution for sharp images",
+                "4-way flexible probe with 1.5 to 3 meters length",
+                "10\" screen with integrated station",
+                "Air/water pump for cleaning during examination",
+                "Ideal for equine, feline, canine and birds",
+                "High intensity LED lighting",
+                "Video recording and image capture",
+                "Easy operation and transport"
             ],
             whatsappMsg: "Hello, I would like to know more about the Veterinary Endoscope. Could you send me more information and a quote?",
             whatsappBtn: "Request Quote via WhatsApp",
@@ -184,23 +248,49 @@
         });
     }
     
+    function buildSpecsTable(specs) {
+        const table = document.getElementById('specsTable');
+        table.innerHTML = '';
+        specs.forEach(spec => {
+            const row = table.insertRow();
+            row.insertCell(0).innerHTML = spec.label;
+            row.insertCell(1).innerHTML = spec.value;
+        });
+    }
+    
+    function buildFeaturesList(features) {
+        const list = document.getElementById('featuresList');
+        list.innerHTML = '';
+        features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${f}`;
+            list.appendChild(li);
+        });
+    }
+    
+    function updateFooter(lang) {
+        document.getElementById('footerLinksList').innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+        document.getElementById('footerSectorsList').innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+    }
+    
     function applyLanguage(lang) {
         const c = content[lang];
         document.getElementById('backText').innerText = c.backText;
         document.getElementById('productTitle').innerText = c.title;
         document.getElementById('aboutText').innerHTML = c.about;
+        document.getElementById('aboutTitle').innerText = c.aboutTitle;
+        document.getElementById('specsTitle').innerText = c.specsTitle;
+        document.getElementById('featuresTitle').innerText = c.featuresTitle;
+        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
+        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
+        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
+        document.getElementById('copyright').innerText = c.copyright;
         document.getElementById('whatsappText').innerText = c.whatsappBtn;
         document.getElementById('langText').innerText = c.langText;
         document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
-        
-        const specsList = document.getElementById('specsList');
-        specsList.innerHTML = '';
-        c.specs.forEach(spec => {
-            const li = document.createElement('li');
-            li.innerHTML = spec;
-            specsList.appendChild(li);
-        });
-        
+        buildSpecsTable(c.specs);
+        buildFeaturesList(c.features);
+        updateFooter(lang);
         loadGallery(galleryImages[lang]);
     }
     
