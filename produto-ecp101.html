@@ -15,7 +15,7 @@
         body.dark-theme .navbar { background: rgba(18, 22, 35, 0.98); backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
         body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; }
         body.dark-theme .navbar .nav-link:hover, body.dark-theme .navbar .nav-link.active { color: #3399ff !important; background: rgba(51, 153, 255, 0.12); }
-        body.dark-theme .product-info, body.dark-theme .specs-card { background: #141824; border: 1px solid #252a3a; }
+        body.dark-theme .product-info, body.dark-theme .specs-card, body.dark-theme .features-card, body.dark-theme .probe-table-container { background: #141824; border: 1px solid #252a3a; }
         :root { --primary: #0066cc; --primary-dark: #004c99; --gold: #ffaa33; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1e1f2c; border-radius: 10px; }
@@ -33,11 +33,18 @@
         .gallery-thumbs { flex: 1; display: flex; flex-wrap: wrap; gap: 15px; align-content: flex-start; }
         .gallery-thumbs img { width: calc(33% - 10px); border-radius: 16px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; background: #141824; padding: 5px; }
         .gallery-thumbs img:hover { border-color: var(--primary); transform: scale(1.05); }
-        .product-info, .specs-card { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
-        .product-info h3, .specs-card h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
-        .specs-list { list-style: none; padding-left: 0; }
-        .specs-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
-        .specs-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
+        .product-info, .specs-card, .features-card, .probe-table-container { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
+        .product-info h3, .specs-card h3, .features-card h3, .probe-table-container h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
+        .specs-table { width: 100%; border-collapse: collapse; }
+        .specs-table tr { border-bottom: 1px solid #252a3a; }
+        .specs-table td { padding: 12px 8px; vertical-align: top; }
+        .specs-table td:first-child { font-weight: 700; width: 35%; color: var(--primary); }
+        .probe-table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
+        .probe-table th, .probe-table td { border: 1px solid #252a3a; padding: 10px; text-align: left; font-size: 0.85rem; }
+        .probe-table th { background: #1a2340; color: var(--primary); font-weight: 700; }
+        .features-list { list-style: none; padding-left: 0; }
+        .features-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+        .features-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
         .whatsapp-btn { background: #25d366; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; text-decoration: none; margin-top: 20px; }
         .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; color: white; }
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; margin-bottom: 20px; transition: all 0.2s; }
@@ -51,7 +58,7 @@
         .contact-info a:hover { color: var(--primary); }
         .lang-toggle { background: rgba(0,102,204,0.15); border: 1px solid rgba(0,102,204,0.5); color: #e2e8f0; border-radius: 40px; padding: 6px 16px; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 1rem; transition: all 0.2s; }
         .lang-toggle:hover { background: var(--primary); border-color: var(--primary); color: white; }
-        @media (max-width: 768px) { .product-title { font-size: 1.8rem; } .gallery-thumbs img { width: calc(50% - 10px); } }
+        @media (max-width: 768px) { .product-title { font-size: 1.8rem; } .gallery-thumbs img { width: calc(50% - 10px); } .probe-table { font-size: 0.7rem; } }
     </style>
 </head>
 <body class="dark-theme">
@@ -93,13 +100,25 @@
         </div>
         
         <div class="product-info">
-            <h3 id="aboutTitle"><i class="bi bi-info-circle"></i> Sobre o Produto</h3>
-            <p id="aboutText">O ECP101 Series é um videoscópio industrial de bancada com tela de 10.1" HD touchscreen. Compatível com sondas flexíveis, borescopes rígidos e câmeras industriais, oferecendo uma solução completa para inspeções de alta precisão. Equipado com processador dual-core de 2.8GHz, proporciona processamento rápido de imagens e vídeos. Ideal para laboratórios, controle de qualidade e aplicações que exigem análise detalhada em tempo real.</p>
+            <h3><i class="bi bi-info-circle"></i> <span id="aboutTitle">Sobre o Produto</span></h3>
+            <p id="aboutText">O ECP101 Series é um videoscópio industrial de bancada com tela touchscreen HD de 10.1" e processador dual-core de 2.8GHz. Compatível com sondas flexíveis, borescopes rígidos e câmeras industriais. Ideal para laboratórios, controle de qualidade e aplicações que exigem análise detalhada em tempo real.</p>
         </div>
         
         <div class="specs-card">
-            <h3 id="specsTitle"><i class="bi bi-gear-wide-connected"></i> Especificações Técnicas</h3>
-            <ul class="specs-list" id="specsList"></ul>
+            <h3><i class="bi bi-gear-wide-connected"></i> <span id="specsTitle">Especificações do Videoscópio</span></h3>
+            <table class="specs-table" id="specsTable"></table>
+        </div>
+        
+        <div class="features-card">
+            <h3><i class="bi bi-star-fill"></i> <span id="featuresTitle">Características</span></h3>
+            <ul class="features-list" id="featuresList"></ul>
+        </div>
+        
+        <div class="probe-table-container">
+            <h3><i class="bi bi-phone"></i> <span id="probeTitle">Especificações das Sondas</span></h3>
+            <div style="overflow-x: auto;">
+                <table class="probe-table" id="probeTable"></table>
+            </div>
         </div>
         
         <div style="text-align: center;">
@@ -114,9 +133,16 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Produtos Premium</div><ul class="footer-links"><li>ET65 Series</li><li>ECT40 Series</li><li>ES60 Series</li><li>ECP101 Series</li><li>TPC80 Series</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Setores atendidos</div><ul class="footer-links"><li>Aeroespacial & Defesa</li><li>Energia e Petróleo</li><li>Automotivo & Transporte</li><li>Manutenção preditiva</li><li>Militar e Segurança</li></ul></div>
-                <div class="col-md-6 col-lg-4 mb-4"><div class="footer-title">Contato Comercial</div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerProdTitle">Produtos Premium</div>
+                    <ul class="footer-links" id="footerLinksList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerSectorsTitle">Setores atendidos</div>
+                    <ul class="footer-links" id="footerSectorsList"></ul>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="footer-title" id="footerContactTitle">Contato Comercial</div>
                     <div class="contact-info"><i class="bi bi-person-circle"></i> Bruno Yokomizo</div>
                     <div class="contact-info"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/5547988202757">+55 47 98820-2757</a></div>
                     <div class="contact-info"><i class="bi bi-envelope-fill"></i> <a href="mailto:yokomizobruno@gmail.com">yokomizobruno@gmail.com</a></div>
@@ -125,7 +151,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom"><div class="container">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
+    <div class="footer-bottom"><div class="container" id="copyright">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
 </footer>
 
 <script>
@@ -138,19 +164,69 @@
         en: ["https://i.postimg.cc/rm8FCRrb/1-4-ecp101-series-hd-desktop-industrial-videoscope-img01b.jpg", "https://i.postimg.cc/1t95cVq2/1-4-ecp101-series-hd-desktop-industrial-videoscope-img02b.jpg", "https://i.postimg.cc/RFMVQJHb/1-4-ecp101-series-hd-desktop-industrial-videoscope-img03b.jpg"]
     };
     
+    const footerProducts = {
+        pt: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Endoscópio Veterinário"],
+        en: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Veterinary Endoscope"]
+    };
+    
+    const footerSectors = {
+        pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
+        en: ["Aerospace & Defense", "Energy & Oil", "Automotive & Transport", "General Manufacturing", "Predictive Maintenance", "Military & Security", "Veterinary", "Piping & Sanitation"]
+    };
+    
     const content = {
         pt: {
             backText: "Voltar para produtos",
             title: "ECP101 Series - Videoscópio Desktop HD",
-            about: "O ECP101 Series é um videoscópio industrial de bancada com tela de 10.1\" HD touchscreen. Compatível com sondas flexíveis, borescopes rígidos e câmeras industriais, oferecendo uma solução completa para inspeções de alta precisão. Equipado com processador dual-core de 2.8GHz, proporciona processamento rápido de imagens e vídeos. Ideal para laboratórios, controle de qualidade e aplicações que exigem análise detalhada em tempo real.",
+            about: "O ECP101 Series é um videoscópio industrial de bancada com tela touchscreen HD de 10.1\" e processador dual-core de 2.8GHz. Compatível com sondas flexíveis, borescopes rígidos e câmeras industriais. Ideal para laboratórios, controle de qualidade e aplicações que exigem análise detalhada em tempo real.",
+            aboutTitle: "Sobre o Produto",
+            specsTitle: "Especificações do Videoscópio",
+            featuresTitle: "Características",
+            probeTitle: "Especificações das Sondas",
+            footerProdTitle: "Produtos Premium",
+            footerSectorsTitle: "Setores atendidos",
+            footerContactTitle: "Contato Comercial",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolução:</strong> 1MP / 2MP (megapixels)',
-                '<i class="bi bi-cpu"></i> <strong>Processador:</strong> Dual-core 2.8GHz',
-                '<i class="bi bi-display"></i> <strong>Tela:</strong> Touchscreen HD 10.1"',
-                '<i class="bi bi-phone"></i> <strong>Compatibilidade:</strong> Sondas flexíveis, borescopes rígidos, câmeras industriais',
-                '<i class="bi bi-brightness-high"></i> <strong>Iluminação:</strong> LED ajustável',
-                '<i class="bi bi-battery-full"></i> <strong>Alimentação:</strong> AC 110-240V',
-                '<i class="bi bi-usb"></i> <strong>Saídas:</strong> HDMI, USB, SD Card, Ethernet'
+                { label: "Estrutura", value: "Tela HD touchscreen 10.1\" com CPU/GPU dual-core 2.8GHz" },
+                { label: "Sonda", value: "Suporte sonda flexível/borescope rígido/fiberscope com diferentes diâmetros" },
+                { label: "Tamanho da Tela", value: "10.1\" HD touch screen" },
+                { label: "Resolução da Tela", value: "1080P HD" },
+                { label: "Material da Sonda", value: "Malha trançada de tungstênio com revestimento impermeável" },
+                { label: "Saída de Vídeo", value: "HDMI / WiFi / Bluetooth" },
+                { label: "Saída de Áudio", value: "Fone 3.5mm, gravação vídeo/áudio" },
+                { label: "Grau de Proteção", value: "IP67 à prova d'água" },
+                { label: "Articulação", value: "Articulação mecânica 4 vias 360°" },
+                { label: "Fonte de Luz", value: "Branca/IV/UV (opcional)" },
+                { label: "Bateria", value: "Duas baterias de íon-lítio 18650 recarregáveis, suporte AC" },
+                { label: "Armazenamento", value: "Suporte U-disk externo, memória interna 1GB" },
+                { label: "Idiomas", value: "Suporte a 19 idiomas" },
+                { label: "Dimensões", value: "370×265×70 mm" },
+                { label: "Peso Total", value: "2.1kg (com bateria)" },
+                { label: "Interface", value: "USB3.0*2, USB2.0*1, HDMI, fone 3.5mm, WiFi & Bluetooth" }
+            ],
+            features: [
+                "Tela touchscreen 10.1\" 1080P HD com processador CPU/GPU dual-core 2.8GHz",
+                "Unidade de controle de videoscópio com entrada de câmera dupla, compatível com vários dispositivos de inspeção",
+                "Suporta bateria de íon-lítio e fonte de alimentação DC, com ajustes de balanço de branco, cor, exposição e nitidez",
+                "Suporte a medição 3D estereoscópica, impressão de relatórios e redimensionamento de imagem",
+                "Sistema operacional multitarefa em tempo real (entrada de vídeo dupla)"
+            ],
+            probeHeaders: ["Diâmetro (Sonda Flexível)", "Visão", "Pixel", "FOV", "DOF", "Comprimento", "Articulação", "Iluminação"],
+            probeData: [
+                ["1.2mm/1.5mm", "Frontal", "160.000 pixels", "120°", "5-100mm", "600mm-1m", "Não", "Fibra óptica"],
+                ["2.0mm/2.4mm", "Frontal", "160.000 / 1MP", "120°", "5-100mm", "1m", "180°", "Fibra óptica"],
+                ["2.8mm", "Frontal", "160.000 / 1MP", "120°", "5-100mm", "1-1.5m", "360°", "Fibra óptica"],
+                ["3.9mm", "Frontal/Lateral/Dupla", "2MP", "120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/fibra óptica"],
+                ["6.0mm", "Frontal/Lateral/Dupla", "2MP", "90°/120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/fibra óptica"]
+            ],
+            rigidHeaders: ["Diâmetro (Endoscópio Rígido)", "Ângulo de Visão"],
+            rigidData: [
+                ["8.0mm/6.0mm", "0° frontal / 30° lateral / 70° lateral / 90° lateral"],
+                ["4.0mm/3.0mm/2.7mm", "Frontal / Lateral"],
+                ["1.8mm", "Frontal"],
+                ["0.75mm", "Frontal"],
+                ["0.5mm", "Frontal"]
             ],
             whatsappMsg: "Olá, gostaria de saber mais sobre o ECP101 Series - Videoscópio Desktop HD. Poderia me enviar mais informações e um orçamento?",
             whatsappBtn: "Solicitar Orçamento via WhatsApp",
@@ -159,15 +235,55 @@
         en: {
             backText: "Back to products",
             title: "ECP101 Series - HD Desktop Videoscope",
-            about: "The ECP101 Series is a benchtop industrial videoscope with a 10.1\" HD touchscreen. Compatible with flexible probes, rigid borescopes, and industrial cameras, offering a complete solution for high-precision inspections. Equipped with a 2.8GHz dual-core processor, it provides fast image and video processing. Ideal for laboratories, quality control, and applications requiring detailed real-time analysis.",
+            about: "The ECP101 Series is a benchtop industrial videoscope with a 10.1\" HD touchscreen and 2.8GHz dual-core processor. Compatible with flexible probes, rigid borescopes, and industrial cameras. Ideal for laboratories, quality control, and applications requiring detailed real-time analysis.",
+            aboutTitle: "About the Product",
+            specsTitle: "Videoscope Specifications",
+            featuresTitle: "Features",
+            probeTitle: "Probe Specifications",
+            footerProdTitle: "Premium Products",
+            footerSectorsTitle: "Industries Served",
+            footerContactTitle: "Commercial Contact",
+            copyright: "© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision",
             specs: [
-                '<i class="bi bi-camera"></i> <strong>Resolution:</strong> 1MP / 2MP (megapixels)',
-                '<i class="bi bi-cpu"></i> <strong>Processor:</strong> 2.8GHz Dual-core',
-                '<i class="bi bi-display"></i> <strong>Display:</strong> 10.1" HD Touchscreen',
-                '<i class="bi bi-phone"></i> <strong>Compatibility:</strong> Flexible probes, rigid borescopes, industrial cameras',
-                '<i class="bi bi-brightness-high"></i> <strong>Lighting:</strong> Adjustable LED',
-                '<i class="bi bi-battery-full"></i> <strong>Power Supply:</strong> AC 110-240V',
-                '<i class="bi bi-usb"></i> <strong>Outputs:</strong> HDMI, USB, SD Card, Ethernet'
+                { label: "Structure", value: "10.1\" HD touch screen with dual-core 2.8GHz CPU/GPU" },
+                { label: "Probe", value: "Support hose probe/rigid borescope/fiberscope with different diameters" },
+                { label: "Display Size", value: "10.1-inch HD touch screen" },
+                { label: "Screen Resolution", value: "1080P HD" },
+                { label: "Probe Material", value: "Tungsten braided probe with waterproof coating" },
+                { label: "Video Output", value: "HDMI / WiFi / Bluetooth" },
+                { label: "Audio Output", value: "3.5mm headset, video & audio recording" },
+                { label: "IP Rating", value: "IP67 waterproof" },
+                { label: "Articulation", value: "4-way 360° mechanical articulation" },
+                { label: "Light Source", value: "White/IR/UV (optional)" },
+                { label: "Battery", value: "Two rechargeable 18650 lithium-ion batteries, support AC adapter" },
+                { label: "Storage", value: "Support external U disk, with 1GB internal memory" },
+                { label: "Languages", value: "Supports 19 languages" },
+                { label: "Dimensions", value: "370×265×70 mm" },
+                { label: "Total Weight", value: "2.1kg (battery included)" },
+                { label: "Interface", value: "USB3.0*2, USB2.0*1, HDMI, 3.5mm headset, WiFi & Bluetooth" }
+            ],
+            features: [
+                "10.1-inch 1080P HD touchscreen with a 2.8GHz dual-core CPU/GPU processor",
+                "Dual camera input videoscope control unit, compatible with varies range of inspection devices",
+                "Supports both Li-ion battery and DC power supply, along with image white balance, color, exposure and sharpness adjustments",
+                "Supports 3D stereoscopic measuring, report printing, and image resizing (zoom in/out)",
+                "Real-time multitasking operation system (dual video input)"
+            ],
+            probeHeaders: ["Hose Probe Diameter", "View", "Pixel", "FOV", "DOF", "Length", "Articulation", "Light"],
+            probeData: [
+                ["1.2mm/1.5mm", "Forward", "160,000 pixels", "120°", "5-100mm", "600mm-1m", "No", "Optical fiber"],
+                ["2.0mm/2.4mm", "Forward", "160,000 / 1MP", "120°", "5-100mm", "1m", "180°", "Optical fiber"],
+                ["2.8mm", "Forward", "160,000 / 1MP", "120°", "5-100mm", "1-1.5m", "360°", "Optical fiber"],
+                ["3.9mm", "Forward/Side/Dual", "2MP", "120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/optical fiber"],
+                ["6.0mm", "Forward/Side/Dual", "2MP", "90°/120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/optical fiber"]
+            ],
+            rigidHeaders: ["Rigid Endoscope Diameter", "View Angle"],
+            rigidData: [
+                ["8.0mm/6.0mm", "0° forward /30° side /70° side /90° side"],
+                ["4.0mm/3.0mm/2.7mm", "Forward / Side"],
+                ["1.8mm", "Forward"],
+                ["0.75mm", "Forward"],
+                ["0.5mm", "Forward"]
             ],
             whatsappMsg: "Hello, I would like to know more about the ECP101 Series - HD Desktop Videoscope. Could you send me more information and a quote?",
             whatsappBtn: "Request Quote via WhatsApp",
@@ -188,23 +304,64 @@
         });
     }
     
+    function buildSpecsTable(specs) {
+        const table = document.getElementById('specsTable');
+        table.innerHTML = '';
+        specs.forEach(spec => {
+            const row = table.insertRow();
+            row.insertCell(0).innerHTML = spec.label;
+            row.insertCell(1).innerHTML = spec.value;
+        });
+    }
+    
+    function buildFeaturesList(features) {
+        const list = document.getElementById('featuresList');
+        list.innerHTML = '';
+        features.forEach(f => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${f}`;
+            list.appendChild(li);
+        });
+    }
+    
+    function buildProbeTable(headers, data) {
+        const table = document.getElementById('probeTable');
+        table.innerHTML = '';
+        const thead = table.createTHead();
+        const headerRow = thead.insertRow();
+        headers.forEach(h => { const th = document.createElement('th'); th.textContent = h; headerRow.appendChild(th); });
+        const tbody = table.createTBody();
+        data.forEach(row => {
+            const tr = tbody.insertRow();
+            row.forEach(cell => { const td = tr.insertCell(); td.textContent = cell; });
+        });
+    }
+    
+    function updateFooter(lang) {
+        document.getElementById('footerLinksList').innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+        document.getElementById('footerSectorsList').innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+    }
+    
     function applyLanguage(lang) {
         const c = content[lang];
         document.getElementById('backText').innerText = c.backText;
         document.getElementById('productTitle').innerText = c.title;
         document.getElementById('aboutText').innerHTML = c.about;
+        document.getElementById('aboutTitle').innerText = c.aboutTitle;
+        document.getElementById('specsTitle').innerText = c.specsTitle;
+        document.getElementById('featuresTitle').innerText = c.featuresTitle;
+        document.getElementById('probeTitle').innerText = c.probeTitle;
+        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
+        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
+        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
+        document.getElementById('copyright').innerText = c.copyright;
         document.getElementById('whatsappText').innerText = c.whatsappBtn;
         document.getElementById('langText').innerText = c.langText;
         document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
-        
-        const specsList = document.getElementById('specsList');
-        specsList.innerHTML = '';
-        c.specs.forEach(spec => {
-            const li = document.createElement('li');
-            li.innerHTML = spec;
-            specsList.appendChild(li);
-        });
-        
+        buildSpecsTable(c.specs);
+        buildFeaturesList(c.features);
+        buildProbeTable(c.probeHeaders, c.probeData);
+        updateFooter(lang);
         loadGallery(galleryImages[lang]);
     }
     
