@@ -58,24 +58,60 @@
             padding-top: 80px;
             overflow: hidden;
         }
+        /* Logo de fundo na hero section - MAIS NÍTIDA, MAIOR, DESLOCADA PARA DIREITA */
         .hero-bg-logo {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            right: 5%;
+            transform: translateY(-50%);
             width: 55%;
             max-width: 650px;
-            opacity: 0.28;
+            opacity: 0.35;
             z-index: 1;
             pointer-events: none;
-            filter: drop-shadow(0 0 30px rgba(0,102,204,0.5)) brightness(1.2) contrast(1.15);
+            filter: drop-shadow(0 0 30px rgba(0,102,204,0.5)) brightness(1.15) contrast(1.1);
+            transition: all 0.3s ease;
         }
-        .hero-content { position: relative; z-index: 5; }
-        .hero-title { font-size: 3.8rem; font-weight: 800; background: linear-gradient(135deg, #fff, #aaccff, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease-out; }
-        .hero-subtitle { color: #b9c3d4; font-size: 1.2rem; margin-bottom: 2rem; animation: fadeInUp 0.8s ease-out 0.1s backwards; }
-        .btn-primary-custom { background: var(--primary); border: none; padding: 12px 32px; border-radius: 40px; font-weight: 700; color: white; box-shadow: 0 8px 18px rgba(0, 102, 204, 0.45); transition: all 0.3s; display: inline-block; animation: fadeInUp 0.8s ease-out 0.2s backwards; }
+        .hero-content {
+            position: relative;
+            z-index: 5;
+        }
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #aaccff, var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-subtitle {
+            color: #b9c3d4;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+        }
+        .btn-primary-custom {
+            background: var(--primary);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 8px 18px rgba(0, 102, 204, 0.45);
+            transition: all 0.3s;
+            display: inline-block;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
         .btn-primary-custom:hover { background: var(--primary-dark); transform: translateY(-3px); color: white; }
-        .hero-stats { margin-top: 3rem; display: flex; gap: 2.5rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease-out 0.3s backwards; }
+        .hero-stats {
+            margin-top: 3rem;
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
         .stat-item h3 { color: var(--primary); font-size: 2rem; font-weight: 800; margin-bottom: 0; }
         .stat-item p { color: #94a3b8; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -96,16 +132,26 @@
         .product-link:hover { gap: 12px; color: #66b5ff; }
         .about-section { display: flex; flex-wrap: wrap; background: linear-gradient(135deg, #002a5e 0%, #00122e 40%, #03050c 100%); color: #fff; position: relative; z-index: 2; opacity: 0; transform: translateX(-50px); transition: all 0.9s; }
         .about-section.animate-in { opacity: 1; transform: translateX(0); }
-        .about-left { flex: 1.2; background: linear-gradient(115deg, rgba(0,44,80,0.6), rgba(0,0,0,0.7)), url('https://i.postimg.cc/bNtqFwsK/BMC-Logo-1.png') center/cover no-repeat; min-height: 450px; display: flex; align-items: center; justify-content: center; padding: 40px; }
-        .about-left h2 { font-size: 2rem; font-weight: 800; background: rgba(0,0,0,0.7); backdrop-filter: blur(12px); padding: 28px 36px; border-radius: 48px; border-left: 6px solid var(--primary); }
+        .about-left { 
+            flex: 1.2; 
+            background: linear-gradient(115deg, rgba(0,44,80,0.6), rgba(0,0,0,0.7));
+            min-height: 450px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 40px; 
+        }
+        .about-left h2 { 
+            font-size: 2rem; 
+            font-weight: 800; 
+            background: rgba(0,0,0,0.7); 
+            backdrop-filter: blur(12px); 
+            padding: 28px 36px; 
+            border-radius: 48px; 
+            border-left: 6px solid var(--primary); 
+        }
         .about-right { flex: 1; background: rgba(8, 10, 20, 0.9); padding: 60px 48px; }
-        .about-list { list-style: none; padding-left: 0; }
-        .about-list li { margin-bottom: 12px; display: flex; align-items: baseline; gap: 12px; color: #e2e8f0; opacity: 0; transform: translateX(-20px); transition: all 0.4s ease; }
-        .about-section.animate-in .about-list li:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateX(0); }
-        .about-section.animate-in .about-list li:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateX(0); }
-        .about-section.animate-in .about-list li:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateX(0); }
-        .about-section.animate-in .about-list li:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateX(0); }
-        .about-list li:before { content: "◆"; color: var(--primary); }
+        .about-text { line-height: 1.7; margin-bottom: 1.5rem; color: #e2e8f0; }
         .faq-section { padding: 100px 0; background: #0f111a; z-index: 2; position: relative; }
         .accordion-item { background: #141824; border: 1px solid #252a3a; margin-bottom: 16px; border-radius: 20px; overflow: hidden; opacity: 0; transform: translateY(30px); transition: all 0.6s; }
         .accordion-item.animate-in { opacity: 1; transform: translateY(0); }
@@ -130,8 +176,16 @@
         .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: linear-gradient(90deg, var(--primary), #3399ff); z-index: 1001; transition: width 0.1s ease; }
         .lang-toggle { background: rgba(0,102,204,0.15); border: 1px solid rgba(0,102,204,0.5); color: #e2e8f0; border-radius: 40px; padding: 6px 16px; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 1rem; transition: all 0.2s; }
         .lang-toggle:hover { background: var(--primary); border-color: var(--primary); color: white; }
-        @media (max-width: 992px) { .hero-title { font-size: 2.5rem; } .about-left, .about-right { flex: auto; width: 100%; } .logo-text { font-size: 1.3rem; } .lang-toggle { margin: 10px 0 0 0; } .hero-bg-logo { width: 75%; opacity: 0.2; } }
-        @media (min-width: 1400px) { .hero-bg-logo { width: 45%; max-width: 550px; opacity: 0.32; } }
+        @media (max-width: 992px) { 
+            .hero-title { font-size: 2.5rem; } 
+            .about-left, .about-right { flex: auto; width: 100%; } 
+            .logo-text { font-size: 1.3rem; } 
+            .lang-toggle { margin: 10px 0 0 0; } 
+            .hero-bg-logo { width: 80%; right: -10%; opacity: 0.15; }
+        }
+        @media (min-width: 1400px) {
+            .hero-bg-logo { width: 45%; right: 2%; opacity: 0.4; }
+        }
     </style>
 </head>
 <body class="dark-theme">
@@ -192,15 +246,13 @@
 </section>
 
 <section id="about" class="about-section">
-    <div class="about-left"><h2 data-key="about_left_title">Fabricante global com mais de 12 anos de expertise</h2></div>
+    <div class="about-left"><h2 data-key="about_left_title">BMC Tecnologia Industrial</h2></div>
     <div class="about-right">
-        <p data-key="about_text">A BMC INDUSTRIAL TECH combina P&D avançado, mais de 40 patentes e soluções completas em END. Nossos videoscópios são referência em precisão e durabilidade para as indústrias mais exigentes do mundo.</p>
-        <ul class="about-list">
-            <li data-key="about_item1">Sensor de imagem proprietário com cores fiéis e baixa latência</li>
-            <li data-key="about_item2">Articulação eletrônica com controle joystick de alta precisão</li>
-            <li data-key="about_item3">Sondas intercambiáveis desde 0.78mm até 6.5mm</li>
-            <li data-key="about_item4">Garantia estendida e suporte técnico local especializado</li>
-        </ul>
+        <p class="about-text" data-key="about_text1">A BMC Tecnologia Industrial é uma empresa dedicada ao fornecimento de soluções avançadas para inspeção visual industrial, atendendo às demandas de diferentes setores que exigem precisão, confiabilidade e desempenho.</p>
+        <p class="about-text" data-key="about_text2">Especializada em equipamentos de inspeção interna, como boroscópios e videoscópios, a BMC oferece tecnologias que permitem a análise detalhada de componentes e sistemas de difícil acesso, contribuindo para a integridade operacional e a tomada de decisão baseada em dados.</p>
+        <p class="about-text" data-key="about_text3">Em colaboração com fabricantes internacionais, a empresa disponibiliza soluções tecnológicas consolidadas, aliadas a suporte técnico local e atendimento especializado. Esse modelo permite à BMC oferecer aos seus clientes acesso a equipamentos de alta qualidade com agilidade, eficiência e proximidade.</p>
+        <p class="about-text" data-key="about_text4">Além do fornecimento de equipamentos, a BMC Tecnologia Industrial também atua na manutenção, suporte técnico e orientação aplicada, assegurando o desempenho contínuo dos sistemas de inspeção ao longo de seu ciclo de vida.</p>
+        <p class="about-text" data-key="about_text5">Comprometida com a excelência técnica, a BMC busca continuamente aprimorar seus processos e soluções, contribuindo para a segurança, confiabilidade e eficiência das operações industriais.</p>
     </div>
 </section>
 
@@ -367,14 +419,36 @@
         document.querySelectorAll('.product-card').forEach(el => observer.observe(el)); 
     }
     
+    // Dados para o rodapé
+    const footerSectors = {
+        pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
+        en: ["Aerospace & Defense", "Energy & Oil", "Automotive & Transport", "General Manufacturing", "Predictive Maintenance", "Military & Security", "Veterinary", "Piping & Sanitation"]
+    };
+    
+    const footerProducts = {
+        pt: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Endoscópio Veterinário"],
+        en: ["ET65 Series", "ECT40 Series", "ES60 Series", "ECP101 Series", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80 Series", "ES078 Series", "Veterinary Endoscope"]
+    };
+    
+    function updateFooter(lang) {
+        const sectorsList = document.getElementById('footerSectorsList');
+        const productsList = document.getElementById('footerLinksList');
+        if (sectorsList) sectorsList.innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+        if (productsList) productsList.innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+    }
+    
     const translations = { 
         pt: { 
             nav_home:"Início", nav_products:"Produtos", nav_about:"Sobre", nav_faq:"FAQ", nav_contact:"Contato", 
             hero_title:"Videoscópios Industriais<br>Alta Definição e Precisão 4K", hero_sub:"Soluções em inspeção visual com tecnologia 3D, articulação 360° e inteligência integrada.", hero_btn:"Explorar produtos →", 
             stat1_val:"+12", stat1_txt:"Anos de experiência", stat2_val:"+50", stat2_txt:"Países atendidos", stat3_val:"+1000", stat3_txt:"Clientes satisfeitos", 
             products_title:"Videoscópios e Endoscópios Industriais", products_sub:"Ferramentas essenciais para Ensaios Não Destrutivos (END) - Alta resolução 1080P, sondas desde 0.78mm até 6.5mm", 
-            about_left_title:"Fabricante global com mais de 12 anos de expertise", about_text:"A BMC INDUSTRIAL TECH combina P&D avançado, mais de 40 patentes e soluções completas em END. Nossos videoscópios são referência em precisão e durabilidade para as indústrias mais exigentes do mundo.", 
-            about_item1:"Sensor de imagem proprietário com cores fiéis e baixa latência", about_item2:"Articulação eletrônica com controle joystick de alta precisão", about_item3:"Sondas intercambiáveis desde 0.78mm até 6.5mm", about_item4:"Garantia estendida e suporte técnico local especializado", 
+            about_left_title:"BMC Tecnologia Industrial",
+            about_text1:"A BMC Tecnologia Industrial é uma empresa dedicada ao fornecimento de soluções avançadas para inspeção visual industrial, atendendo às demandas de diferentes setores que exigem precisão, confiabilidade e desempenho.",
+            about_text2:"Especializada em equipamentos de inspeção interna, como boroscópios e videoscópios, a BMC oferece tecnologias que permitem a análise detalhada de componentes e sistemas de difícil acesso, contribuindo para a integridade operacional e a tomada de decisão baseada em dados.",
+            about_text3:"Em colaboração com fabricantes internacionais, a empresa disponibiliza soluções tecnológicas consolidadas, aliadas a suporte técnico local e atendimento especializado. Esse modelo permite à BMC oferecer aos seus clientes acesso a equipamentos de alta qualidade com agilidade, eficiência e proximidade.",
+            about_text4:"Além do fornecimento de equipamentos, a BMC Tecnologia Industrial também atua na manutenção, suporte técnico e orientação aplicada, assegurando o desempenho contínuo dos sistemas de inspeção ao longo de seu ciclo de vida.",
+            about_text5:"Comprometida com a excelência técnica, a BMC busca continuamente aprimorar seus processos e soluções, contribuindo para a segurança, confiabilidade e eficiência das operações industriais.",
             faq_title:"Perguntas Frequentes", 
             faq1_q:"Como escolher o videoscópio ideal?", faq1_a:"A escolha depende do diâmetro da sonda, comprimento, resolução e tipo de articulação. Oferecemos opções desde 0.78mm até 6.5mm, com articulação mecânica ou motorizada 360°.",
             faq2_q:"Quais são as especificações técnicas da sonda?", faq2_a:"Diâmetros disponíveis: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolução: até 2MP (1600x1200).",
@@ -388,15 +462,19 @@
             hero_title:"Industrial Videoscopes<br>High Definition & 4K Precision", hero_sub:"Visual inspection solutions with 3D technology, 360° articulation and integrated intelligence.", hero_btn:"Explore products →", 
             stat1_val:"+12", stat1_txt:"Years of experience", stat2_val:"+50", stat2_txt:"Countries served", stat3_val:"+1000", stat3_txt:"Satisfied clients", 
             products_title:"Industrial Videoscopes & Endoscopes", products_sub:"Essential tools for Non-Destructive Testing (NDT) - High resolution 1080P, probes from 0.78mm to 6.5mm", 
-            about_left_title:"Global manufacturer with over 12 years of expertise", about_text:"BMC INDUSTRIAL TECH combines advanced R&D, over 40 patents and complete NDT solutions. Our videoscopes are a benchmark in precision and durability for the most demanding industries worldwide.", 
-            about_item1:"Proprietary image sensor with true colors and low latency", about_item2:"Electronic articulation with high-precision joystick control", about_item3:"Interchangeable probes from 0.78mm to 6.5mm", about_item4:"Extended warranty and specialized local technical support", 
+            about_left_title:"BMC Industrial Technology",
+            about_text1:"BMC Industrial Technology is a company dedicated to providing advanced solutions for industrial visual inspection, serving a wide range of sectors that require precision, reliability, and performance.",
+            about_text2:"Specializing in internal inspection equipment such as borescopes and videoscopes, BMC offers technologies that enable detailed analysis of components and systems in hard-to-reach areas, supporting operational integrity and data-driven decision-making.",
+            about_text3:"In collaboration with international manufacturers, the company delivers proven technological solutions combined with local technical support and specialized service. This approach allows BMC to provide high-quality equipment with efficiency, responsiveness, and close customer support.",
+            about_text4:"In addition to equipment supply, BMC Industrial Technology also provides maintenance, technical support, and applied guidance, ensuring the continuous performance of inspection systems throughout their lifecycle.",
+            about_text5:"Committed to technical excellence, BMC continuously strives to improve its processes and solutions, contributing to the safety, reliability, and efficiency of industrial operations.",
             faq_title:"Frequently Asked Questions", 
             faq1_q:"How to choose the ideal videoscope?", faq1_a:"The choice depends on probe diameter, length, resolution and articulation type. We offer options from 0.78mm to 6.5mm, with mechanical or motorized 360° articulation.",
             faq2_q:"What are the technical specifications of the probe?", faq2_a:"Available diameters: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolution: up to 2MP (1600x1200).",
             faq3_q:"Do you offer customization?", faq3_a:"Yes! We customize screen size, articulation type, wireless transmission modules and interchangeable probes.",
             faq4_q:"What is the delivery time?", faq4_a:"Standard equipment delivery is 15 to 30 business days. Customized equipment may take 30 to 60 business days.",
             faq5_q:"Do the equipment have warranty?", faq5_a:"Yes, all our videoscopes have a 12-month warranty against manufacturing defects.",
-            footer_prod_title:"Premium Products", footer_sectors:"Industries served", footer_contact_title:"Commercial Contact", copyright:"© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision" 
+            footer_prod_title:"Premium Products", footer_sectors:"Industries Served", footer_contact_title:"Commercial Contact", copyright:"© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision" 
         } 
     };
     
@@ -409,6 +487,7 @@
             if(t[key]) el.innerHTML = t[key]; 
         }); 
         document.getElementById('langText').innerText = lang === 'pt' ? 'PT-BR' : 'EN-US'; 
+        updateFooter(lang);
         renderProducts(); 
     }
     
@@ -423,11 +502,6 @@
     window.addEventListener('scroll', () => { const winScroll = window.scrollY; const height = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.width = (winScroll / height) * 100 + "%"; document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400); });
     document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     setTimeout(() => { document.querySelectorAll('.product-card, .about-section, .accordion-item, .footer').forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('animate-in'); }); }, 200);
-    
-    const sectors = { pt: ["Aeroespacial & Defesa","Energia e Petróleo","Automotivo & Transporte","Fabricação geral","Manutenção preditiva","Militar e Segurança","Veterinário","Saneamento e Tubulações"], en: ["Aerospace & Defense","Energy & Oil","Automotive & Transport","General Manufacturing","Predictive Maintenance","Military & Security","Veterinary","Piping & Sanitation"] };
-    const premiumProds = { pt: ["ET65 Series","ECT40 Series","ES60 Series","ECP101 Series","ET39-IR","EC60-IR","ES60-IR","TPC80 Series"], en: ["ET65 Series","ECT40 Series","ES60 Series","ECP101 Series","ET39-IR","EC60-IR","ES60-IR","TPC80 Series"] };
-    function updateFooterLang(lang) { document.getElementById('footerSectorsList').innerHTML = sectors[lang].map(s => `<li><span>${s}</span></li>`).join(''); document.getElementById('footerLinksList').innerHTML = premiumProds[lang].map(p => `<li><span>${p}</span></li>`).join(''); }
-    updateFooterLang(savedLang);
 </script>
 </body>
 </html>
