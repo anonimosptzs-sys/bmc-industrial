@@ -164,11 +164,11 @@
         en: ["https://i.postimg.cc/sXVD9GW1/1-2-ect40-series-hd-industrial-videoscope-img01b.jpg", "https://i.postimg.cc/76xYMJz6/1-2-ect40-series-hd-industrial-videoscope-img02b.jpg", "https://i.postimg.cc/KzZvr3Tv/1-2-ect40-series-hd-industrial-videoscope-img03b.jpg"]
     };
     
+    // Dados para o rodapé (corrigido: remoção da duplicação e sintaxe incorreta)
     const footerProducts = {
- const footerProducts = {
-    pt: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80", "ES078", "Endoscópio Veterinário"],
-    en: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80", "ES078", "Veterinary Endoscope"]
- };
+        pt: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80", "ES078", "Endoscópio Veterinário"],
+        en: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80", "ES078", "Veterinary Endoscope"]
+    };
     
     const footerSectors = {
         pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
@@ -278,6 +278,7 @@
     
     function loadGallery(images) {
         const container = document.getElementById('galleryThumbs');
+        if (!container) return;
         container.innerHTML = '';
         images.forEach(img => {
             const thumb = document.createElement('img');
@@ -289,6 +290,7 @@
     
     function buildSpecsTable(specs) {
         const table = document.getElementById('specsTable');
+        if (!table) return;
         table.innerHTML = '';
         specs.forEach(spec => {
             const row = table.insertRow();
@@ -299,6 +301,7 @@
     
     function buildFeaturesList(features) {
         const list = document.getElementById('featuresList');
+        if (!list) return;
         list.innerHTML = '';
         features.forEach(f => {
             const li = document.createElement('li');
@@ -309,6 +312,7 @@
     
     function buildProbeTable(headers, data) {
         const table = document.getElementById('probeTable');
+        if (!table) return;
         table.innerHTML = '';
         const thead = table.createTHead();
         const headerRow = thead.insertRow();
@@ -321,40 +325,68 @@
     }
     
     function updateFooter(lang) {
-        document.getElementById('footerLinksList').innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
-        document.getElementById('footerSectorsList').innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+        const footerLinksList = document.getElementById('footerLinksList');
+        const footerSectorsList = document.getElementById('footerSectorsList');
+        if (footerLinksList) {
+            footerLinksList.innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+        }
+        if (footerSectorsList) {
+            footerSectorsList.innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+        }
     }
     
     function applyLanguage(lang) {
         const c = content[lang];
-        document.getElementById('backText').innerText = c.backText;
-        document.getElementById('productTitle').innerText = c.title;
-        document.getElementById('aboutText').innerHTML = c.about;
-        document.getElementById('aboutTitle').innerText = c.aboutTitle;
-        document.getElementById('specsTitle').innerText = c.specsTitle;
-        document.getElementById('featuresTitle').innerText = c.featuresTitle;
-        document.getElementById('probeTitle').innerText = c.probeTitle;
-        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
-        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
-        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
-        document.getElementById('copyright').innerText = c.copyright;
-        document.getElementById('whatsappText').innerText = c.whatsappBtn;
-        document.getElementById('langText').innerText = c.langText;
-        document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
+        if (!c) return;
+        
+        // Textos principais
+        const backTextEl = document.getElementById('backText');
+        if (backTextEl) backTextEl.innerText = c.backText;
+        const productTitleEl = document.getElementById('productTitle');
+        if (productTitleEl) productTitleEl.innerText = c.title;
+        const aboutTextEl = document.getElementById('aboutText');
+        if (aboutTextEl) aboutTextEl.innerHTML = c.about;
+        const aboutTitleEl = document.getElementById('aboutTitle');
+        if (aboutTitleEl) aboutTitleEl.innerText = c.aboutTitle;
+        const specsTitleEl = document.getElementById('specsTitle');
+        if (specsTitleEl) specsTitleEl.innerText = c.specsTitle;
+        const featuresTitleEl = document.getElementById('featuresTitle');
+        if (featuresTitleEl) featuresTitleEl.innerText = c.featuresTitle;
+        const probeTitleEl = document.getElementById('probeTitle');
+        if (probeTitleEl) probeTitleEl.innerText = c.probeTitle;
+        const footerProdTitleEl = document.getElementById('footerProdTitle');
+        if (footerProdTitleEl) footerProdTitleEl.innerText = c.footerProdTitle;
+        const footerSectorsTitleEl = document.getElementById('footerSectorsTitle');
+        if (footerSectorsTitleEl) footerSectorsTitleEl.innerText = c.footerSectorsTitle;
+        const footerContactTitleEl = document.getElementById('footerContactTitle');
+        if (footerContactTitleEl) footerContactTitleEl.innerText = c.footerContactTitle;
+        const copyrightEl = document.getElementById('copyright');
+        if (copyrightEl) copyrightEl.innerText = c.copyright;
+        const whatsappTextEl = document.getElementById('whatsappText');
+        if (whatsappTextEl) whatsappTextEl.innerText = c.whatsappBtn;
+        const langTextEl = document.getElementById('langText');
+        if (langTextEl) langTextEl.innerText = c.langText;
+        
+        const whatsappLink = document.getElementById('whatsappLink');
+        if (whatsappLink) whatsappLink.href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
+        
         buildSpecsTable(c.specs);
         buildFeaturesList(c.features);
         buildProbeTable(c.probeHeaders, c.probeData);
         updateFooter(lang);
-        loadGallery(galleryImages[lang]);
+        if (galleryImages[lang]) loadGallery(galleryImages[lang]);
     }
     
     applyLanguage(currentLang);
     
-    document.getElementById('langToggleBtn').addEventListener('click', () => {
-        currentLang = currentLang === 'pt' ? 'en' : 'pt';
-        localStorage.setItem('bmc_lang', currentLang);
-        applyLanguage(currentLang);
-    });
+    const langToggle = document.getElementById('langToggleBtn');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            localStorage.setItem('bmc_lang', currentLang);
+            applyLanguage(currentLang);
+        });
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
