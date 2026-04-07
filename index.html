@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script type="importmap">
+    
+    <script type="importmap">
         {
             "imports": {
                 "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
@@ -73,16 +74,16 @@
         .section-header { text-align: center; margin-bottom: 65px; }
         .section-header h2 { font-size: 2.5rem; font-weight: 800; background: linear-gradient(120deg, #eef2ff, #9bb6e5); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; letter-spacing: -0.02em; }
         .section-header .subline { width: 70px; height: 4px; background: var(--primary); margin: 20px auto 0; border-radius: 4px; }
-        .product-card { background: #0f1320; border-radius: 32px; overflow: hidden; transition: all 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1); border: 1px solid #1e2538; height: 100%; margin-bottom: 30px; opacity: 0; transform: translateY(40px); backdrop-filter: blur(2px); }
+        .product-card { background: #0f1320; border-radius: 24px; overflow: hidden; transition: all 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1); border: 1px solid #1e2538; height: 100%; margin-bottom: 20px; opacity: 0; transform: translateY(40px); backdrop-filter: blur(2px); }
         .product-card.animate-in { opacity: 1; transform: translateY(0); }
-        .product-img { width: 100%; height: 230px; object-fit: contain; transition: transform 0.5s ease; background: radial-gradient(ellipse at center, #131a2c 0%, #0a0e1a 100%); padding: 20px 16px; }
+        .product-img { width: 100%; height: 160px; object-fit: contain; transition: transform 0.5s ease; background: radial-gradient(ellipse at center, #131a2c 0%, #0a0e1a 100%); padding: 15px 12px; }
         .product-card:hover .product-img { transform: scale(1.04); }
-        .product-body { padding: 24px 26px 30px; }
-        .product-title { font-size: 1.2rem; font-weight: 800; color: #ffffff; margin-bottom: 16px; letter-spacing: -0.2px; }
-        .product-desc { font-size: 0.85rem; color: #b2c0e0; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .product-desc i { color: #3399ff; font-size: 0.9rem; width: 22px; }
-        .product-link { margin-top: 22px; display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: #66b5ff; border-bottom: 2px solid rgba(51,153,255,0.4); padding-bottom: 4px; transition: all 0.25s; text-decoration: none; cursor: pointer; font-size: 0.85rem; }
-        .product-link:hover { gap: 14px; color: #ffffff; border-bottom-color: #3399ff; }
+        .product-body { padding: 16px 18px 20px; }
+        .product-title { font-size: 1rem; font-weight: 800; color: #ffffff; margin-bottom: 10px; letter-spacing: -0.2px; }
+        .product-desc { font-size: 0.75rem; color: #b2c0e0; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .product-desc i { color: #3399ff; font-size: 0.8rem; width: 18px; }
+        .product-link { margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: #66b5ff; border-bottom: 2px solid rgba(51,153,255,0.4); padding-bottom: 3px; transition: all 0.25s; text-decoration: none; cursor: pointer; font-size: 0.75rem; }
+        .product-link:hover { gap: 12px; color: #ffffff; border-bottom-color: #3399ff; }
         .about-section { display: flex; flex-wrap: wrap; background: linear-gradient(115deg, #001a38 0%, #010a1a 100%); color: #fff; position: relative; z-index: 2; border-radius: 0; opacity: 0; transform: translateX(-40px); transition: all 0.9s ease; }
         .about-section.animate-in { opacity: 1; transform: translateX(0); }
         .about-left { flex: 1.2; background: linear-gradient(125deg, rgba(0,35,70,0.85), rgba(0,0,0,0.6)), url('https://i.postimg.cc/bNtqFwsK/BMC-Logo-1.png') center/cover no-repeat; min-height: 460px; display: flex; align-items: center; justify-content: center; padding: 40px; }
@@ -128,39 +129,56 @@
         
         @media (max-width: 768px) {
             body { zoom: 0.5; }
+            .row > [class*="col-"] {
+                width: 50% !important;
+                flex: 0 0 50% !important;
+                max-width: 50% !important;
+            }
+            .product-card { margin-bottom: 15px; border-radius: 20px; }
+            .product-img { height: 120px; padding: 10px 8px; }
+            .product-body { padding: 12px 14px 16px; }
+            .product-title { font-size: 0.85rem; margin-bottom: 8px; }
+            .product-desc { font-size: 0.65rem; margin-bottom: 5px; gap: 5px; }
+            .product-desc i { font-size: 0.7rem; width: 14px; }
+            .product-link { margin-top: 10px; font-size: 0.65rem; }
+        }
+        
+        @media (min-width: 992px) {
+            .col-lg-4 {
+                width: 33.333333% !important;
+                flex: 0 0 33.333333% !important;
+                max-width: 33.333333% !important;
+            }
         }
     </style>
-        })();
-    </script>
 </head>
 <body class="dark-theme">
-<div class="site-wrapper">
-    <div class="scroll-progress" id="scrollProgress"></div>
-    <canvas id="canvas-3d"></canvas>
+<div class="scroll-progress" id="scrollProgress"></div>
+<canvas id="canvas-3d"></canvas>
 
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <div class="logo-text">BMC INDUSTRIAL</div>
-                <div class="logo-sub">PRECISION · TECHNOLOGY · TRUST</div>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarMain">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="#" data-key="nav_home">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products" data-key="nav_products">Produtos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about" data-key="nav_about">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq" data-key="nav_faq">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact" data-key="nav_contact">Contato</a></li>
-                </ul>
-                <div class="lang-toggle" id="langToggleBtn">
-                    <i class="bi bi-translate"></i> <span id="langText">PT-BR</span>
-                </div>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <div class="logo-text">BMC INDUSTRIAL</div>
+            <div class="logo-sub">PRECISION · TECHNOLOGY · TRUST</div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" href="#" data-key="nav_home">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#products" data-key="nav_products">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about" data-key="nav_about">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq" data-key="nav_faq">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact" data-key="nav_contact">Contato</a></li>
+            </ul>
+            <div class="lang-toggle" id="langToggleBtn">
+                <i class="bi bi-translate"></i> <span id="langText">PT-BR</span>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <section class="hero-section">
         <div class="container hero-content">
