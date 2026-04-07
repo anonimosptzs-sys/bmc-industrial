@@ -10,8 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <script type="importmap">
+        <script type="importmap">
         {
             "imports": {
                 "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
@@ -21,26 +20,7 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* Container wrapper para garantir que o site ocupe toda a largura */
-        html, body { 
-            width: 100%; 
-            min-width: 1200px; /* Largura mínima do desktop */
-            overflow-x: auto;
-        }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #0a0c12; 
-            scroll-behavior: smooth; 
-        }
-        
-        /* Wrapper para centralizar o conteúdo */
-        .site-wrapper {
-            min-width: 1200px;
-            width: 100%;
-        }
-        
+        body { font-family: 'Inter', sans-serif; background-color: #0a0c12; overflow-x: hidden; scroll-behavior: smooth; }
         body.dark-theme { color: #e2e8f0; background-color: #0a0c12; }
         body.dark-theme .navbar { background: rgba(10, 14, 23, 0.95); backdrop-filter: blur(12px); box-shadow: 0 4px 30px rgba(0,0,0,0.4); border-bottom: 1px solid rgba(51,153,255,0.15); }
         body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; font-weight: 500; letter-spacing: -0.2px; }
@@ -145,38 +125,11 @@
             .section-header h2 { font-size: 1.9rem; }
         }
         .gradient-text-gold { background: linear-gradient(120deg, #ffdd99, #ffbb55); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        
+        @media (max-width: 768px) {
+            body { zoom: 0.5; }
+        }
     </style>
-    
-    <script>
-        // Script para ajustar dinamicamente o zoom baseado na largura da tela
-        (function() {
-            function adjustZoom() {
-                const screenWidth = window.innerWidth;
-                const minDesktopWidth = 1200; // Largura mínima do layout desktop
-                
-                if (screenWidth < minDesktopWidth) {
-                    // Calcula o zoom necessário para caber na tela sem espaços vazios
-                    const scale = screenWidth / minDesktopWidth;
-                    document.body.style.zoom = scale;
-                    document.body.style.mozTransform = `scale(${scale})`;
-                    document.body.style.mozTransformOrigin = '0 0';
-                    document.body.style.oTransform = `scale(${scale})`;
-                    document.body.style.oTransformOrigin = '0 0';
-                    document.body.style.webkitTransform = `scale(${scale})`;
-                    document.body.style.webkitTransformOrigin = '0 0';
-                } else {
-                    document.body.style.zoom = '1';
-                    document.body.style.mozTransform = 'scale(1)';
-                    document.body.style.oTransform = 'scale(1)';
-                    document.body.style.webkitTransform = 'scale(1)';
-                }
-            }
-            
-            // Ajusta no carregamento e quando a tela for redimensionada
-            window.addEventListener('load', adjustZoom);
-            window.addEventListener('resize', adjustZoom);
-            // Ajusta imediatamente também
-            adjustZoom();
         })();
     </script>
 </head>
