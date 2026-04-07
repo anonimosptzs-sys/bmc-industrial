@@ -2,8 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <!-- viewport otimizado para mobile com zoom controlado -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=yes">
     <meta name="description" content="BMC INDUSTRIAL TECH - Fabricante líder de videoscópios industriais e endoscópios de alta resolução. Soluções em inspeção visual para indústrias automotiva, aeroespacial, petróleo e muito mais.">
     <title>BMC INDUSTRIAL TECH | Videoscópios Industriais de Alta Precisão</title>
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 13c-2.33 0-4.31-1.46-5.11-3.5h10.22c-.8 2.04-2.78 3.5-5.11 3.5z'/%3E%3C/svg%3E">
@@ -22,116 +21,111 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #0a0c12; overflow-x: hidden; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #0a0c12; overflow-x: hidden; scroll-behavior: smooth; zoom: 0.5; -moz-transform: scale(0.5); -moz-transform-origin: 0 0; }
         body.dark-theme { color: #e2e8f0; background-color: #0a0c12; }
-        body.dark-theme .navbar { background: rgba(10, 14, 23, 0.98); backdrop-filter: blur(12px); box-shadow: 0 4px 30px rgba(0,0,0,0.4); border-bottom: 1px solid rgba(51,153,255,0.15); }
-        body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; font-weight: 500; letter-spacing: -0.2px; font-size: 0.85rem; padding: 0.5rem 0.8rem !important; }
+        body.dark-theme .navbar { background: rgba(10, 14, 23, 0.95); backdrop-filter: blur(12px); box-shadow: 0 4px 30px rgba(0,0,0,0.4); border-bottom: 1px solid rgba(51,153,255,0.15); }
+        body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; font-weight: 500; letter-spacing: -0.2px; }
         body.dark-theme .navbar .nav-link:hover, body.dark-theme .navbar .nav-link.active { color: #ffffff !important; background: linear-gradient(135deg, rgba(0,102,204,0.2), rgba(51,153,255,0.05)); box-shadow: 0 0 0 1px rgba(0,102,204,0.3); }
         body.dark-theme .products-section { background: #080a12; }
-        body.dark-theme .product-card { background: #0f1320; border: 1px solid #1e2538; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.6); transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
-        body.dark-theme .product-card:hover { border-color: #3399ff; box-shadow: 0 30px 45px -12px rgba(0,102,204,0.4), 0 0 0 1px rgba(51,153,255,0.2); transform: translateY(-6px); }
-        body.dark-theme .product-title { color: #ffffff; font-weight: 700; font-size: 1rem; }
-        body.dark-theme .product-desc { color: #a5b4d4; font-size: 0.7rem; }
+        body.dark-theme .product-card { background: #0f1320; border: 1px solid #1e2538; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.6); transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+        body.dark-theme .product-card:hover { border-color: #3399ff; box-shadow: 0 30px 45px -12px rgba(0,102,204,0.4), 0 0 0 1px rgba(51,153,255,0.2); transform: translateY(-10px); }
+        body.dark-theme .product-title { color: #ffffff; font-weight: 700; }
+        body.dark-theme .product-desc { color: #a5b4d4; }
         body.dark-theme .faq-section { background: #080a12; }
         body.dark-theme .accordion-item { background: #0f1320; border: 1px solid #1e2538; }
-        body.dark-theme .accordion-button { background: #0f1320; color: #eef2ff; font-weight: 600; font-size: 0.9rem; }
+        body.dark-theme .accordion-button { background: #0f1320; color: #eef2ff; font-weight: 600; }
         body.dark-theme .accordion-button:not(.collapsed) { background: #11172a; color: #66b5ff; border-bottom: 1px solid #1e3a5f; }
-        body.dark-theme .accordion-body { color: #e2e8f0 !important; background: #0f1320; font-size: 0.85rem; }
+        body.dark-theme .accordion-body { color: #e2e8f0 !important; background: #0f1320; }
         body.dark-theme .footer { background: #05070e; border-top: 1px solid #1e2a3a; }
-        body.dark-theme .footer-bottom { background: #02040a; color: #7a85a1; font-size: 0.7rem; }
+        body.dark-theme .footer-bottom { background: #02040a; color: #7a85a1; }
         body.dark-theme .hero-section { background: radial-gradient(circle at 20% 30%, rgba(5,10,25,0.96) 0%, rgba(2,5,12,0.98) 100%); }
         :root { --primary: #0066cc; --primary-dark: #004c99; --primary-glow: #0066cc55; --accent-gold: #e6b422; }
-        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0f1222; border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-        #canvas-3d { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.35; filter: blur(0px); }
-        .navbar { padding: 0.4rem 0; position: fixed; width: 100%; top: 0; z-index: 1050; transition: all 0.25s; }
-        .logo-text { font-size: 1.2rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #aaccff, #ffdd99); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.5px; }
-        .logo-sub { font-size: 0.5rem; letter-spacing: 1.5px; color: #8e9dcb; margin-top: 0px; font-weight: 500; }
-        .nav-link { font-weight: 600; color: #cbd5e6 !important; margin: 0 0.1rem; padding: 0.4rem 0.7rem !important; border-radius: 60px; font-size: 0.8rem; transition: all 0.2s; }
-        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; z-index: 2; padding-top: 80px; padding-bottom: 40px; overflow: hidden; }
+        #canvas-3d { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.45; filter: blur(0px); }
+        .navbar { padding: 0.6rem 0; position: fixed; width: 100%; top: 0; z-index: 1050; transition: all 0.25s; }
+        .logo-text { font-size: 1.7rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #aaccff, #ffdd99); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.5px; }
+        .logo-sub { font-size: 0.65rem; letter-spacing: 2.5px; color: #8e9dcb; margin-top: 2px; font-weight: 500; }
+        .nav-link { font-weight: 600; color: #cbd5e6 !important; margin: 0 0.15rem; padding: 0.5rem 1.1rem !important; border-radius: 60px; font-size: 0.9rem; transition: all 0.2s; }
+        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; z-index: 2; padding-top: 90px; overflow: hidden; }
         .hero-content { position: relative; z-index: 8; }
-        .hero-logo { text-align: left; margin-bottom: 1.2rem; }
-        .hero-logo img { max-width: 220px; width: 100%; height: auto; filter: brightness(0) invert(1); }
-        .hero-title { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #cce4ff, var(--accent-gold)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; letter-spacing: -0.02em; line-height: 1.2; }
-        .hero-subtitle { color: #cbd8f0; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 400; border-left: 3px solid var(--primary); padding-left: 16px; max-width: 100%; }
-        .btn-primary-custom { background: linear-gradient(95deg, #0066cc, #0088ff); border: none; padding: 12px 28px; border-radius: 60px; font-weight: 700; font-size: 0.9rem; color: white; box-shadow: 0 10px 25px -5px rgba(0,102,204,0.6); transition: all 0.3s; display: inline-block; text-decoration: none; }
-        .hero-stats { margin-top: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .stat-item h3 { color: var(--primary); font-size: 1.5rem; font-weight: 800; margin-bottom: 0; letter-spacing: -0.5px; }
-        .stat-item p { color: #9aabcc; font-weight: 500; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
-        .products-section { padding: 60px 0; background: #080a12; position: relative; z-index: 2; }
-        .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header h2 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(120deg, #eef2ff, #9bb6e5); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; letter-spacing: -0.02em; }
-        .section-header .subline { width: 60px; height: 3px; background: var(--primary); margin: 16px auto 0; border-radius: 4px; }
-        .section-header p { font-size: 0.85rem; margin-top: 12px; color: #b0bfe0; padding: 0 12px; }
-        /* GRID RESPONSIVA: 3 PRODUTOS POR LINHA NO MOBILE */
-        .row-custom-products {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin: 0;
-            padding: 0 8px;
+        
+        .hero-logo {
+            text-align: left;
+            margin-bottom: 2rem;
         }
-        .product-card { background: #0f1320; border-radius: 20px; overflow: hidden; transition: all 0.35s ease; border: 1px solid #1e2538; height: 100%; display: flex; flex-direction: column; opacity: 0; transform: translateY(30px); backdrop-filter: blur(2px); margin-bottom: 0; }
+        .hero-logo img {
+            max-width: 380px;
+            width: 100%;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .hero-title { font-size: 3.7rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #cce4ff, var(--accent-gold)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1.2rem; letter-spacing: -0.02em; line-height: 1.2; }
+        .hero-subtitle { color: #cbd8f0; font-size: 1.2rem; margin-bottom: 2rem; font-weight: 400; border-left: 3px solid var(--primary); padding-left: 20px; max-width: 600px; }
+        .btn-primary-custom { background: linear-gradient(95deg, #0066cc, #0088ff); border: none; padding: 14px 38px; border-radius: 60px; font-weight: 700; color: white; box-shadow: 0 10px 25px -5px rgba(0,102,204,0.6); transition: all 0.3s; display: inline-block; text-decoration: none; }
+        .btn-primary-custom:hover { background: linear-gradient(95deg, #0055bb, #0077ee); transform: translateY(-3px); box-shadow: 0 18px 30px -8px #0066cc; color: white; }
+        .hero-stats { margin-top: 3rem; display: flex; gap: 2.8rem; flex-wrap: wrap; }
+        .stat-item h3 { color: var(--primary); font-size: 2rem; font-weight: 800; margin-bottom: 0; letter-spacing: -0.5px; }
+        .stat-item p { color: #9aabcc; font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
+        .products-section { padding: 110px 0; background: #080a12; position: relative; z-index: 2; }
+        .section-header { text-align: center; margin-bottom: 65px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; background: linear-gradient(120deg, #eef2ff, #9bb6e5); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; letter-spacing: -0.02em; }
+        .section-header .subline { width: 70px; height: 4px; background: var(--primary); margin: 20px auto 0; border-radius: 4px; }
+        .product-card { background: #0f1320; border-radius: 32px; overflow: hidden; transition: all 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1); border: 1px solid #1e2538; height: 100%; margin-bottom: 30px; opacity: 0; transform: translateY(40px); backdrop-filter: blur(2px); }
         .product-card.animate-in { opacity: 1; transform: translateY(0); }
-        .product-img { width: 100%; height: 120px; object-fit: contain; transition: transform 0.4s ease; background: radial-gradient(ellipse at center, #131a2c 0%, #0a0e1a 100%); padding: 10px 8px; }
-        .product-card:hover .product-img { transform: scale(1.02); }
-        .product-body { padding: 10px 8px 14px; flex: 1; }
-        .product-title { font-size: 0.75rem; font-weight: 800; color: #ffffff; margin-bottom: 8px; letter-spacing: -0.2px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 36px; }
-        .product-desc { font-size: 0.6rem; color: #b2c0e0; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
-        .product-desc i { color: #3399ff; font-size: 0.7rem; width: 18px; flex-shrink: 0; }
-        .product-link { margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: #66b5ff; border-bottom: 1.5px solid rgba(51,153,255,0.4); padding-bottom: 3px; transition: all 0.2s; text-decoration: none; cursor: pointer; font-size: 0.65rem; }
-        .about-section { display: flex; flex-wrap: wrap; background: linear-gradient(115deg, #001a38 0%, #010a1a 100%); color: #fff; position: relative; z-index: 2; border-radius: 0; opacity: 0; transform: translateX(-20px); transition: all 0.9s ease; flex-direction: column; }
+        .product-img { width: 100%; height: 230px; object-fit: contain; transition: transform 0.5s ease; background: radial-gradient(ellipse at center, #131a2c 0%, #0a0e1a 100%); padding: 20px 16px; }
+        .product-card:hover .product-img { transform: scale(1.04); }
+        .product-body { padding: 24px 26px 30px; }
+        .product-title { font-size: 1.2rem; font-weight: 800; color: #ffffff; margin-bottom: 16px; letter-spacing: -0.2px; }
+        .product-desc { font-size: 0.85rem; color: #b2c0e0; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .product-desc i { color: #3399ff; font-size: 0.9rem; width: 22px; }
+        .product-link { margin-top: 22px; display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: #66b5ff; border-bottom: 2px solid rgba(51,153,255,0.4); padding-bottom: 4px; transition: all 0.25s; text-decoration: none; cursor: pointer; font-size: 0.85rem; }
+        .product-link:hover { gap: 14px; color: #ffffff; border-bottom-color: #3399ff; }
+        .about-section { display: flex; flex-wrap: wrap; background: linear-gradient(115deg, #001a38 0%, #010a1a 100%); color: #fff; position: relative; z-index: 2; border-radius: 0; opacity: 0; transform: translateX(-40px); transition: all 0.9s ease; }
         .about-section.animate-in { opacity: 1; transform: translateX(0); }
-        .about-left { flex: auto; background: linear-gradient(125deg, rgba(0,35,70,0.85), rgba(0,0,0,0.6)), url('https://i.postimg.cc/bNtqFwsK/BMC-Logo-1.png') center/cover no-repeat; min-height: 220px; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .about-left h2 { font-size: 1.4rem; font-weight: 800; background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); padding: 16px 24px; border-radius: 50px; border-left: 4px solid var(--primary); letter-spacing: -0.3px; text-align: center; }
-        .about-right { flex: auto; background: rgba(3, 8, 20, 0.9); padding: 30px 24px; backdrop-filter: blur(2px); }
-        .about-right p { font-size: 0.85rem; line-height: 1.5; color: #e2e8f0; margin-bottom: 1rem; }
-        .about-list { list-style: none; padding-left: 0; margin-top: 20px; }
-        .about-list li { margin-bottom: 12px; display: flex; align-items: baseline; gap: 10px; color: #e9efff; font-weight: 500; font-size: 0.8rem; opacity: 0; transform: translateX(-10px); transition: all 0.4s; }
+        .about-left { flex: 1.2; background: linear-gradient(125deg, rgba(0,35,70,0.85), rgba(0,0,0,0.6)), url('https://i.postimg.cc/bNtqFwsK/BMC-Logo-1.png') center/cover no-repeat; min-height: 460px; display: flex; align-items: center; justify-content: center; padding: 40px; }
+        .about-left h2 { font-size: 2rem; font-weight: 800; background: rgba(0,0,0,0.6); backdrop-filter: blur(16px); padding: 32px 40px; border-radius: 60px; border-left: 6px solid var(--primary); letter-spacing: -0.3px; }
+        .about-right { flex: 1; background: rgba(3, 8, 20, 0.9); padding: 70px 50px; backdrop-filter: blur(2px); }
+        .about-right p { font-size: 1rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 1.5rem; }
+        .about-list { list-style: none; padding-left: 0; margin-top: 25px; }
+        .about-list li { margin-bottom: 18px; display: flex; align-items: baseline; gap: 15px; color: #e9efff; font-weight: 500; opacity: 0; transform: translateX(-20px); transition: all 0.4s; }
         .about-section.animate-in .about-list li:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateX(0); }
         .about-section.animate-in .about-list li:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateX(0); }
         .about-section.animate-in .about-list li:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateX(0); }
         .about-section.animate-in .about-list li:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateX(0); }
-        .about-list li:before { content: "▹"; color: var(--primary); font-size: 1rem; }
-        .faq-section { padding: 60px 0; background: #080a12; z-index: 2; position: relative; }
-        .accordion-item { background: #0f1320; border: 1px solid #1e2538; margin-bottom: 14px; border-radius: 20px; overflow: hidden; opacity: 0; transform: translateY(20px); transition: all 0.5s; }
+        .about-list li:before { content: "▹"; color: var(--primary); font-size: 1.2rem; }
+        .faq-section { padding: 100px 0; background: #080a12; z-index: 2; position: relative; }
+        .accordion-item { background: #0f1320; border: 1px solid #1e2538; margin-bottom: 18px; border-radius: 24px; overflow: hidden; opacity: 0; transform: translateY(30px); transition: all 0.6s; }
         .accordion-item.animate-in { opacity: 1; transform: translateY(0); }
-        .accordion-button { background: #0f1320; font-weight: 700; color: #e2e8f0; padding: 1rem 1.2rem; font-size: 0.85rem; }
+        .accordion-button { background: #0f1320; font-weight: 700; color: #e2e8f0; padding: 1.3rem 1.7rem; font-size: 1rem; }
         .accordion-button:not(.collapsed) { background: #121a30; color: #66ccff; box-shadow: none; }
-        .accordion-body { font-size: 0.8rem; padding: 1rem; }
-        .footer { background: #05070e; padding-top: 40px; padding-bottom: 30px; border-top: 1px solid #0f2540; position: relative; z-index: 2; opacity: 0; transform: translateY(30px); transition: all 0.7s; }
+        .footer { background: #05070e; padding-top: 70px; padding-bottom: 40px; border-top: 1px solid #0f2540; position: relative; z-index: 2; opacity: 0; transform: translateY(40px); transition: all 0.7s; }
         .footer.animate-in { opacity: 1; transform: translateY(0); }
-        .footer-title { font-size: 1rem; font-weight: 700; margin-bottom: 18px; color: white; letter-spacing: -0.2px; border-left: 3px solid var(--primary); padding-left: 12px; }
-        .footer-links li, .contact-info { color: #a5b3ce; list-style: none; margin-bottom: 8px; transition: all 0.2s; cursor: default; font-size: 0.75rem; }
-        .contact-info i { width: 24px; color: var(--primary); font-size: 0.85rem; }
-        .footer-links li:hover, .contact-info:hover { color: #ffffff; transform: translateX(3px); }
-        .footer-bottom { background: #02040a; padding: 16px 0; text-align: center; font-size: 0.65rem; color: #7a85a1; }
-        .float-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 110; transition: all 0.3s; box-shadow: 0 8px 20px rgba(37,211,102,0.4); cursor: pointer; }
-        .float-whatsapp i { font-size: 28px; color: white; }
-        .back-to-top { position: fixed; bottom: 20px; left: 20px; background: var(--primary); width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; opacity: 0; visibility: hidden; cursor: pointer; z-index: 110; transition: all 0.3s; box-shadow: 0 5px 12px rgba(0,0,0,0.3); }
+        .footer-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 28px; color: white; letter-spacing: -0.2px; border-left: 3px solid var(--primary); padding-left: 14px; }
+        .footer-links li, .contact-info { color: #a5b3ce; list-style: none; margin-bottom: 12px; transition: all 0.2s; cursor: default; font-size: 0.9rem; }
+        .contact-info i { width: 28px; color: var(--primary); }
+        .footer-links li:hover, .contact-info:hover { color: #ffffff; transform: translateX(4px); }
+        .footer-bottom { background: #02040a; padding: 20px 0; text-align: center; font-size: 0.8rem; color: #7a85a1; }
+        .float-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 110; transition: all 0.3s; box-shadow: 0 10px 25px rgba(37,211,102,0.4); cursor: pointer; }
+        .float-whatsapp:hover { transform: scale(1.1); background: #20b859; }
+        .float-whatsapp i { font-size: 32px; color: white; }
+        .back-to-top { position: fixed; bottom: 30px; left: 30px; background: var(--primary); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; opacity: 0; visibility: hidden; cursor: pointer; z-index: 110; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
         .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: translateY(-5px); background: #004c99; }
         .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #0066cc, #ffcc44); z-index: 2000; transition: width 0.08s linear; }
-        .lang-toggle { background: rgba(0,102,204,0.2); border: 1px solid rgba(0,102,204,0.5); color: #eef2ff; border-radius: 60px; padding: 4px 14px; font-weight: 600; font-size: 0.65rem; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; margin-left: 0.5rem; transition: all 0.2s; backdrop-filter: blur(4px); white-space: nowrap; }
+        .lang-toggle { background: rgba(0,102,204,0.2); border: 1px solid rgba(0,102,204,0.5); color: #eef2ff; border-radius: 60px; padding: 6px 18px; font-weight: 600; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 1rem; transition: all 0.2s; backdrop-filter: blur(4px); }
+        .lang-toggle:hover { background: var(--primary); border-color: var(--primary); color: white; }
+        @media (max-width: 992px) { 
+            .hero-title { font-size: 2.3rem; }
+            .hero-logo img { max-width: 250px; }
+            .about-left, .about-right { flex: auto; width: 100%; } 
+            .logo-text { font-size: 1.2rem; } 
+            .section-header h2 { font-size: 1.9rem; }
+        }
         .gradient-text-gold { background: linear-gradient(120deg, #ffdd99, #ffbb55); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        /* Ajustes extremos mobile */
-        @media (max-width: 576px) {
-            .row-custom-products { gap: 8px; padding: 0 6px; }
-            .product-img { height: 100px; padding: 8px 4px; }
-            .product-body { padding: 6px 6px 10px; }
-            .product-title { font-size: 0.65rem; min-height: 32px; }
-            .product-desc { font-size: 0.55rem; gap: 3px; }
-            .product-desc i { font-size: 0.6rem; width: 16px; }
-            .product-link { font-size: 0.6rem; margin-top: 6px; }
-            .hero-title { font-size: 1.6rem; }
-            .hero-logo img { max-width: 160px; }
-            .section-header h2 { font-size: 1.4rem; }
-        }
-        @media (max-width: 400px) {
-            .product-title { font-size: 0.6rem; }
-            .product-desc { font-size: 0.5rem; }
-        }
     </style>
 </head>
 <body class="dark-theme">
@@ -165,10 +159,11 @@
 <section class="hero-section">
     <div class="container hero-content">
         <div class="row">
-            <div class="col-12">
+            <div class="col-lg-8">
                 <div class="hero-logo">
                     <img src="https://i.postimg.cc/bNtqFwsK/BMC-Logo-1.png" alt="BMC INDUSTRIAL">
                 </div>
+                
                 <h1 class="hero-title" data-key="hero_title">Videoscópios Industriais<br><span class="gradient-text-gold">Alta Definição e Precisão 4K</span></h1>
                 <p class="hero-subtitle" data-key="hero_sub">Inspeção visual de nova geração com tecnologia 3D, articulação motorizada 360° e inteligência embarcada.</p>
                 <a href="#products" class="btn-primary-custom" data-key="hero_btn">Explorar catálogo →</a>
@@ -187,9 +182,9 @@
         <div class="section-header">
             <h2 data-key="products_title">Videoscópios & Endoscópios Industriais</h2>
             <div class="subline"></div>
-            <p data-key="products_sub">Ferramentas essenciais para Ensaios Não Destrutivos (END) - Resolução até 2MP, sondas intercambiáveis de 0.78mm a 6.5mm</p>
+            <p class="mt-3" data-key="products_sub">Ferramentas essenciais para Ensaios Não Destrutivos (END) - Resolução até 2MP, sondas intercambiáveis de 0.78mm a 6.5mm</p>
         </div>
-        <div class="row-custom-products" id="productsContainer"></div>
+        <div class="row" id="productsContainer"></div>
     </div>
 </section>
 
@@ -225,15 +220,15 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-6 col-md-4 mb-3">
+                <div class="col-md-6 col-lg-4 mb-4">
                     <div class="footer-title" data-key="footer_prod_title">Produtos Premium</div>
                     <ul class="footer-links" id="footerLinksList"></ul>
                 </div>
-                <div class="col-6 col-md-4 mb-3">
+                <div class="col-md-6 col-lg-4 mb-4">
                     <div class="footer-title" data-key="footer_sectors">Setores atendidos</div>
                     <ul class="footer-links" id="footerSectorsList"></ul>
                 </div>
-                <div class="col-12 col-md-4 mb-3">
+                <div class="col-md-6 col-lg-4 mb-4">
                     <div class="footer-title" data-key="footer_contact_title">Contato Comercial</div>
                     <div class="contact-info"><i class="bi bi-person-badge"></i> Bruno Yokomizo</div>
                     <div class="contact-info"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/5547988202757" target="_blank" style="color:#a5b3ce; text-decoration:none;">+55 47 98820-2757</a></div>
@@ -247,7 +242,7 @@
 </footer>
 
 <div class="float-whatsapp" onclick="window.open('https://wa.me/5547988202757?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20videosc%C3%B3pios%20BMC', '_blank')"><i class="bi bi-whatsapp"></i></div>
-<div class="back-to-top" id="backToTop"><i class="bi bi-arrow-up-short" style="font-size: 26px;"></i></div>
+<div class="back-to-top" id="backToTop"><i class="bi bi-arrow-up-short" style="font-size: 28px;"></i></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module">
@@ -257,7 +252,7 @@
     scene.background = null;
     scene.fog = new THREE.FogExp2(0x03050f, 0.012);
     const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 0, 14);
+    camera.position.set(0, 0, 15);
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
@@ -270,5 +265,160 @@
     const gradientTexture = new THREE.CanvasTexture(canvasTex);
     const outerRing = new THREE.Mesh(new THREE.TorusGeometry(1.65, 0.11, 96, 200), new THREE.MeshStandardMaterial({ color: 0xffaa55, metalness: 0.95, roughness: 0.3 }));
     outerRing.rotation.x = Math.PI/2; logoGroup.add(outerRing);
-    const innerRing = new THREE.Mesh(new THREE.TorusGeometry(1.25, 0
-//SITE EM DEV AINDA
+    const innerRing = new THREE.Mesh(new THREE.TorusGeometry(1.25, 0.09, 96, 200), new THREE.MeshStandardMaterial({ map: gradientTexture, metalness: 0.9, roughness: 0.2 }));
+    innerRing.rotation.x = Math.PI/2; logoGroup.add(innerRing);
+    const coreSphere = new THREE.Mesh(new THREE.SphereGeometry(1.0, 128, 128), new THREE.MeshStandardMaterial({ map: gradientTexture, metalness: 0.75, emissive: 0x004c99, emissiveIntensity: 0.45 }));
+    logoGroup.add(coreSphere);
+    scene.add(logoGroup);
+    const starsGeo = new THREE.BufferGeometry();
+    const starsPos = new Float32Array(1800 * 3);
+    for (let i = 0; i < 1800; i++) { starsPos[i*3] = (Math.random() - 0.5)*220; starsPos[i*3+1] = (Math.random() - 0.5)*120; starsPos[i*3+2] = (Math.random() - 0.5)*90 - 40; }
+    starsGeo.setAttribute('position', new THREE.BufferAttribute(starsPos, 3));
+    scene.add(new THREE.Points(starsGeo, new THREE.PointsMaterial({ color: 0xaaccff, size: 0.055, transparent: true, opacity: 0.7 })));
+    const ambientLight = new THREE.AmbientLight(0x222233); scene.add(ambientLight);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 1.2); mainLight.position.set(3, 5, 6); scene.add(mainLight);
+    let scrollOffset = 0; let time = 0;
+    window.addEventListener('scroll', () => { scrollOffset = window.scrollY / (document.body.scrollHeight - window.innerHeight); });
+    function animate() { requestAnimationFrame(animate); time += 0.012; logoGroup.rotation.y = time * 0.35 + scrollOffset * Math.PI; logoGroup.rotation.x = Math.sin(time * 0.25) * 0.15; innerRing.rotation.z += 0.012; outerRing.rotation.z -= 0.006; camera.position.z += (13 + scrollOffset * 1.8 - camera.position.z) * 0.045; camera.lookAt(0,0,0); renderer.render(scene, camera); }
+    animate();
+    window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+</script>
+<script>
+    // Lista completa de todos os produtos do catálogo (sem a palavra "Series")
+    const allProductNames = {
+        pt: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "Câmera para Inspeção de Tubulações", "Borescopes Rígidos", "ES078", "TPC80", "Endoscópio Veterinário"],
+        en: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "Pipe Inspection Camera", "Rigid Borescopes", "ES078", "TPC80", "Veterinary Endoscope"]
+    };
+    
+    const sectorsList = {
+        pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento"],
+        en: ["Aerospace & Defense", "Energy & Oil", "Automotive & Transport", "General Manufacturing", "Predictive Maintenance", "Military & Security", "Veterinary", "Sanitation"]
+    };
+
+    // CORRECTED product links mapping to match your actual filenames
+    const productLinks = { 
+        "Modelo ET65 - Videoscópio Industrial HD": "produto-et65.html",
+        "Modelo ECT40 - Videoscópio Industrial HD": "produto-ect40.html",
+        "Modelo ES60 - Videoscópio Industrial HD": "produto-es60.html",
+        "Modelo ECP101 - Videoscópio Desktop HD": "produto-ecp101.html",
+        "ET39-IR - Borescópio Visão Noturna IR": "produto-et39-ir.html",
+        "EC60-IR - Videoscópio Visão Noturna IR": "produto-ec60-ir.html",
+        "ES60-IR - Videoscópio Portátil Visão Noturna": "produto-es60-ir.html",
+        "Câmera para Inspeção de Tubulações": "produto-pipe.html",
+        "Borescopes Rígidos": "produto-rigid.html",
+        "ES078 - Endoscópio de Fibra Óptica": "produto-es078.html",
+        "TPC80 - Câmera com Haste Telescópica 4K": "produto-tpc80.html",
+        "Endoscópio Veterinário": "produto-vet.html",
+        // English versions
+        "Modelo ET65 - HD Industrial Videoscope": "produto-et65.html",
+        "Modelo ECT40 - HD Industrial Videoscope": "produto-ect40.html",
+        "Modelo ES60 - HD Industrial Videoscope": "produto-es60.html",
+        "Modelo ECP101 - HD Desktop Videoscope": "produto-ecp101.html",
+        "ET39-IR - Infrared Night Vision Borescope": "produto-et39-ir.html",
+        "EC60-IR - Infrared Night Vision Videoscope": "produto-ec60-ir.html",
+        "ES60-IR - Portable IR Night Vision Videoscope": "produto-es60-ir.html",
+        "Pipe Inspection Camera": "produto-pipe.html",
+        "Rigid Borescopes": "produto-rigid.html",
+        "ES078 - Fiber Endoscope": "produto-es078.html",
+        "TPC80 - 4K Telescopic Pole Camera": "produto-tpc80.html",
+        "Veterinary Endoscope": "produto-vet.html"
+    };
+    
+    const productsData = {
+        pt: [
+            { title:"Modelo ET65 - Videoscópio Industrial HD", img:"https://i.postimg.cc/rsbhk72H/1-1-et65-series-industrial-videoscope-endoscope-01m.jpg", desc1:"1MP/2MP (megapixels)", desc2:"Articulação eletrônica 360°", desc3:"Tela touchscreen HD 5\"", desc4:"Sondas intercambiáveis" },
+            { title:"Modelo ECT40 - Videoscópio Industrial HD", img:"https://i.postimg.cc/3NWLzYzY/1-2-ect40-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP", desc2:"Articulação mecânica 4 direções", desc3:"Sonda intercambiável", desc4:"Tela HD 5\"" },
+            { title:"Modelo ES60 - Videoscópio Industrial HD", img:"https://i.postimg.cc/PJN60T0h/1-3-es60-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP", desc2:"Articulação mecânica 360°", desc3:"Tela 3,5\" compacta", desc4:"Design portátil" },
+            { title:"Modelo ECP101 - Videoscópio Desktop HD", img:"https://i.postimg.cc/rszh7M7k/1-4-ecp101-series-hd-desktop-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP", desc2:"Processador dual-core", desc3:"Compatível com sondas flexíveis", desc4:"10.1\" HD touch" },
+            { title:"ET39-IR - Borescópio Visão Noturna IR", img:"https://i.postimg.cc/RhqP242z/2-1-et39-ir-infrared-night-vision-borescope-img01b.jpg", desc1:"Resolução megapixel noturna", desc2:"Articulação 360°", desc3:"Luz dupla IR + Branca", desc4:"Tela 5\" HD" },
+            { title:"EC60-IR - Videoscópio Visão Noturna IR", img:"https://i.postimg.cc/wM3WngZZ/4-1-ec60-ir-series-police-endoscope-01m.jpg", desc1:"Megapixel noturna", desc2:"Articulação 4 direções", desc3:"Fonte dupla IR/LED", desc4:"Tela 5\" HD" },
+            { title:"ES60-IR - Videoscópio Portátil Visão Noturna", img:"https://i.postimg.cc/QCV6vhvZ/2-3-es60-ir-infrared-night-vision-borescope-endoscope-img01b.jpg", desc1:"Megapixel noturna", desc2:"Articulação 360°", desc3:"IR + Luz Branca", desc4:"Tela 3,5\" HD" },
+            { title:"Câmera para Inspeção de Tubulações", img:"https://i.postimg.cc/rszh7M76/3-1-pipe-inspection-camera-img01b.jpg", desc1:"960P 2MP", desc2:"Joystick 360°", desc3:"Cabo até 100m", desc4:"Tela 13\" HD" },
+            { title:"Borescopes Rígidos", img:"https://i.postimg.cc/yxWf2st2/3-rigid-borescopes-img01b.jpg", desc1:"Lanterna portátil", desc2:"Montagem C-Mount", desc3:"Câmera industrial 2MP", desc4:"Tela 10.1\"" },
+            { title:"ES078 - Endoscópio de Fibra Óptica", img:"https://i.postimg.cc/5yjPDbDd/2-small-diameter-fiberscopes-img01b.jpg", desc1:"0,78mm ultrafino", desc2:"Óptica C-Mount", desc3:"Câmera 2MP", desc4:"Tela 3.5/10.1\"" },
+            { title:"TPC80 - Câmera com Haste Telescópica 4K", img:"https://i.postimg.cc/brd64pWK/5-telescopic-pole-inspection-camera-img01b.jpg", desc1:"4K Ultra HD", desc2:"Luz Branca/IR", desc3:"Articulação 360°", desc4:"Comprimento 3-12m" },
+            { title:"Endoscópio Veterinário", img:"https://i.postimg.cc/mkhdKBJv/7-veterinary-endoscope-img04b.jpg", desc1:"HD 2MP", desc2:"Sonda 4 direções", desc3:"Tela 10\" integrada", desc4:"Ideal para equinos/felinos" }
+        ],
+        en: [
+            { title:"Modelo ET65 - HD Industrial Videoscope", img:"https://i.postimg.cc/rsbhk72H/1-1-et65-series-industrial-videoscope-endoscope-01m.jpg", desc1:"1MP/2MP (megapixels)", desc2:"360° electronic articulation", desc3:"5\" HD touchscreen", desc4:"Interchangeable probes" },
+            { title:"Modelo ECT40 - HD Industrial Videoscope", img:"https://i.postimg.cc/3NWLzYzY/1-2-ect40-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP", desc2:"4-way mechanical articulation", desc3:"Interchangeable probe", desc4:"5\" HD screen" },
+            { title:"Modelo ES60 - HD Industrial Videoscope", img:"https://i.postimg.cc/PJN60T0h/1-3-es60-series-hd-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP", desc2:"360° mechanical articulation", desc3:"3.5\" compact screen", desc4:"Portable design" },
+            { title:"Modelo ECP101 - HD Desktop Videoscope", img:"https://i.postimg.cc/rszh7M7k/1-4-ecp101-series-hd-desktop-industrial-videoscope-img01b.jpg", desc1:"1MP/2MP", desc2:"Dual-core processor", desc3:"Flexible probe compatible", desc4:"10.1\" HD touch" },
+            { title:"ET39-IR - Infrared Night Vision Borescope", img:"https://i.postimg.cc/RhqP242z/2-1-et39-ir-infrared-night-vision-borescope-img01b.jpg", desc1:"Night vision megapixel", desc2:"360° articulation", desc3:"Dual IR + White Light", desc4:"5\" HD screen" },
+            { title:"EC60-IR - Infrared Night Vision Videoscope", img:"https://i.postimg.cc/wM3WngZZ/4-1-ec60-ir-series-police-endoscope-01m.jpg", desc1:"Night vision megapixel", desc2:"4-way articulation", desc3:"Dual IR/LED source", desc4:"5\" HD screen" },
+            { title:"ES60-IR - Portable IR Night Vision Videoscope", img:"https://i.postimg.cc/QCV6vhvZ/2-3-es60-ir-infrared-night-vision-borescope-endoscope-img01b.jpg", desc1:"Night vision megapixel", desc2:"360° articulation", desc3:"IR + White Light", desc4:"3.5\" HD screen" },
+            { title:"Pipe Inspection Camera", img:"https://i.postimg.cc/rszh7M76/3-1-pipe-inspection-camera-img01b.jpg", desc1:"960P 2MP", desc2:"360° joystick", desc3:"Up to 100m cable", desc4:"13\" HD screen" },
+            { title:"Rigid Borescopes", img:"https://i.postimg.cc/yxWf2st2/3-rigid-borescopes-img01b.jpg", desc1:"Portable light", desc2:"C-Mount optics", desc3:"2MP industrial camera", desc4:"10.1\" screen" },
+            { title:"ES078 - Fiber Endoscope", img:"https://i.postimg.cc/5yjPDbDd/2-small-diameter-fiberscopes-img01b.jpg", desc1:"0.78mm ultra-thin", desc2:"C-Mount optics", desc3:"2MP camera", desc4:"3.5/10.1\" screen" },
+            { title:"TPC80 - 4K Telescopic Pole Camera", img:"https://i.postimg.cc/brd64pWK/5-telescopic-pole-inspection-camera-img01b.jpg", desc1:"4K Ultra HD", desc2:"White/IR Light", desc3:"360° articulation", desc4:"Length 3-12m" },
+            { title:"Veterinary Endoscope", img:"https://i.postimg.cc/mkhdKBJv/7-veterinary-endoscope-img04b.jpg", desc1:"HD 2MP", desc2:"4-way probe", desc3:"10\" integrated screen", desc4:"Ideal for equine/feline" }
+        ]
+    };
+    
+    let currentLang = 'pt';
+    
+    function renderProducts() { 
+        const container = document.getElementById('productsContainer'); 
+        if(!container) return; 
+        const data = productsData[currentLang]; 
+        container.innerHTML = ''; 
+        data.forEach((p, idx) => { 
+            const col = document.createElement('div'); 
+            col.className = 'col-lg-4 col-md-6'; 
+            const learnText = currentLang === 'pt' ? 'Saiba mais' : 'Learn more';
+            const productLink = productLinks[p.title] || '#';
+            // Add target="_self" to ensure navigation works properly
+            col.innerHTML = `<div class="product-card" style="transition-delay:${idx*0.03}s">
+                <img class="product-img" src="${p.img}" alt="${p.title}">
+                <div class="product-body">
+                    <h3 class="product-title">${p.title}</h3>
+                    <div class="product-desc"><i class="bi bi-camera-reels-fill"></i> ${p.desc1}</div>
+                    <div class="product-desc"><i class="bi bi-arrow-repeat"></i> ${p.desc2}</div>
+                    <div class="product-desc"><i class="bi bi-tablet"></i> ${p.desc3}</div>
+                    <div class="product-desc"><i class="bi bi-gear-wide-connected"></i> ${p.desc4}</div>
+                    <a href="${productLink}?lang=${currentLang}" class="product-link">${learnText} <i class="bi bi-arrow-right-short"></i></a>
+                </div>
+            </div>`; 
+            container.appendChild(col); 
+        }); 
+        document.querySelectorAll('.product-card').forEach(el => observer.observe(el)); 
+    }
+    
+    const translations = { 
+        pt: { nav_home:"Início", nav_products:"Produtos", nav_about:"Sobre", nav_faq:"FAQ", nav_contact:"Contato", hero_title:"Videoscópios Industriais<br>Alta Definição e Precisão 4K", hero_sub:"Inspeção visual de nova geração com tecnologia 3D, articulação motorizada 360° e inteligência embarcada.", hero_btn:"Explorar catálogo →", stat1_val:"+12", stat1_txt:"Anos de experiência", stat2_val:"+50", stat2_txt:"Países atendidos", stat3_val:"+1000", stat3_txt:"Clientes satisfeitos", products_title:"Videoscópios & Endoscópios Industriais", products_sub:"Ferramentas essenciais para Ensaios Não Destrutivos (END) - Resolução até 2MP, sondas intercambiáveis de 0.78mm a 6.5mm", about_left_title:"BMC Tecnologia Industrial", about_text:"A BMC Tecnologia Industrial é uma empresa dedicada ao fornecimento de soluções avançadas para inspeção visual industrial, atendendo às demandas de diferentes setores que exigem precisão, confiabilidade e desempenho.", about_text2:"Especializada em equipamentos de inspeção interna, como boroscópios e videoscópios, a BMC oferece tecnologias que permitem a análise detalhada de componentes e sistemas de difícil acesso, contribuindo para a integridade operacional e a tomada de decisão baseada em dados.", about_text3:"Em colaboração com fabricantes internacionais, a empresa disponibiliza soluções tecnológicas consolidadas, aliadas a suporte técnico local e atendimento especializado. Esse modelo permite à BMC oferecer aos seus clientes acesso a equipamentos de alta qualidade com agilidade, eficiência e proximidade.", about_text4:"Além do fornecimento de equipamentos, a BMC Tecnologia Industrial também atua na manutenção, suporte técnico e orientação aplicada, assegurando o desempenho contínuo dos sistemas de inspeção ao longo de seu ciclo de vida.", about_text5:"Comprometida com a excelência técnica, a BMC busca continuamente aprimorar seus processos e soluções, contribuindo para a segurança, confiabilidade e eficiência das operações industriais.", about_item1:"Sensor de imagem proprietário com cores fiéis e baixa latência", about_item2:"Articulação eletrônica com controle joystick de alta precisão", about_item3:"Sondas intercambiáveis desde 0.78mm até 6.5mm", about_item4:"Garantia estendida e suporte técnico local especializado", faq_title:"Consultas frequentes", faq1_q:"Como escolher o videoscópio ideal?", faq1_a:"A escolha depende do diâmetro da sonda, comprimento, resolução e tipo de articulação. Oferecemos opções desde 0.78mm até 6.5mm, com articulação mecânica ou motorizada 360°.", faq2_q:"Quais são as especificações técnicas da sonda?", faq2_a:"Diâmetros disponíveis: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolução: até 2MP (1600x1200).", faq3_q:"Vocês fazem personalização?", faq3_a:"Sim! Personalizamos tamanho de tela, tipo de articulação, módulos de transmissão sem fio e sondas intercambiáveis. Consulte nosso time comercial.", footer_prod_title:"Produtos Premium", footer_sectors:"Setores atendidos", footer_contact_title:"Contato Comercial", copyright:"© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão" }, 
+        en: { nav_home:"Home", nav_products:"Products", nav_about:"About", nav_faq:"FAQ", nav_contact:"Contact", hero_title:"Industrial Videoscopes<br>High Definition & 4K Precision", hero_sub:"Next-generation visual inspection with 3D technology, motorized 360° articulation and embedded intelligence.", hero_btn:"Explore catalog →", stat1_val:"+12", stat1_txt:"Years of experience", stat2_val:"+50", stat2_txt:"Countries served", stat3_val:"+1000", stat3_txt:"Satisfied clients", products_title:"Industrial Videoscopes & Endoscopes", products_sub:"Essential tools for Non-Destructive Testing (NDT) - Up to 2MP resolution, interchangeable probes from 0.78mm to 6.5mm", about_left_title:"BMC Industrial Technology", about_text:"BMC Industrial Technology is a company dedicated to providing advanced solutions for industrial visual inspection, serving a wide range of sectors that require precision, reliability, and performance.", about_text2:"Specializing in internal inspection equipment such as borescopes and videoscopes, BMC offers technologies that enable detailed analysis of components and systems in hard-to-reach areas, supporting operational integrity and data-driven decision-making.", about_text3:"In collaboration with international manufacturers, the company delivers proven technological solutions combined with local technical support and specialized service. This approach allows BMC to provide high-quality equipment with efficiency, responsiveness, and close customer support.", about_text4:"In addition to equipment supply, BMC Industrial Technology also provides maintenance, technical support, and applied guidance, ensuring the continuous performance of inspection systems throughout their lifecycle.", about_text5:"Committed to technical excellence, BMC continuously strives to improve its processes and solutions, contributing to the safety, reliability, and efficiency of industrial operations.", about_item1:"Proprietary image sensor with true colors and low latency", about_item2:"Electronic articulation with high-precision joystick control", about_item3:"Interchangeable probes from 0.78mm to 6.5mm", about_item4:"Extended warranty and specialized local technical support", faq_title:"Frequently Asked Questions", faq1_q:"How to choose the ideal videoscope?", faq1_a:"The choice depends on probe diameter, length, resolution and articulation type. We offer options from 0.78mm to 6.5mm, with mechanical or motorized 360° articulation.", faq2_q:"What are the technical specifications of the probe?", faq2_a:"Available diameters: 6.5mm, 6.0mm, 4.3mm, 3.9mm, 3.0mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm, 1.0mm, 0.78mm. Resolution: up to 2MP (1600x1200).", faq3_q:"Do you offer customization?", faq3_a:"Yes! We customize screen size, articulation type, wireless transmission modules and interchangeable probes. Contact our sales team.", footer_prod_title:"Premium Products", footer_sectors:"Industries served", footer_contact_title:"Commercial Contact", copyright:"© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision" } 
+    };
+    
+    function applyLanguage(lang) { 
+        currentLang = lang; 
+        localStorage.setItem('bmc_lang', lang);
+        const t = translations[lang]; 
+        document.querySelectorAll('[data-key]').forEach(el => { 
+            const key = el.getAttribute('data-key'); 
+            if(t[key]) el.innerHTML = t[key]; 
+        }); 
+        document.getElementById('langText').innerText = lang === 'pt' ? 'PT-BR' : 'EN-US'; 
+        renderProducts(); 
+        updateFooterLang(lang);
+    }
+    
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animate-in'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.product-card, .about-section, .accordion-item, .footer').forEach(el => observer.observe(el));
+    document.getElementById('langToggleBtn').addEventListener('click', () => { const newLang = currentLang === 'pt' ? 'en' : 'pt'; applyLanguage(newLang); });
+    
+    const savedLang = localStorage.getItem('bmc_lang') || 'pt';
+    applyLanguage(savedLang);
+    
+    const progressBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => { const winScroll = window.scrollY; const height = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.width = (winScroll / height) * 100 + "%"; document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400); });
+    document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    setTimeout(() => { document.querySelectorAll('.product-card, .about-section, .accordion-item, .footer').forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('animate-in'); }); }, 200);
+    
+    function updateFooterLang(lang) { 
+        document.getElementById('footerSectorsList').innerHTML = sectorsList[lang].map(s => `<li><i class="bi bi-check-lg" style="font-size:0.7rem; margin-right:8px;"></i>${s}</li>`).join(''); 
+        document.getElementById('footerLinksList').innerHTML = allProductNames[lang].map(p => `<li><i class="bi bi-dot"></i> ${p}</li>`).join(''); 
+    }
+    updateFooterLang(currentLang);
+</script>
+</body>
+</html>
