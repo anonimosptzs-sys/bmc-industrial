@@ -71,10 +71,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html#products">Produtos</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contato</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html" id="navHome">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#products" id="navProducts">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#faq" id="navFaq">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contact" id="navContact">Contato</a></li>
             </ul>
             <div class="lang-toggle" id="langToggleBtn">
                 <i class="bi bi-translate"></i> <span id="langText">PT-BR</span>
@@ -154,10 +154,10 @@
         en: ["https://i.postimg.cc/wM3WngZZ/4-1-ec60-ir-series-police-endoscope-01m.jpg"]
     };
     
-   const footerProducts = {
-    pt: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80", "ES078", "Endoscópio Veterinário"],
-    en: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80", "ES078", "Veterinary Endoscope"]
-};
+    const footerProducts = {
+        pt: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80", "ES078", "Endoscópio Veterinário"],
+        en: ["ET65", "ECT40", "ES60", "ECP101", "ET39-IR", "EC60-IR", "ES60-IR", "TPC80", "ES078", "Veterinary Endoscope"]
+    };
     
     const footerSectors = {
         pt: ["Aeroespacial & Defesa", "Energia e Petróleo", "Automotivo & Transporte", "Fabricação geral", "Manutenção preditiva", "Militar e Segurança", "Veterinário", "Saneamento e Tubulações"],
@@ -166,6 +166,10 @@
     
     const content = {
         pt: {
+            navHome: "Início",
+            navProducts: "Produtos",
+            navFaq: "FAQ",
+            navContact: "Contato",
             backText: "Voltar para produtos",
             title: "EC60-IR - Videoscópio Visão Noturna Infravermelho",
             about: "O EC60-IR é um videoscópio portátil com visão noturna infravermelho e sonda intercambiável. Possui sonda de 6.0mm com luz dupla 940nm IR e branca, e sonda de 3.9mm com visão noturna de até 10 metros. Certificado pelo Ministério da Segurança Pública. Ideal para aplicações policiais, militares e de segurança.",
@@ -200,6 +204,10 @@
             langText: "PT-BR"
         },
         en: {
+            navHome: "Home",
+            navProducts: "Products",
+            navFaq: "FAQ",
+            navContact: "Contact",
             backText: "Back to products",
             title: "EC60-IR - Infrared Night Vision Videoscope",
             about: "The EC60-IR is a portable infrared night vision videoscope with interchangeable probe. Features 6.0mm probe with 940nm dual IR and white light, and 3.9mm probe with night vision up to 10 meters. Certified by the Ministry of Public Security. Ideal for police, military and security applications.",
@@ -239,6 +247,7 @@
     
     function loadGallery(images) {
         const container = document.getElementById('galleryThumbs');
+        if (!container) return;
         container.innerHTML = '';
         images.forEach(img => {
             const thumb = document.createElement('img');
@@ -250,6 +259,7 @@
     
     function buildSpecsTable(specs) {
         const table = document.getElementById('specsTable');
+        if (!table) return;
         table.innerHTML = '';
         specs.forEach(spec => {
             const row = table.insertRow();
@@ -260,6 +270,7 @@
     
     function buildFeaturesList(features) {
         const list = document.getElementById('featuresList');
+        if (!list) return;
         list.innerHTML = '';
         features.forEach(f => {
             const li = document.createElement('li');
@@ -269,38 +280,71 @@
     }
     
     function updateFooter(lang) {
-        document.getElementById('footerLinksList').innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
-        document.getElementById('footerSectorsList').innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+        const footerLinksList = document.getElementById('footerLinksList');
+        const footerSectorsList = document.getElementById('footerSectorsList');
+        if (footerLinksList) {
+            footerLinksList.innerHTML = footerProducts[lang].map(p => `<li><span>${p}</span></li>`).join('');
+        }
+        if (footerSectorsList) {
+            footerSectorsList.innerHTML = footerSectors[lang].map(s => `<li><span>${s}</span></li>`).join('');
+        }
     }
     
     function applyLanguage(lang) {
         const c = content[lang];
-        document.getElementById('backText').innerText = c.backText;
-        document.getElementById('productTitle').innerText = c.title;
-        document.getElementById('aboutText').innerHTML = c.about;
-        document.getElementById('aboutTitle').innerText = c.aboutTitle;
-        document.getElementById('specsTitle').innerText = c.specsTitle;
-        document.getElementById('featuresTitle').innerText = c.featuresTitle;
-        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
-        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
-        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
-        document.getElementById('copyright').innerText = c.copyright;
-        document.getElementById('whatsappText').innerText = c.whatsappBtn;
-        document.getElementById('langText').innerText = c.langText;
-        document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
+        if (!c) return;
+        
+        const navHome = document.getElementById('navHome');
+        if (navHome) navHome.innerText = c.navHome;
+        const navProducts = document.getElementById('navProducts');
+        if (navProducts) navProducts.innerText = c.navProducts;
+        const navFaq = document.getElementById('navFaq');
+        if (navFaq) navFaq.innerText = c.navFaq;
+        const navContact = document.getElementById('navContact');
+        if (navContact) navContact.innerText = c.navContact;
+        const backText = document.getElementById('backText');
+        if (backText) backText.innerText = c.backText;
+        const productTitle = document.getElementById('productTitle');
+        if (productTitle) productTitle.innerText = c.title;
+        const aboutText = document.getElementById('aboutText');
+        if (aboutText) aboutText.innerHTML = c.about;
+        const aboutTitle = document.getElementById('aboutTitle');
+        if (aboutTitle) aboutTitle.innerText = c.aboutTitle;
+        const specsTitle = document.getElementById('specsTitle');
+        if (specsTitle) specsTitle.innerText = c.specsTitle;
+        const featuresTitle = document.getElementById('featuresTitle');
+        if (featuresTitle) featuresTitle.innerText = c.featuresTitle;
+        const footerProdTitle = document.getElementById('footerProdTitle');
+        if (footerProdTitle) footerProdTitle.innerText = c.footerProdTitle;
+        const footerSectorsTitle = document.getElementById('footerSectorsTitle');
+        if (footerSectorsTitle) footerSectorsTitle.innerText = c.footerSectorsTitle;
+        const footerContactTitle = document.getElementById('footerContactTitle');
+        if (footerContactTitle) footerContactTitle.innerText = c.footerContactTitle;
+        const copyright = document.getElementById('copyright');
+        if (copyright) copyright.innerText = c.copyright;
+        const whatsappText = document.getElementById('whatsappText');
+        if (whatsappText) whatsappText.innerText = c.whatsappBtn;
+        const langText = document.getElementById('langText');
+        if (langText) langText.innerText = c.langText;
+        const whatsappLink = document.getElementById('whatsappLink');
+        if (whatsappLink) whatsappLink.href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
+        
         buildSpecsTable(c.specs);
         buildFeaturesList(c.features);
         updateFooter(lang);
-        loadGallery(galleryImages[lang]);
+        if (galleryImages[lang]) loadGallery(galleryImages[lang]);
     }
     
     applyLanguage(currentLang);
     
-    document.getElementById('langToggleBtn').addEventListener('click', () => {
-        currentLang = currentLang === 'pt' ? 'en' : 'pt';
-        localStorage.setItem('bmc_lang', currentLang);
-        applyLanguage(currentLang);
-    });
+    const langToggle = document.getElementById('langToggleBtn');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            localStorage.setItem('bmc_lang', currentLang);
+            applyLanguage(currentLang);
+        });
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
