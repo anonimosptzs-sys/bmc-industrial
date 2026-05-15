@@ -8,60 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #0a0c12; overflow-x: hidden; scroll-behavior: smooth; }
-        body.dark-theme { color: #e2e8f0; background-color: #0a0c12; }
-        body.dark-theme .navbar { background: rgba(18, 22, 35, 0.98); backdrop-filter: blur(8px); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-        body.dark-theme .navbar .nav-link { color: #cbd5e6 !important; }
-        body.dark-theme .navbar .nav-link:hover, body.dark-theme .navbar .nav-link.active { color: #3399ff !important; background: rgba(51, 153, 255, 0.12); }
-        body.dark-theme .product-info, body.dark-theme .specs-card, body.dark-theme .features-card, body.dark-theme .probe-table-container { background: #141824; border: 1px solid #252a3a; }
-        :root { --primary: #0066cc; --primary-dark: #004c99; --gold: #ffaa33; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1e1f2c; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-        .navbar { background: rgba(18, 22, 35, 0.98); backdrop-filter: blur(8px); padding: 0.8rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-        .logo-text { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #aaccff, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .logo-sub { font-size: 0.7rem; letter-spacing: 2px; color: #a0aec0; margin-top: 2px; }
-        .nav-link { font-weight: 600; color: #cbd5e6 !important; margin: 0 0.2rem; padding: 0.6rem 1rem !important; border-radius: 40px; transition: all 0.25s; }
-        .nav-link:hover, .nav-link.active { color: #3399ff !important; background: rgba(51, 153, 255, 0.12); }
-        .product-page { padding: 120px 0 80px; position: relative; z-index: 2; }
-        .product-title { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #fff, #aaccff, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; }
-        .product-gallery { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 40px; }
-        .gallery-main { flex: 2; min-width: 250px; }
-        .gallery-main img { width: 100%; border-radius: 24px; border: 1px solid #252a3a; background: #141824; padding: 10px; }
-        .gallery-thumbs { flex: 1; display: flex; flex-wrap: wrap; gap: 15px; align-content: flex-start; }
-        .gallery-thumbs img { width: calc(33% - 10px); border-radius: 16px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; background: #141824; padding: 5px; }
-        .gallery-thumbs img:hover { border-color: var(--primary); transform: scale(1.05); }
-        .product-info, .specs-card, .features-card, .probe-table-container { background: #141824; border-radius: 24px; padding: 30px; border: 1px solid #252a3a; margin-bottom: 30px; }
-        .product-info h3, .specs-card h3, .features-card h3, .probe-table-container h3 { color: var(--primary); margin-bottom: 20px; font-weight: 700; }
-        .specs-table { width: 100%; border-collapse: collapse; }
-        .specs-table tr { border-bottom: 1px solid #252a3a; }
-        .specs-table td { padding: 12px 8px; vertical-align: top; }
-        .specs-table td:first-child { font-weight: 700; width: 35%; color: var(--primary); }
-        .probe-table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
-        .probe-table th, .probe-table td { border: 1px solid #252a3a; padding: 10px; text-align: left; font-size: 0.85rem; }
-        .probe-table th { background: #1a2340; color: var(--primary); font-weight: 700; }
-        .features-list { list-style: none; padding-left: 0; }
-        .features-list li { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
-        .features-list li i { color: var(--primary); font-size: 1.2rem; width: 28px; text-align: center; }
-        .whatsapp-btn { background: #25d366; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; text-decoration: none; margin-top: 20px; }
-        .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; color: white; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; margin-bottom: 20px; transition: all 0.2s; }
-        .back-btn:hover { gap: 12px; color: var(--gold); }
-        .footer { background: #080a10; padding-top: 60px; padding-bottom: 40px; border-top: 4px solid var(--primary); margin-top: 60px; }
-        .footer-bottom { background: #03050a; padding: 20px 0; text-align: center; font-size: 0.85rem; color: #7e8aa2; }
-        .footer-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 28px; color: white; }
-        .footer-links li, .contact-info { color: #a5b3ce; list-style: none; margin-bottom: 10px; }
-        .footer-links { padding-left: 0; }
-        .contact-info a { color: #a5b3ce; text-decoration: none; }
-        .contact-info a:hover { color: var(--primary); }
-        .lang-toggle { background: rgba(0,102,204,0.15); border: 1px solid rgba(0,102,204,0.5); color: #e2e8f0; border-radius: 40px; padding: 6px 16px; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; margin-left: 1rem; transition: all 0.2s; }
-        .lang-toggle:hover { background: var(--primary); border-color: var(--primary); color: white; }
-        @media (max-width: 768px) { .product-title { font-size: 1.8rem; } .gallery-thumbs img { width: calc(50% - 10px); } .probe-table { font-size: 0.7rem; } }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
+<body>
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
@@ -145,8 +94,8 @@
                     <div class="footer-title" id="footerContactTitle">Contato Comercial</div>
                     <div class="contact-info"><i class="bi bi-person-circle"></i> Bruno Yokomizo</div>
                     <div class="contact-info"><i class="bi bi-whatsapp"></i> <a href="https://wa.me/5547988202757">+55 47 98820-2757</a></div>
-                    <div class="contact-info"><i class="bi bi-envelope-fill"></i> <a href="mailto:yokomizobruno@gmail.com">yokomizobruno@gmail.com</a></div>
-                    <div class="contact-info"><i class="bi bi-geo-alt-fill"></i> Joinville - SC - Brasil</div>
+                    <div class="contact-info"><i class="bi bi-envelope-fill"></i> <a href="mailto:bruno@industrialbmc.com">bruno@industrialbmc.com</a></div>
+                    <div class="contact-info"><i class="bi bi-geo-alt-fill"></i> R. Dr. João Colin, 1285 - América, Joinville - SC, 89204-001</div>
                 </div>
             </div>
         </div>
@@ -154,6 +103,7 @@
     <div class="footer-bottom"><div class="container" id="copyright">© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão</div></div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     let currentLang = urlParams.get('lang') || localStorage.getItem('bmc_lang') || 'pt';
@@ -176,20 +126,11 @@
     
     const content = {
         pt: {
-            navHome: "Início",
-            navProducts: "Produtos",
-            navFaq: "FAQ",
-            navContact: "Contato",
-            backText: "Voltar para produtos",
-            title: "ET65 - Videoscópio Industrial HD",
+            navHome: "Início", navProducts: "Produtos", navFaq: "FAQ", navContact: "Contato",
+            backText: "Voltar para produtos", title: "ET65 - Videoscópio Industrial HD",
             about: "O ET65 é um videoscópio industrial portátil integrado com tela HD touchscreen de 5\". Compatível com sondas de diâmetros 6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm e 1.0mm com resolução de imagem HD. Ideal para inspeções nas indústrias automotiva, aeroespacial, petróleo e gás, manutenção preditiva, militar e segurança.",
-            aboutTitle: "Sobre o Produto",
-            specsTitle: "Especificações do Videoscópio",
-            featuresTitle: "Características",
-            probeTitle: "Especificações das Sondas",
-            footerProdTitle: "Produtos Premium",
-            footerSectorsTitle: "Setores atendidos",
-            footerContactTitle: "Contato Comercial",
+            aboutTitle: "Sobre o Produto", specsTitle: "Especificações do Videoscópio", featuresTitle: "Características", probeTitle: "Especificações das Sondas",
+            footerProdTitle: "Produtos Premium", footerSectorsTitle: "Setores atendidos", footerContactTitle: "Contato Comercial",
             copyright: "© 2025 BMC INDUSTRIAL TECH | Soluções em inspeção visual - Tecnologia e precisão",
             specs: [
                 { label: "Estrutura", value: "Videoscópio portátil integrado" },
@@ -223,25 +164,15 @@
                 ["3.9mm", "Frontal/Lateral/Dupla", "2MP", "120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/fibra óptica"],
                 ["6.0mm", "Frontal/Lateral/Dupla", "2MP", "90°/120°", "7-50mm/10-100mm/20mm-∞", "1-10m", "360°", "LED/fibra óptica"]
             ],
-            whatsappMsg: "Olá, gostaria de saber mais sobre o ET65 Series - Videoscópio Industrial HD. Poderia me enviar mais informações e um orçamento?",
-            whatsappBtn: "Solicitar Orçamento via WhatsApp",
-            langText: "PT-BR"
+            whatsappMsg: "Olá, gostaria de saber mais sobre o ET65 - Videoscópio Industrial HD. Poderia me enviar mais informações e um orçamento?",
+            whatsappBtn: "Solicitar Orçamento via WhatsApp", langText: "PT-BR"
         },
         en: {
-            navHome: "Home",
-            navProducts: "Products",
-            navFaq: "FAQ",
-            navContact: "Contact",
-            backText: "Back to products",
-            title: "ET65 - HD Industrial Videoscope",
+            navHome: "Home", navProducts: "Products", navFaq: "FAQ", navContact: "Contact",
+            backText: "Back to products", title: "ET65 - HD Industrial Videoscope",
             about: "The ET65 is an integrated handheld industrial videoscope with a 5\" HD touchscreen. Compatible with probe diameters 6.0mm, 3.9mm, 2.8mm, 2.4mm, 2.0mm, 1.5mm and 1.0mm with HD image resolution. Ideal for inspections in automotive, aerospace, oil and gas, predictive maintenance, military and security industries.",
-            aboutTitle: "About the Product",
-            specsTitle: "Videoscope Specifications",
-            featuresTitle: "Features",
-            probeTitle: "Probe Specifications",
-            footerProdTitle: "Premium Products",
-            footerSectorsTitle: "Industries Served",
-            footerContactTitle: "Commercial Contact",
+            aboutTitle: "About the Product", specsTitle: "Videoscope Specifications", featuresTitle: "Features", probeTitle: "Probe Specifications",
+            footerProdTitle: "Premium Products", footerSectorsTitle: "Industries Served", footerContactTitle: "Commercial Contact",
             copyright: "© 2025 BMC INDUSTRIAL TECH | Visual inspection solutions - Technology & precision",
             specs: [
                 { label: "Structure", value: "Integrated handheld videoscope" },
@@ -275,9 +206,8 @@
                 ["3.9mm", "Forward/Side/Dual", "2MP", "120°", "7-50mm/10-100mm/20mm-∞", "1-3m", "360°", "LED/optical fiber"],
                 ["6.0mm", "Forward/Side/Dual", "2MP", "90°/120°", "7-50mm/10-100mm/20mm-∞", "1-10m", "360°", "LED/optical fiber"]
             ],
-            whatsappMsg: "Hello, I would like to know more about the ET65 Series - HD Industrial Videoscope. Could you send me more information and a quote?",
-            whatsappBtn: "Request Quote via WhatsApp",
-            langText: "EN-US"
+            whatsappMsg: "Hello, I would like to know more about the ET65 - HD Industrial Videoscope. Could you send me more information and a quote?",
+            whatsappBtn: "Request Quote via WhatsApp", langText: "EN-US"
         }
     };
     
@@ -345,44 +275,24 @@
     function applyLanguage(lang) {
         const c = content[lang];
         if (!c) return;
-        
-        const navHome = document.getElementById('navHome');
-        if (navHome) navHome.innerText = c.navHome;
-        const navProducts = document.getElementById('navProducts');
-        if (navProducts) navProducts.innerText = c.navProducts;
-        const navFaq = document.getElementById('navFaq');
-        if (navFaq) navFaq.innerText = c.navFaq;
-        const navContact = document.getElementById('navContact');
-        if (navContact) navContact.innerText = c.navContact;
-        const backText = document.getElementById('backText');
-        if (backText) backText.innerText = c.backText;
-        const productTitle = document.getElementById('productTitle');
-        if (productTitle) productTitle.innerText = c.title;
-        const aboutText = document.getElementById('aboutText');
-        if (aboutText) aboutText.innerHTML = c.about;
-        const aboutTitle = document.getElementById('aboutTitle');
-        if (aboutTitle) aboutTitle.innerText = c.aboutTitle;
-        const specsTitle = document.getElementById('specsTitle');
-        if (specsTitle) specsTitle.innerText = c.specsTitle;
-        const featuresTitle = document.getElementById('featuresTitle');
-        if (featuresTitle) featuresTitle.innerText = c.featuresTitle;
-        const probeTitle = document.getElementById('probeTitle');
-        if (probeTitle) probeTitle.innerText = c.probeTitle;
-        const footerProdTitle = document.getElementById('footerProdTitle');
-        if (footerProdTitle) footerProdTitle.innerText = c.footerProdTitle;
-        const footerSectorsTitle = document.getElementById('footerSectorsTitle');
-        if (footerSectorsTitle) footerSectorsTitle.innerText = c.footerSectorsTitle;
-        const footerContactTitle = document.getElementById('footerContactTitle');
-        if (footerContactTitle) footerContactTitle.innerText = c.footerContactTitle;
-        const copyright = document.getElementById('copyright');
-        if (copyright) copyright.innerText = c.copyright;
-        const whatsappText = document.getElementById('whatsappText');
-        if (whatsappText) whatsappText.innerText = c.whatsappBtn;
-        const langText = document.getElementById('langText');
-        if (langText) langText.innerText = c.langText;
-        const whatsappLink = document.getElementById('whatsappLink');
-        if (whatsappLink) whatsappLink.href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
-        
+        document.getElementById('navHome').innerText = c.navHome;
+        document.getElementById('navProducts').innerText = c.navProducts;
+        document.getElementById('navFaq').innerText = c.navFaq;
+        document.getElementById('navContact').innerText = c.navContact;
+        document.getElementById('backText').innerText = c.backText;
+        document.getElementById('productTitle').innerText = c.title;
+        document.getElementById('aboutText').innerHTML = c.about;
+        document.getElementById('aboutTitle').innerText = c.aboutTitle;
+        document.getElementById('specsTitle').innerText = c.specsTitle;
+        document.getElementById('featuresTitle').innerText = c.featuresTitle;
+        document.getElementById('probeTitle').innerText = c.probeTitle;
+        document.getElementById('footerProdTitle').innerText = c.footerProdTitle;
+        document.getElementById('footerSectorsTitle').innerText = c.footerSectorsTitle;
+        document.getElementById('footerContactTitle').innerText = c.footerContactTitle;
+        document.getElementById('copyright').innerText = c.copyright;
+        document.getElementById('whatsappText').innerText = c.whatsappBtn;
+        document.getElementById('langText').innerText = c.langText;
+        document.getElementById('whatsappLink').href = `https://wa.me/5547988202757?text=${encodeURIComponent(c.whatsappMsg)}`;
         buildSpecsTable(c.specs);
         buildFeaturesList(c.features);
         buildProbeTable(c.probeHeaders, c.probeData);
@@ -392,15 +302,11 @@
     
     applyLanguage(currentLang);
     
-    const langToggle = document.getElementById('langToggleBtn');
-    if (langToggle) {
-        langToggle.addEventListener('click', () => {
-            currentLang = currentLang === 'pt' ? 'en' : 'pt';
-            localStorage.setItem('bmc_lang', currentLang);
-            applyLanguage(currentLang);
-        });
-    }
+    document.getElementById('langToggleBtn').addEventListener('click', () => {
+        currentLang = currentLang === 'pt' ? 'en' : 'pt';
+        localStorage.setItem('bmc_lang', currentLang);
+        applyLanguage(currentLang);
+    });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
