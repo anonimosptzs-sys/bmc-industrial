@@ -1,0 +1,1043 @@
+/* =============================================
+   BMC INDUSTRIAL TECH - Style Principal
+   Design Responsivo - PC e Mobile
+   ============================================= */
+
+/* --- Reset e Configurações Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0066cc;
+    --primary-dark: #004c99;
+    --primary-glow: #0066cc55;
+    --accent-gold: #e6b422;
+    --bg-dark: #0a0c12;
+    --bg-card: #0f1320;
+    --bg-card-alt: #141824;
+    --bg-footer: #05070e;
+    --bg-footer-bottom: #02040a;
+    --border-color: #1e2538;
+    --border-card: #252a3a;
+    --text-primary: #e2e8f0;
+    --text-secondary: #cbd5e6;
+    --text-muted: #a5b3ce;
+    --text-footer-muted: #7a85a1;
+    --whatsapp: #25d366;
+    --whatsapp-hover: #128C7E;
+    --navbar-bg: rgba(10, 14, 23, 0.95);
+    --navbar-bg-alt: rgba(18, 22, 35, 0.98);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f1222;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+/* --- Navbar --- */
+.navbar {
+    padding: 0.6rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1050;
+    transition: all 0.25s;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(51, 153, 255, 0.15);
+}
+
+.navbar .nav-link {
+    font-weight: 600;
+    color: var(--text-secondary) !important;
+    margin: 0 0.15rem;
+    padding: 0.5rem 1.1rem !important;
+    border-radius: 60px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    letter-spacing: -0.2px;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.2), rgba(51, 153, 255, 0.05));
+    box-shadow: 0 0 0 1px rgba(0, 102, 204, 0.3);
+}
+
+/* --- Logo --- */
+.logo-text {
+    font-size: 1.7rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #aaccff, #ffdd99);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.logo-sub {
+    font-size: 0.65rem;
+    letter-spacing: 2.5px;
+    color: #8e9dcb;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* --- Lang Toggle --- */
+.lang-toggle {
+    background: rgba(0, 102, 204, 0.2);
+    border: 1px solid rgba(0, 102, 204, 0.5);
+    color: #eef2ff;
+    border-radius: 60px;
+    padding: 6px 18px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
+}
+
+.lang-toggle:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* --- Scroll Progress --- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #0066cc, #ffcc44);
+    z-index: 2000;
+    transition: width 0.08s linear;
+}
+
+/* --- Canvas 3D --- */
+#canvas-3d {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.45;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    padding-top: 90px;
+    overflow: hidden;
+    background: radial-gradient(circle at 20% 30%, rgba(5, 10, 25, 0.96) 0%, rgba(2, 5, 12, 0.98) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 8;
+}
+
+.hero-logo {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.hero-logo img {
+    max-width: 380px;
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.hero-title {
+    font-size: 3.7rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #cce4ff, var(--accent-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    color: #cbd8f0;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    border-left: 3px solid var(--primary);
+    padding-left: 20px;
+    max-width: 600px;
+}
+
+.gradient-text-gold {
+    background: linear-gradient(120deg, #ffdd99, #ffbb55);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* --- Botões --- */
+.btn-primary-custom {
+    background: linear-gradient(95deg, #0066cc, #0088ff);
+    border: none;
+    padding: 14px 38px;
+    border-radius: 60px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 10px 25px -5px rgba(0, 102, 204, 0.6);
+    transition: all 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-primary-custom:hover {
+    background: linear-gradient(95deg, #0055bb, #0077ee);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 30px -8px #0066cc;
+    color: white;
+}
+
+.whatsapp-btn {
+    background: var(--whatsapp);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.05);
+    background: var(--whatsapp-hover);
+    color: white;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    gap: 12px;
+    color: var(--accent-gold);
+}
+
+/* --- Hero Stats --- */
+.hero-stats {
+    margin-top: 3rem;
+    display: flex;
+    gap: 2.8rem;
+    flex-wrap: wrap;
+}
+
+.stat-item h3 {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0;
+    letter-spacing: -0.5px;
+}
+
+.stat-item p {
+    color: #9aabcc;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Products Section --- */
+.products-section {
+    padding: 110px 0;
+    background: #080a12;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(120deg, #eef2ff, #9bb6e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    letter-spacing: -0.02em;
+}
+
+.section-header .subline {
+    width: 70px;
+    height: 4px;
+    background: var(--primary);
+    margin: 20px auto 0;
+    border-radius: 4px;
+}
+
+/* --- Product Card --- */
+.product-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    border: 1px solid var(--border-color);
+    height: 100%;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.product-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card:hover {
+    border-color: #3399ff;
+    box-shadow: 0 30px 45px -12px rgba(0, 102, 204, 0.4), 0 0 0 1px rgba(51, 153, 255, 0.2);
+    transform: translateY(-10px);
+}
+
+.product-img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+    background: radial-gradient(ellipse at center, #131a2c 0%, #0a0e1a 100%);
+    padding: 15px 12px;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.04);
+}
+
+.product-body {
+    padding: 16px 18px 20px;
+}
+
+.product-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+}
+
+.product-desc {
+    font-size: 0.75rem;
+    color: #b2c0e0;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-desc i {
+    color: #3399ff;
+    font-size: 0.8rem;
+    width: 18px;
+}
+
+.product-link {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: #66b5ff;
+    border-bottom: 2px solid rgba(51, 153, 255, 0.4);
+    padding-bottom: 3px;
+    transition: all 0.25s;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.product-link:hover {
+    gap: 12px;
+    color: #ffffff;
+    border-bottom-color: #3399ff;
+}
+
+/* --- About Section --- */
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(115deg, #001a38 0%, #010a1a 100%);
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    border-radius: 0;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.9s ease;
+}
+
+.about-section.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-left {
+    flex: 1.2;
+    background: linear-gradient(125deg, rgba(0, 35, 70, 0.85), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/bNtqFwsK/BMC-Logo-1.png') center/cover no-repeat;
+    min-height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.about-left h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(16px);
+    padding: 32px 40px;
+    border-radius: 60px;
+    border-left: 6px solid var(--primary);
+    letter-spacing: -0.3px;
+}
+
+.about-right {
+    flex: 1;
+    background: rgba(3, 8, 20, 0.9);
+    padding: 70px 50px;
+    backdrop-filter: blur(2px);
+}
+
+.about-right p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.about-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+.about-list li {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    color: #e9efff;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s;
+}
+
+.about-section.animate-in .about-list li:nth-child(1) {
+    transition-delay: 0.1s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-section.animate-in .about-list li:nth-child(2) {
+    transition-delay: 0.2s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-section.animate-in .about-list li:nth-child(3) {
+    transition-delay: 0.3s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-section.animate-in .about-list li:nth-child(4) {
+    transition-delay: 0.4s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-list li::before {
+    content: "▹";
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+/* --- FAQ Section --- */
+.faq-section {
+    padding: 100px 0;
+    background: #080a12;
+    z-index: 2;
+    position: relative;
+}
+
+.accordion-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    margin-bottom: 18px;
+    border-radius: 24px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s;
+}
+
+.accordion-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.accordion-button {
+    background: var(--bg-card);
+    font-weight: 700;
+    color: #e2e8f0;
+    padding: 1.3rem 1.7rem;
+    font-size: 1rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #121a30;
+    color: #66ccff;
+    box-shadow: none;
+}
+
+.accordion-body {
+    color: #e2e8f0 !important;
+    background: var(--bg-card);
+}
+
+/* --- Footer --- */
+.footer {
+    background: var(--bg-footer);
+    padding-top: 70px;
+    padding-bottom: 40px;
+    border-top: 1px solid #0f2540;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s;
+}
+
+.footer.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: white;
+    letter-spacing: -0.2px;
+    border-left: 3px solid var(--primary);
+    padding-left: 14px;
+}
+
+.footer-links {
+    padding-left: 0;
+}
+
+.footer-links li,
+.contact-info {
+    color: var(--text-muted);
+    list-style: none;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+    cursor: default;
+    font-size: 0.9rem;
+}
+
+.footer-links li:hover,
+.contact-info:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.contact-info i {
+    width: 28px;
+    color: var(--primary);
+}
+
+.contact-info a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    background: var(--bg-footer-bottom);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-footer-muted);
+}
+
+/* --- Floating Buttons --- */
+.float-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--whatsapp);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 110;
+    transition: all 0.3s;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    cursor: pointer;
+}
+
+.float-whatsapp:hover {
+    transform: scale(1.1);
+    background: #20b859;
+}
+
+.float-whatsapp i {
+    font-size: 32px;
+    color: white;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: var(--primary);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    z-index: 110;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    background: #004c99;
+}
+
+.back-to-top i {
+    font-size: 28px;
+}
+
+/* --- Product Page Styles --- */
+.product-page {
+    padding: 120px 0 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.product-page .product-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff, #aaccff, var(--accent-gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.gallery-main {
+    flex: 2;
+    min-width: 250px;
+}
+
+.gallery-main img {
+    width: 100%;
+    border-radius: 24px;
+    border: 1px solid var(--border-card);
+    background: var(--bg-card-alt);
+    padding: 10px;
+}
+
+.gallery-thumbs {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-content: flex-start;
+}
+
+.gallery-thumbs img {
+    width: calc(33% - 10px);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    background: var(--bg-card-alt);
+    padding: 5px;
+}
+
+.gallery-thumbs img:hover {
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+/* --- Product Info Cards --- */
+.product-info,
+.specs-card,
+.features-card,
+.probe-table-container {
+    background: var(--bg-card-alt);
+    border-radius: 24px;
+    padding: 30px;
+    border: 1px solid var(--border-card);
+    margin-bottom: 30px;
+}
+
+.product-info h3,
+.specs-card h3,
+.features-card h3,
+.probe-table-container h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* --- Tables --- */
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.specs-table tr {
+    border-bottom: 1px solid var(--border-card);
+}
+
+.specs-table td {
+    padding: 12px 8px;
+    vertical-align: top;
+}
+
+.specs-table td:first-child {
+    font-weight: 700;
+    width: 35%;
+    color: var(--primary);
+}
+
+.probe-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
+}
+
+.probe-table th,
+.probe-table td {
+    border: 1px solid var(--border-card);
+    padding: 10px;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.probe-table th {
+    background: #1a2340;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* --- Features List --- */
+.features-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.features-list li {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.features-list li i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    width: 28px;
+    text-align: center;
+}
+
+/* --- Product Page Footer --- */
+.product-page ~ footer .footer {
+    background: #080a10;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    border-top: 4px solid var(--primary);
+    margin-top: 60px;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   RESPONSIVIDADE
+   ============================================= */
+
+/* --- Tablets e Dispositivos Médios (até 992px) --- */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .hero-logo img {
+        max-width: 250px;
+    }
+
+    .about-left,
+    .about-right {
+        flex: auto;
+        width: 100%;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.9rem;
+    }
+
+    .product-page .product-title {
+        font-size: 2rem;
+    }
+}
+
+/* --- Smartphones Grandes e Tablets Pequenos (até 780px) --- */
+@media (max-width: 780px) {
+    body {
+        zoom: 0.8;
+    }
+
+    .row > [class*="col-"] {
+        width: 50% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    .hero-title {
+        font-size: 2.5rem !important;
+        line-height: 1.4 !important;
+        word-break: break-word !important;
+    }
+
+    .hero-title br {
+        display: block !important;
+    }
+
+    .hero-stats {
+        flex-direction: column !important;
+        gap: 1.2rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .stat-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 15px !important;
+    }
+
+    .stat-item h3 {
+        font-size: 2.2rem !important;
+        min-width: 70px !important;
+    }
+
+    .stat-item p {
+        font-size: 0.9rem !important;
+        text-align: left !important;
+    }
+
+    .product-card {
+        margin-bottom: 15px;
+        border-radius: 20px;
+    }
+
+    .product-img {
+        height: 120px;
+        padding: 10px 8px;
+    }
+
+    .product-body {
+        padding: 12px 14px 16px;
+    }
+
+    .product-title {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .product-desc {
+        font-size: 0.65rem;
+        margin-bottom: 5px;
+        gap: 5px;
+    }
+
+    .product-desc i {
+        font-size: 0.7rem;
+        width: 14px;
+    }
+
+    .product-link {
+        margin-top: 10px;
+        font-size: 0.65rem;
+    }
+
+    .product-page .product-title {
+        font-size: 1.8rem;
+    }
+
+    .gallery-thumbs img {
+        width: calc(50% - 10px);
+    }
+
+    .probe-table {
+        font-size: 0.7rem;
+    }
+
+    .float-whatsapp {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .float-whatsapp i {
+        font-size: 26px;
+    }
+
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        left: 20px;
+    }
+}
+
+/* --- Smartphones Pequenos (até 576px) --- */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 1.8rem !important;
+    }
+
+    .hero-logo img {
+        max-width: 180px;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-page .product-title {
+        font-size: 1.5rem;
+    }
+
+    .specs-table td:first-child {
+        width: 45%;
+    }
+
+    .footer-title {
+        font-size: 1rem;
+    }
+
+    .about-left h2 {
+        font-size: 1.5rem;
+        padding: 20px 25px;
+    }
+
+    .about-right {
+        padding: 40px 25px;
+    }
+}
+
+/* --- Desktop (min 992px) --- */
+@media (min-width: 992px) {
+    .col-lg-4 {
+        width: 33.333333% !important;
+        flex: 0 0 33.333333% !important;
+        max-width: 33.333333% !important;
+    }
+}
